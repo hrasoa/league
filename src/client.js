@@ -4,17 +4,26 @@ import Loadable from 'react-loadable';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import App from './App';
 
+const root = document.getElementById('root');
+
 window.main = () => {
-  Loadable.preloadReady().then(() => {
-    hydrate(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>,
-      document.getElementById('root'),
-    );
-  });
+  render(App);
 };
 
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept('./App', () => {
+    const NewApp = require('./App').default;
+    render(NewApp);
+  });
+}
+
+function render(Root) {
+  Loadable.preloadReady().then(() => {
+    hydrate(
+      <BrowserRouter>
+        <Root />
+      </BrowserRouter>,
+      root,
+    );
+  });
 }

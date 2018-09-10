@@ -16,3 +16,5 @@ html(lang='en')
       script(src= assets.client.js crossorigin)
     each chunk in chunks
       script(src= chunk)
+    script.
+      window.main()
