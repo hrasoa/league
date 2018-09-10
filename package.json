@@ -10,6 +10,10 @@
     "start:prod": "NODE_ENV=production node build/server.js",
     "test": "razzle test --env=jsdom"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrasoa/league.git"
+  },
   "dependencies": {
     "express": "^4.16.2",
     "razzle": "^2.4.0",
