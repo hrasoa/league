@@ -31,7 +31,7 @@ const Home = () => (
         <a href="https://github.com/jaredpalmer/razzle/issues">Issues</a>
       </li>
       <li>
-        <a href="https://palmer.chat">Community Slack</a>
+        <a href="https://palmer.chat">Community Slackkkk</a>
       </li>
     </ul>
   </div>
