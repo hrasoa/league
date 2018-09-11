@@ -3,14 +3,14 @@ html(lang='en')
   head
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(charset='utf-8')
-    title= 'league'
+    title='league'
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href= assets.client.css)
     each style in styles
       link(rel='stylesheet' href= style.file)
   body
     #root !{markup}
-    if process.env.NODE_ENV === 'production'
+    if prod
       script(src= assets.client.js)
     else
       script(src= assets.client.js crossorigin)

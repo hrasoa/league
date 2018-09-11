@@ -10,6 +10,9 @@
   "main": "index.js",
   "scripts": {
     "build": "razzle build",
+    "clean": "rimraf ./build",
+    "prebuild": "npm run clean",
+    "prestart": "npm run clean",
     "pretest": "flow && eslint src/",
     "start": "razzle start",
     "start:prod": "NODE_ENV=production node build/server.js",
@@ -31,6 +34,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "flow-bin": "^0.80.0",
-    "flow-typed": "^2.5.1"
+    "flow-typed": "^2.5.1",
+    "node-sass": "^4.9.3",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import './Home.css';
+import './Home.scss';
 
 const Logo = Loadable({
   loader: () => import('./Logo'),
