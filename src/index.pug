@@ -7,7 +7,7 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href=assets.client.css)
     each style in styles
-      link(rel='stylesheet' href='/'+style.file)
+      link(rel='stylesheet' href=style)
   body
     #root !{markup}
     if prod

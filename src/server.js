@@ -44,7 +44,7 @@ server.get('/*', (req, res: express$Response) => {
       ),
       markup,
       prod,
-      styles,
+      styles: styles.map(style => `/${style.file}`),
     });
   }
 });
