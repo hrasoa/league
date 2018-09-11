@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
