@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import './Home.scss';
+import styles from './Home.scss';
 
 const Logo = Loadable({
   loader: () => import('./Logo'),
@@ -18,13 +18,13 @@ const Welcome = Loadable({
 });
 
 const Home = () => (
-  <div className="Home">
-    <div className="Home-header">
+  <div className={styles.home}>
+    <div className={styles.header}>
       <Logo />
       <Welcome />
     </div>
     <Intro />
-    <ul className="Home-resources">
+    <ul className={styles.resources}>
       <li>
         <a href="https://github.com/jaredpalmer/razzle">Docs</a>
       </li>

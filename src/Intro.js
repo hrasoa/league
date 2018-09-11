@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './Home.scss';
 
 const Intro = () => (
-  <p className="Home-intro">
+  <p className={styles.intro}>
     To get started, edit
     <code>src/App.js</code>
     or

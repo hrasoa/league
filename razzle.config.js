@@ -13,7 +13,15 @@ module.exports = {
               test: /\.scss$/,
               use: [
                 dev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                'css-loader',
+                {
+                  loader: 'css-loader',
+                  options: {
+                    camelCase: 'dashes',
+                    importLoaders: 1,
+                    localIdentName: dev ? '[name]-[local]' : '[hash:base64:5]',
+                    modules: true,
+                  },
+                },
                 'sass-loader',
               ],
             },
@@ -41,7 +49,14 @@ module.exports = {
             {
               test: /\.scss$/,
               use: [
-                'css-loader/locals',
+                {
+                  loader: 'css-loader/locals',
+                  options: {
+                    camelCase: 'dashes',
+                    localIdentName: dev ? '[name]-[local]' : '[hash:base64:5]',
+                    modules: true,
+                  },
+                },
                 'sass-loader',
               ],
             },
