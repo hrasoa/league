@@ -5,16 +5,16 @@ html(lang='en')
     meta(charset='utf-8')
     title='league'
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='stylesheet' href= assets.client.css)
+    link(rel='stylesheet' href=assets.client.css)
     each style in styles
-      link(rel='stylesheet' href= style.file)
+      link(rel='stylesheet' href='/'+style.file)
   body
     #root !{markup}
     if prod
-      script(src= assets.client.js)
+      script(src=assets.client.js)
     else
-      script(src= assets.client.js crossorigin)
+      script(src=assets.client.js crossorigin)
     each chunk in chunks
-      script(src= chunk)
+      script(src=chunk)
     script.
       window.main()

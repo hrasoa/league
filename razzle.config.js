@@ -32,11 +32,7 @@ module.exports = {
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
-          !dev && new MiniCssExtractPlugin({
-            chunkFilename: '[id].[hash].css',
-            filename: '[name].[hash].css',
-          }),
-        ].filter(Boolean),
+        ],
       };
     }
 

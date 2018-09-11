@@ -34,7 +34,6 @@ server.get('/*', (req, res: express$Response) => {
     const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
     const prod = process.env.NODE_ENV === 'production';
-
     res.status(200).render('index', {
       assets,
       chunks: chunks.map(
