@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "declaration-no-important": true,
+    "declaration-colon-space-after": "always"
+  }
+}

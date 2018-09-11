@@ -1,5 +1,6 @@
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   modify: (config, { target, dev }) => {
@@ -22,6 +23,22 @@ module.exports = {
                     modules: true,
                   },
                 },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                    plugins: () => [
+                      require('autoprefixer')({
+                        browsers: [
+                          '>1%',
+                          'last 4 versions',
+                          'Firefox ESR',
+                          'not ie < 9', // React doesn't support IE8 anyway
+                        ],
+                      }),
+                    ],
+                  },
+                },
                 'sass-loader',
               ],
             },
@@ -29,6 +46,7 @@ module.exports = {
         },
         plugins: [
           ...config.plugins,
+          new StyleLintPlugin(),
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
