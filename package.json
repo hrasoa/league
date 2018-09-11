@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "build": "razzle build",
+    "pretest": "flow && eslint src/",
     "start": "razzle start",
     "start:prod": "NODE_ENV=production node build/server.js",
     "test": "razzle test --env=jsdom"
