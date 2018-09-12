@@ -28,15 +28,11 @@ module.exports = {
                   options: {
                     ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
                     plugins: () => [
-                      require('autoprefixer')({
-                        browsers: [
-                          '>1%',
-                          'last 4 versions',
-                          'Firefox ESR',
-                          'not ie < 9', // React doesn't support IE8 anyway
-                        ],
+                      require('autoprefixer')(),
+                      !dev && require('cssnano')({
+                        preset: 'default',
                       }),
-                    ],
+                    ].filter(Boolean),
                   },
                 },
                 'sass-loader',
