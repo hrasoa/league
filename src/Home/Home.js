@@ -1,7 +1,7 @@
 // @flow
 import React, { Fragment } from 'react';
-import Cover from './Cover';
-import Content from './Content';
+import Cover from '../Cover';
+import Content from '../Content';
 
 const Home = () => (
   <Fragment>

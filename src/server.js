@@ -8,7 +8,7 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 import stats from '../build/react-loadable.json';
 
-const assets: { client: { css: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
@@ -33,6 +33,8 @@ server.get('/*', (req: express$Request, res: express$Response) => {
     const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
     const prod = process.env.NODE_ENV === 'production';
+    console.log(assets);
+    console.log(chunks);
     res.status(200).render('index', {
       assets,
       chunks: chunks.map(

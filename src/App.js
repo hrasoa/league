@@ -5,7 +5,7 @@ import Switch from 'react-router-dom/Switch';
 import Home from './Home';
 import Header from './Header';
 import Nav from './Nav';
-import Leaderboard from './Leaderboard';
+import Leaderboard from './LeaderBoard';
 import './App.scss';
 
 const App = () => (

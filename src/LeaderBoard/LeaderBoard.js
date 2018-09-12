@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import './Leaderboard.scss';
+import './LeaderBoard.scss';
 
 const Leaderboard = () => (
   <div className="adsense">
