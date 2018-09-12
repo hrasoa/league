@@ -3,7 +3,7 @@
   background: black;
 }
 
-.fix‡ {
+.nav__fixed {
   position: fixed;
   height: inherit;
   width: 100%;
@@ -12,7 +12,7 @@
   box-shadow: 0 4px 4px -2px rgba(0,0,0,.4);
 }
 
-.inner {
+.nav__inner {
   max-width: 1132px;
   margin: auto;
   color: white;
@@ -30,17 +30,17 @@
   }
 }
 
-.main > li {
+.nav__main > li {
   line-height: 30px;
   float: left;
   margin-right: 24px;
 }
 
-.user {
+.nav__user {
   float: right;
 }
 
-.user-icon {
+.nav__user-icon {
   fill: white;
   height: 24px;
   width: 24px;

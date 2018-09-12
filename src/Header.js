@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import styles from './Header.scss';
+import './Header.scss';
 
 const Header = ({ children }: { children: Node }) => (
-  <header className={styles.header}>
+  <header className="header">
     {children}
   </header>
 );

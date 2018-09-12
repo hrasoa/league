@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Leaderboard.scss';
+import './Leaderboard.scss';
 
 const Leaderboard = () => (
-  <div className={styles.adsense}>
+  <div className="adsense">
     <img src="https://via.placeholder.com/728x90/AAA?text=728x90" alt="" />
   </div>
 );

@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import styles from './Content.scss';
+import './Content.scss';
 
 const Content = () => (
-  <div className={styles.content} />
+  <div className="conent" />
 );
 
 export default Content;
