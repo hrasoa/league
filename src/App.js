@@ -1,3 +1,4 @@
+// @flow
 import React, { Fragment } from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';

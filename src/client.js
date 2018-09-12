@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { hydrate } from 'react-dom';
 import Loadable from 'react-loadable';
@@ -18,6 +19,9 @@ if (module.hot) {
 }
 
 function render(Root) {
+  if (!root) {
+    return;
+  }
   Loadable.preloadReady().then(() => {
     hydrate(
       <BrowserRouter>
