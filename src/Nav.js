@@ -10,11 +10,15 @@ const Nav = () => (
       <div className="nav__inner">
         <ul className="nav__main">
           <li>
-            <Link to="/home">
+            <Link to="/">
               <Logo />
             </Link>
           </li>
-          <li>Players</li>
+          <li>
+            <Link to="/players">
+              Players
+            </Link>
+          </li>
           <li>Teams</li>
           <li>Leagues</li>
           <li>Mercato</li>
