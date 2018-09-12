@@ -4,6 +4,12 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   modify: (config, { target, dev }) => {
+    const cssLoaderOptions = {
+      camelCase: 'dashes',
+      localIdentName: dev ? '[name]-[local]' : '[hash:base64:5]',
+      modules: true,
+    };
+
     if (target === 'web') {
       return {
         ...config,
@@ -17,16 +23,14 @@ module.exports = {
                 {
                   loader: 'css-loader',
                   options: {
-                    camelCase: 'dashes',
+                    ...cssLoaderOptions,
                     importLoaders: 1,
-                    localIdentName: dev ? '[name]-[local]' : '[hash:base64:5]',
-                    modules: true,
                   },
                 },
                 {
                   loader: 'postcss-loader',
                   options: {
-                    ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                    ident: 'postcss',
                     plugins: () => [
                       require('autoprefixer')(),
                       !dev && require('cssnano')({
@@ -61,11 +65,7 @@ module.exports = {
               use: [
                 {
                   loader: 'css-loader/locals',
-                  options: {
-                    camelCase: 'dashes',
-                    localIdentName: dev ? '[name]-[local]' : '[hash:base64:5]',
-                    modules: true,
-                  },
+                  options: cssLoaderOptions,
                 },
                 'sass-loader',
               ],
