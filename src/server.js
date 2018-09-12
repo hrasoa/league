@@ -8,18 +8,18 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 import stats from '../build/react-loadable.json';
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets: { client: { css: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
 server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
-server.get('/*', (req, res: express$Response) => {
-  const context = {};
-  const modules = [];
+server.get('/*', (req: express$Request, res: express$Response) => {
+  const context: { url?: string } = {};
+  const modules: Array<string> = [];
   const markup = renderToString(
-    <Capture report={moduleName => modules.push(moduleName)}>
+    <Capture report={(moduleName) => { modules.push(moduleName); }}>
       <StaticRouter context={context} location={req.url}>
         <App />
       </StaticRouter>
@@ -29,7 +29,7 @@ server.get('/*', (req, res: express$Response) => {
   if (context.url) {
     res.redirect(context.url);
   } else {
-    const bundles = getBundles(stats, modules);
+    const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
     const prod = process.env.NODE_ENV === 'production';
@@ -38,7 +38,7 @@ server.get('/*', (req, res: express$Response) => {
       chunks: chunks.map(
         chunk => (prod
           ? `/${chunk.file}`
-          : `http://${process.env.HOST || ''}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
+          : `http://${process.env.HOST || 'localhost'}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
         ),
       ),
       markup,
