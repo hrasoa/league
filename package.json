@@ -1,13 +1,14 @@
 {
   "name": "razzle-examples-with-react-loadable",
   "version": "0.0.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrasoa/league.git"
   },
   "license": "MIT",
   "author": "Haja Rasoahaingo",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "razzle build",
