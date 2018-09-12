@@ -18,16 +18,15 @@ if (module.hot) {
   });
 }
 
-function render(Root) {
+async function render(Root) {
   if (!root) {
     return;
   }
-  Loadable.preloadReady().then(() => {
-    hydrate(
-      <BrowserRouter>
-        <Root />
-      </BrowserRouter>,
-      root,
-    );
-  });
+  await Loadable.preloadReady();
+  hydrate(
+    <BrowserRouter>
+      <Root />
+    </BrowserRouter>,
+    root,
+  );
 }
