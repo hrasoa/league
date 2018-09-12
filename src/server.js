@@ -25,16 +25,13 @@ server.get('/*', (req: express$Request, res: express$Response) => {
       </StaticRouter>
     </Capture>,
   );
-
   if (context.url) {
     res.redirect(context.url);
   } else {
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
-    const chunks = bundles.filter(bundle => bundle.file.endsWith('.js'));
-    const styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
+    const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
+    const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
     const prod = process.env.NODE_ENV === 'production';
-    console.log(assets);
-    console.log(chunks);
     res.status(200).render('index', {
       assets,
       chunks: chunks.map(

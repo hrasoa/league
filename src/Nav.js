@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import './Nav.scss';
 
@@ -9,7 +10,9 @@ const Nav = () => (
       <div className="nav__inner">
         <ul className="nav__main">
           <li>
-            <Logo />
+            <Link to="/home">
+              <Logo />
+            </Link>
           </li>
           <li>Players</li>
           <li>Teams</li>

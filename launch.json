@@ -1,0 +1,7 @@
+{
+  "name": "Attach to dev server",
+  "type": "node",
+  "request": "attach",
+  "protocol": "inspector",
+  "address": "localhost"
+}
