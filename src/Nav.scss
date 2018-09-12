@@ -1,0 +1,51 @@
+.nav {
+  height: 64px;
+  background: black;
+}
+
+.fix‡ {
+  position: fixed;
+  height: inherit;
+  width: 100%;
+  background: black;  
+  z-index: 2;
+  box-shadow: 0 4px 4px -2px rgba(0,0,0,.4);
+}
+
+.inner {
+  max-width: 1132px;
+  margin: auto;
+  color: white;
+  padding: 16px 0;
+  font-size: 14px;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.main > li {
+  line-height: 30px;
+  float: left;
+  margin-right: 24px;
+}
+
+.user {
+  float: right;
+}
+
+.user-icon {
+  fill: white;
+  height: 24px;
+  width: 24px;
+  background: red;
+  border-radius: 50%;
+  padding: 3px;
+  display: block;
+}

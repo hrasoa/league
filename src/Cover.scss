@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+  box-shadow: 0 64px 182px -64px rgba(0, 0, 0, .3);
+}
+
+.title {
+  position: absolute;
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  text-align: center;
+  font-weight: 100;
+  font-size: 300%;
+  max-width: 800px;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: calc(100vh - 240px);
+  object-position: bottom center;
+}
