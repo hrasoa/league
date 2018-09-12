@@ -9,14 +9,14 @@
   "author": "Haja Rasoahaingo",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "razzle build",
     "clean": "rimraf ./build",
     "lint": "flow && eslint src/ && stylelint src/**/*.scss",
-    "prebuild": "npm run clean",
     "prestart": "npm run clean && npm run lint",
-    "pretest": "npm run lint",
     "start": "razzle start",
     "start:prod": "NODE_ENV=production node build/server.js",
+    "pretest": "npm run lint",
     "test": "razzle test --env=jsdom"
   },
   "dependencies": {
