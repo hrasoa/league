@@ -6,7 +6,7 @@ import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
 import App from './App';
-import stats from '../build/react-loadable.json';
+import stats from '../build/react-loadable.json'; // eslint-disable-line import/no-unresolved
 
 const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
