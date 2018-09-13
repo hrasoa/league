@@ -13,31 +13,31 @@
 }
 
 .nav__inner {
+  @include inuit-clearfix();
   max-width: 1132px;
   margin: auto;
   color: white;
   padding: 16px 0;
   font-size: 14px;
 
-  &::after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-
   li {
     list-style: none;
   }
 }
 
-.nav__main > li {
-  line-height: 30px;
-  float: left;
-  margin-right: 24px;
+.nav__main {
+  margin: 0;
+
+  > li {
+    line-height: 30px;
+    float: left;
+    margin-right: 24px;
+  }
 }
 
 .nav__user {
   float: right;
+  margin: 0;
 }
 
 .nav__user-icon {

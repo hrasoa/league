@@ -10,6 +10,7 @@ module.exports = {
         data: [
           'settings/settings.core',
           'tools/tools.font-size',
+          'tools/tools.clearfix',
         ].map(scss => `@import "~inuitcss/${scss}";`).join('\n'),
       },
     };
