@@ -4,6 +4,12 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   modify: (config, { target, dev }) => {
+    const cssLoaderOpts = {
+      camelCase: 'dashes',
+      localIdentName: dev ? '[name]-[local]--[hash:base64:5]' : '[hash:base64:5]',
+      modules: true,
+    };
+
     const sassLoader = {
       loader: 'sass-loader',
       options: {
@@ -30,6 +36,7 @@ module.exports = {
                 {
                   loader: 'css-loader',
                   options: {
+                    ...cssLoaderOpts,
                     importLoaders: 1,
                   },
                 },
@@ -68,7 +75,10 @@ module.exports = {
             {
               test: /\.scss$/,
               use: [
-                'css-loader/locals',
+                {
+                  loader: 'css-loader/locals',
+                  options: cssLoaderOpts,
+                },
                 sassLoader,
               ],
             },

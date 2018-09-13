@@ -19,7 +19,7 @@
   }
 }
 
-.cover__title {
+.title {
   @include inuit-font-size($inuit-font-size-h1 + 8);
   position: absolute;
   color: white;
@@ -31,7 +31,7 @@
   max-width: 800px;
 }
 
-.cover__img {
+.image {
   display: block;
   width: 100%;
   object-fit: cover;

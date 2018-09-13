@@ -7,7 +7,7 @@
   }
 }
 
-.nav__fixed {
+.fixed {
   position: fixed;
   height: inherit;
   width: 100%;
@@ -16,7 +16,7 @@
   box-shadow: 0 4px 4px -2px rgba(0,0,0,.4);
 }
 
-.nav__inner {
+.inner {
   @include inuit-clearfix();
   max-width: $content-width;
   margin: auto;
@@ -29,7 +29,7 @@
   }
 }
 
-.nav__main {
+.main {
   margin: 0;
 
   > li {
@@ -39,12 +39,12 @@
   }
 }
 
-.nav__user {
+.user {
   float: right;
   margin: 0;
 }
 
-.nav__user-icon {
+.user-icon {
   fill: $white;
   height: 24px;
   width: 24px;
