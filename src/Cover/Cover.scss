@@ -19,6 +19,7 @@
 }
 
 .cover__title {
+  @include inuit-font-size($inuit-font-size-h1 + 8);
   position: absolute;
   color: white;
   left: 50%;
@@ -26,7 +27,6 @@
   transform: translate(-50%, -80%);
   text-align: center;
   font-weight: 100;
-  font-size: 300%;
   max-width: 800px;
 }
 

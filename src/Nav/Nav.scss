@@ -1,6 +1,10 @@
 .nav {
   height: 64px;
   background: black;
+
+  a {
+    display: block;
+  }
 }
 
 .nav__fixed {

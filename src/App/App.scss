@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+
 // GENERIC
 @import '~inuitcss/generic/generic.box-sizing';
 @import '~inuitcss/generic/generic.normalize';
@@ -9,3 +11,4 @@
 @import '~inuitcss/elements/elements.headings';
 @import '~inuitcss/elements/elements.images';
 @import '~inuitcss/elements/elements.tables';
+@import '../elements.page';
