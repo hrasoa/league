@@ -4,6 +4,16 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   modify: (config, { target, dev }) => {
+    const sassLoader = {
+      loader: 'sass-loader',
+      options: {
+        data: [
+          'settings/settings.core',
+          'tools/tools.font-size',
+        ].map(scss => `@import "~inuitcss/${scss}";`).join('\n'),
+      },
+    };
+
     if (target === 'web') {
       return {
         ...config,
@@ -32,7 +42,7 @@ module.exports = {
                     ].filter(Boolean),
                   },
                 },
-                'sass-loader',
+                sassLoader,
               ],
             },
           ],
@@ -57,7 +67,7 @@ module.exports = {
               test: /\.scss$/,
               use: [
                 'css-loader/locals',
-                'sass-loader',
+                sassLoader,
               ],
             },
           ],

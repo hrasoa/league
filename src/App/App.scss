@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Lora', serif;
-  background: white;
-}
+@import '~inuitcss/generic/generic.box-sizing';
+@import '~inuitcss/generic/generic.normalize';
+@import '~inuitcss/generic/generic.reset';
+@import '~inuitcss/generic/generic.shared';
