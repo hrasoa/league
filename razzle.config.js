@@ -1,6 +1,7 @@
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const merge = require('lodash/merge');
 
 module.exports = {
   modify: (config, { target, dev }) => {
@@ -24,6 +25,20 @@ module.exports = {
     };
 
     if (target === 'web') {
+      const optimization = dev ? config.optimization : merge(config.optimization, {
+        splitChunks: {
+          cacheGroups: {
+            shared: {
+              chunks: 'all',
+              minChunks: 2,
+              minSize: 1,
+              name: true,
+              test: /\.scss$/,
+            },
+          },
+        },
+      });
+
       return {
         ...config,
         module: {
@@ -38,6 +53,7 @@ module.exports = {
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 1,
+                    minimize: !dev,
                   },
                 },
                 {
@@ -56,6 +72,7 @@ module.exports = {
             },
           ],
         },
+        optimization,
         plugins: [
           ...config.plugins,
           dev && new StyleLintPlugin(),
