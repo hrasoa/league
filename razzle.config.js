@@ -10,6 +10,7 @@ module.exports = {
         data: [
           '@import "./src/settings.config";',
           '@import "~inuitcss/settings/settings.core";',
+          '@import "./src/settings.global";',
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
         ].join('\n'),
