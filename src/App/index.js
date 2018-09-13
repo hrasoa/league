@@ -5,14 +5,14 @@ import Home from '../Home';
 import Header from '../Header';
 import Players from '../Players';
 import Nav from '../Nav';
-import Leaderboard from '../LeaderBoard';
+import Banner from '../Ads';
 import './App.scss';
 
 const App = () => (
   <Fragment>
     <Header>
       <Nav />
-      <Leaderboard />
+      <Banner />
     </Header>
     <Switch>
       <Route exact path="/" component={Home} />
