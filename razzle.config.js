@@ -36,9 +36,8 @@ module.exports = {
                     ident: 'postcss',
                     plugins: () => [
                       require('autoprefixer')(),
-                      !dev && require('cssnano')({
-                        preset: 'default',
-                      }),
+                      !dev && require('cssnano')(),
+                      require('postcss-reporter'),
                     ].filter(Boolean),
                   },
                 },
