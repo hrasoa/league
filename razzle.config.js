@@ -8,7 +8,7 @@ module.exports = {
       loader: 'sass-loader',
       options: {
         data: [
-          '@import "./src/settings.core";',
+          '@import "./src/settings.config";',
           '@import "~inuitcss/settings/settings.core";',
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
