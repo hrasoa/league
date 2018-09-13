@@ -48,11 +48,11 @@ module.exports = {
         },
         plugins: [
           ...config.plugins,
-          new StyleLintPlugin(),
+          dev && new StyleLintPlugin(),
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
-        ],
+        ].filter(Boolean),
       };
     }
 
