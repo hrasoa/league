@@ -35,6 +35,11 @@ module.exports = {
               name: true,
               test: /\.scss$/,
             },
+            vendor: {
+              chunks: 'all',
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/]/,
+            },
           },
         },
       });
