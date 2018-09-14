@@ -5,6 +5,7 @@ import './App.scss';
 import Home from '../Home';
 import Header from '../Header';
 import Players from '../Players';
+import Teams from '../Teams';
 import Nav from '../Nav';
 import Banner from '../Ads';
 
@@ -17,6 +18,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/players" component={Players} />
+      <Route exact path="/teams" component={Teams} />
     </Switch>
   </Fragment>
 );

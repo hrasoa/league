@@ -22,7 +22,11 @@ const Nav = () => (
               Players
             </Link>
           </li>
-          <li className={uMarginRight}>Teams</li>
+          <li className={uMarginRight}>
+            <Link to="/teams">
+              Teams
+            </Link>
+          </li>
           <li className={uMarginRight}>Leagues</li>
           <li className={uMarginRight}>Mercato</li>
         </ul>
