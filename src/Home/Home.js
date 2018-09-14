@@ -5,7 +5,7 @@ import Content from '../Content';
 const Home = () => (
   <Fragment>
     <Cover />
-    <Content />
+    <Content lift />
   </Fragment>
 );
 

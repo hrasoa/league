@@ -2,14 +2,22 @@
 import React from 'react';
 import type { Node } from 'react';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
-import { root } from './Content.scss';
-import { content } from '../CoverContent.scss';
+import styles from './Content.scss';
 import classname from '../classname';
 
-const Content = ({ children }: { children: Node }) => (
-  <div className={classname(root, content, oWrapper)}>
+type Props = {
+  lift?: boolean,
+  children: Node
+}
+
+const Content = ({ lift, children }: Props) => (
+  <div className={classname(styles.root, lift ? styles.lift : '', oWrapper)}>
     {children}
   </div>
 );
+
+Content.defaultProps = {
+  lift: false,
+};
 
 export default Content;

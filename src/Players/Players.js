@@ -1,11 +1,10 @@
-// @flow
 import React from 'react';
-import Content from '../Content';
+import Search from '../Search';
 
 const Players = () => (
-  <Content>
-    Players
-  </Content>
+  <div>
+    <Search id="search-player" placeholder="Search for players..." />
+  </div>
 );
 
 export default Players;
