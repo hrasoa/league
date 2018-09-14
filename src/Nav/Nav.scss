@@ -23,6 +23,8 @@
 }
 
 .list {
+  margin-bottom: 0;
+
   > li {
     float: left;
     line-height: 30px;
@@ -31,6 +33,7 @@
 
 .user {
   float: right;
+  margin-bottom: 0;
 }
 
 .user-icon {
