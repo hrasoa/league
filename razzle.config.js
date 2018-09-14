@@ -28,13 +28,6 @@ module.exports = {
       const optimization = dev ? config.optimization : merge(config.optimization, {
         splitChunks: {
           cacheGroups: {
-            shared: {
-              chunks: 'all',
-              minChunks: 2,
-              minSize: 1,
-              name: true,
-              test: /\.scss$/,
-            },
             vendor: {
               chunks: 'all',
               name: 'vendor',
