@@ -23,11 +23,6 @@ const Search = ({ id, placeholder }: Props) => (
           />
         </label>
       </div>
-      <div className={styles.filters}>
-        <div className={oWrapper}>
-          filters
-        </div>
-      </div>
     </form>
   </div>
 );
