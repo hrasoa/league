@@ -4,10 +4,10 @@ import Logo from '../Logo';
 import styles from './Nav.scss';
 
 const Nav = () => (
-  <nav className={styles.nav}>
+  <nav className={styles.root}>
     <div className={styles.fixed}>
-      <div className={styles.inner}>
-        <ul className={styles.main}>
+      <div className={styles.wrapper}>
+        <ul className={styles.list}>
           <li>
             <Link to="/">
               <Logo />

@@ -1,36 +1,36 @@
-.cover {
-  position: relative;
+.root {
   box-shadow: 0 64px 182px -64px rgba(0, 0, 0, .3);
   overflow: hidden;
+  position: relative;
 
   &::before {
+    box-shadow: 0 0 42px 36px #000;
     content: '';
-    position: relative;
+    display: block;
     left: 0;
+    position: relative;
     right: 0;
     top: 0;
     z-index: 1;
-    box-shadow: 0 0 42px 36px #000;
-    display: block;
   }
 }
 
 .title {
   @include inuit-font-size($inuit-font-size-h1 + 8);
-  position: absolute;
   color: white;
+  font-weight: 100;
   left: 50%;
+  max-width: 800px;
+  position: absolute;
+  text-align: center;
   top: 50%;
   transform: translate(-50%, -80%);
-  text-align: center;
-  font-weight: 100;
-  max-width: 800px;
 }
 
 .image {
   display: block;
-  width: 100%;
-  object-fit: cover;
   height: calc(100vh - 240px);
+  object-fit: cover;
   object-position: bottom center;
+  width: 100%;
 }

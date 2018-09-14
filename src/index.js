@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 import http from 'http';
 import Loadable from 'react-loadable';
 import app from './server';
