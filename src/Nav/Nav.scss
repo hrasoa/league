@@ -18,17 +18,14 @@
 
 .wrapper {
   @include inuit-clearfix();
+  @include inuit-font-size(14px);
   color: $white;
-  font-size: 14px;
-  padding-bottom: 16px;
-  padding-top: 16px;
 }
 
 .list {
   > li {
     float: left;
     line-height: 30px;
-    margin-right: 24px;
   }
 }
 

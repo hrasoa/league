@@ -7,7 +7,7 @@ module.exports = {
   modify: (config, { target, dev }) => {
     const cssLoaderOpts = {
       camelCase: 'dashes',
-      localIdentName: dev ? '[name]-[local]_[hash:base64:5]' : '[hash:base64:5]',
+      localIdentName: dev ? '[local]-[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
     };
 
@@ -21,6 +21,7 @@ module.exports = {
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
         ].join('\n'),
+        sourceMap: true,
       },
     };
 
@@ -52,13 +53,19 @@ module.exports = {
             {
               test: /\.scss$/,
               use: [
-                dev ? 'style-loader' : MiniCssExtractPlugin.loader,
+                dev ? {
+                  loader: 'style-loader',
+                  options: {
+                    sourceMap: true,
+                  },
+                } : MiniCssExtractPlugin.loader,
                 {
                   loader: 'css-loader',
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 1,
                     minimize: !dev,
+                    sourceMap: true,
                   },
                 },
                 {

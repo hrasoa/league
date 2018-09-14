@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { oListInline } from 'inuitcss/objects/_objects.list-inline.scss';
+import { uPaddingVerticalSmall, uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import Logo from '../Logo';
 import styles from './Nav.scss';
@@ -9,21 +10,21 @@ import styles from './Nav.scss';
 const Nav = () => (
   <nav className={styles.root}>
     <div className={styles.fixed}>
-      <div className={classname(styles.wrapper, oWrapper)}>
+      <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
         <ul className={classname(styles.list, oListInline)}>
-          <li>
+          <li className={uMarginRight}>
             <Link to="/">
               <Logo />
             </Link>
           </li>
-          <li>
+          <li className={uMarginRight}>
             <Link to="/players">
               Players
             </Link>
           </li>
-          <li>Teams</li>
-          <li>Leagues</li>
-          <li>Mercato</li>
+          <li className={uMarginRight}>Teams</li>
+          <li className={uMarginRight}>Leagues</li>
+          <li className={uMarginRight}>Mercato</li>
         </ul>
         <ul className={classname(styles.user, oListInline)}>
           <li>

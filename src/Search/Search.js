@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Search = ({ id, placeholder }: Props) => (
-  <div className="search">
+  <div>
     <form>
       <div className={oWrapper}>
         <label htmlFor={id}>
