@@ -27,8 +27,16 @@ const Nav = () => (
               Teams
             </Link>
           </li>
-          <li className={uMarginRight}>Leagues</li>
-          <li className={uMarginRight}>Mercato</li>
+          <li className={uMarginRight}>
+            <Link to="/leagues">
+              Leagues
+            </Link>
+          </li>
+          <li className={uMarginRight}>
+            <Link to="/mercato">
+              Mercato
+            </Link>
+          </li>
         </ul>
         <ul className={classname(styles.user, oListInline)}>
           <li>
