@@ -41,10 +41,6 @@ $dark-slate-green:  #4B998A !default;
 
 // Mixins
 
-@mixin font-family() {
-  font-family: $global-font-family;
-}
-
 @mixin global-font-family() {
   font-family: $global-font-family;
 }
