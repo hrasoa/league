@@ -5,7 +5,7 @@ import Listing from '../Listing';
 
 const Players = () => (
   <div>
-    <Search id="search-player" placeholder="Enter player name..." />
+    <Search id="search-player" placeholder="Enter a player name..." />
     <Filters>
       filters
     </Filters>
