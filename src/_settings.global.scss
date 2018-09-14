@@ -18,7 +18,7 @@ $inuit-font-size-h4:  20px;
 $inuit-font-size-h5:  18px;
 $inuit-font-size-h6:  16px;
 
-$font-family: 'Lora', serif !default;
+$global-font-family: 'Lora', serif !default;
 
 $global-radius: 3px !default;
 
@@ -26,8 +26,8 @@ $global-radius: 3px !default;
 
 // Colors
 
-$white: #fff !default;
-$black: #000  !default;
+$white: rgba(255, 255, 255, .9) !default;
+$black: rgba(0, 0, 0, .9) !default;
 
 // http://colormind.io/image/
 
@@ -42,5 +42,13 @@ $dark-slate-green:  #4B998A !default;
 // Mixins
 
 @mixin font-family() {
-  font-family: $font-family;
+  font-family: $global-font-family;
+}
+
+@mixin global-font-family() {
+  font-family: $global-font-family;
+}
+
+@mixin global-box-shadow() {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
 }

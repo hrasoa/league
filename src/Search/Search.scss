@@ -4,7 +4,7 @@
 
 .input {
   @include inuit-font-size($inuit-font-size-h1, +1);
-  @include font-family();
+  @include global-font-family();
   border: none;
   outline: none;
   text-align: center;
