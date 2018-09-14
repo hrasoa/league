@@ -3,7 +3,12 @@
   height: 54px;
   
   a {
+    color: $white;
     display: block;
+
+    &:not(:hover) {
+      text-decoration: none;
+    }
   }
 }
 
