@@ -12,19 +12,17 @@ type Props = {
 }
 
 const Search = ({ id, placeholder }: Props) => (
-  <div>
-    <form>
-      <div className={oWrapper}>
-        <label htmlFor={id}>
-          <input
-            id={id}
-            className={classname(styles.input, uH1, uMarginVerticalLarge, uPaddingVerticalTiny)}
-            placeholder={placeholder}
-          />
-        </label>
-      </div>
-    </form>
-  </div>
+  <form>
+    <div className={oWrapper}>
+      <label htmlFor={id}>
+        <input
+          id={id}
+          className={classname(styles.input, uH1, uMarginVerticalLarge, uPaddingVerticalTiny)}
+          placeholder={placeholder}
+        />
+      </label>
+    </div>
+  </form>
 );
 
 Search.defaultProps = {
