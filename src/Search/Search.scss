@@ -1,3 +1,7 @@
+.root {
+  text-align: center;
+}
+
 .input {
   @include inuit-font-size($inuit-font-size-h1, +1);
   @include font-family();
@@ -5,4 +9,8 @@
   outline: none;
   text-align: center;
   width: 100%;
+}
+
+.label {
+  display: block;
 }
