@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
-import { uH1 } from 'inuitcss/utilities/_utilities.headings.scss';
 import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import styles from './Search.scss';
@@ -17,7 +16,7 @@ const Search = ({ id, placeholder }: Props) => (
       <label htmlFor={id}>
         <input
           id={id}
-          className={classname(styles.input, uH1, uMarginVerticalLarge, uPaddingVerticalTiny)}
+          className={classname(styles.input, uMarginVerticalLarge, uPaddingVerticalTiny)}
           placeholder={placeholder}
         />
       </label>

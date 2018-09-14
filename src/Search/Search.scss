@@ -1,6 +1,8 @@
 .input {
+  @include inuit-font-size($inuit-font-size-h1, +1);
   border: none;
   font-family: $font-family;
+  outline: none;
   text-align: center;
   width: 100%;
 }
