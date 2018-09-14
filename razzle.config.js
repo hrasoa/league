@@ -7,7 +7,7 @@ module.exports = {
   modify: (config, { target, dev }) => {
     const cssLoaderOpts = {
       camelCase: 'dashes',
-      localIdentName: dev ? '[name]-[local]--[hash:base64:5]' : '[hash:base64:5]',
+      localIdentName: dev ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
     };
 
@@ -31,7 +31,7 @@ module.exports = {
             vendor: {
               chunks: 'all',
               name: 'vendor',
-              test: /[\\/]node_modules[\\/]/,
+              test: /[\\/]node_modules[\\/].*\.js/,
             },
           },
         },

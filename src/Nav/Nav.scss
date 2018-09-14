@@ -20,18 +20,11 @@
   @include inuit-clearfix();
   color: $white;
   font-size: 14px;
-  margin: auto;
-  max-width: $content-width;
-  padding: 16px 0;
-
-  li {
-    list-style: none;
-  }
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
 
 .list {
-  margin: 0;
-
   > li {
     float: left;
     line-height: 30px;
@@ -41,7 +34,6 @@
 
 .user {
   float: right;
-  margin: 0;
 }
 
 .user-icon {
