@@ -7,7 +7,7 @@ module.exports = {
   modify: (config, { target, dev }) => {
     const cssLoaderOpts = {
       camelCase: 'dashes',
-      localIdentName: dev ? '[local]-[hash:base64:5]' : '[hash:base64:5]',
+      localIdentName: dev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
     };
 
