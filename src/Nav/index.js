@@ -6,26 +6,8 @@ import { uPaddingVerticalSmall, uMarginRight } from 'inuitcss/utilities/_utiliti
 import classname from '../classname';
 import Logo from '../Logo';
 import User from './User';
+import links from './links';
 import styles from './Nav.scss';
-
-const links = [
-  {
-    label: 'Players',
-    to: '/players',
-  },
-  {
-    label: 'Teams',
-    to: '/teams',
-  },
-  {
-    label: 'Leagues',
-    to: '/leagues',
-  },
-  {
-    label: 'Mercato',
-    to: '/mercato',
-  },
-];
 
 const Nav = () => (
   <nav className={styles.root}>
