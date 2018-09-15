@@ -27,7 +27,7 @@ const emptyContentState = Draft.convertFromRaw({
   entityMap: {},
 });
 
-class Input extends Component<Props, State> {
+class Editor extends Component<Props, State> {
   static defaultProps = {
     placeholder: 'Search...',
   };
@@ -60,4 +60,4 @@ class Input extends Component<Props, State> {
   }
 }
 
-export default Input;
+export default Editor;
