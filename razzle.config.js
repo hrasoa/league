@@ -47,6 +47,7 @@ module.exports = {
 
       return {
         ...config,
+        devtool: dev ? config.devtool : false,
         module: {
           rules: [
             ...config.module.rules,
