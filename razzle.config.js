@@ -1,7 +1,7 @@
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const merge = require('lodash/merge');
 
 module.exports = {
