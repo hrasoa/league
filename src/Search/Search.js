@@ -17,6 +17,7 @@ const Search = ({ id, placeholder }: Props) => (
         <input
           id={id}
           className={classname(styles.input, uMarginVerticalLarge, uPaddingVerticalTiny)}
+          type="search"
           placeholder={placeholder}
         />
       </label>
