@@ -1,6 +1,9 @@
 // @flow
 import React, { Component } from 'react';
-import Draft, { Editor, EditorState } from 'draft-js';
+import Draft, {
+  Editor,
+  EditorState,
+} from 'draft-js';
 
 type Props = {
   placeholder?: string
@@ -36,6 +39,8 @@ class Input extends Component<Props, State> {
     };
   }
 
+  handleReturn = (): string => 'handled';
+
   onChange = (editorState: EditorState) => this.setState({ editorState });
 
   render() {
@@ -45,6 +50,7 @@ class Input extends Component<Props, State> {
       <div style={{ border: '1px solid black', padding: 10 }}>
         <Editor
           editorKey="editor"
+          handleReturn={this.handleReturn}
           placeholder={placeholder}
           editorState={editorState}
           onChange={this.onChange}
