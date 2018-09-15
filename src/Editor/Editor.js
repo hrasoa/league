@@ -47,15 +47,13 @@ class Editor extends Component<Props, State> {
     const { editorState } = this.state;
     const { placeholder } = this.props;
     return (
-      <div style={{ border: '1px solid black', padding: 10 }}>
-        <DraftEditor
-          editorKey="editor"
-          handleReturn={this.handleReturn}
-          placeholder={placeholder}
-          editorState={editorState}
-          onChange={this.onChange}
-        />
-      </div>
+      <DraftEditor
+        editorKey="editor"
+        handleReturn={this.handleReturn}
+        placeholder={placeholder}
+        editorState={editorState}
+        onChange={this.onChange}
+      />
     );
   }
 }
