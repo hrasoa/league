@@ -1,16 +1,11 @@
 .root {
-  text-align: center;
-}
-
-.input {
   @include inuit-font-size($inuit-font-size-h1, +1);
   @include global-font-family();
-  border: none;
-  outline: none;
   text-align: center;
-  width: 100%;
 }
 
-.label {
-  display: block;
+.editor {
+  display: inline-block;
+  min-width: 40%;
+  text-align: left;
 }

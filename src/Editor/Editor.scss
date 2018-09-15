@@ -1,0 +1,9 @@
+:global {
+  .DraftEditor-root {
+    .public-DraftEditorPlaceholder-root {
+      opacity: .3;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}

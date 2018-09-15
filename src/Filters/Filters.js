@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Filters = ({ children }: Props) => (
-  <div className={styles.filters}>
+  <div className={styles.root}>
     <div className={oWrapper}>
       {children}
     </div>

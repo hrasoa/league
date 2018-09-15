@@ -14,10 +14,12 @@ const Search = ({ placeholder }: Props) => (
   <div className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
-        <Editor
-          handleReturn={() => 'handled'}
-          placeholder={placeholder}
-        />
+        <div className={styles.editor}>
+          <Editor
+            handleReturn={() => 'handled'}
+            placeholder={placeholder}
+          />
+        </div>
       </div>
     </div>
   </div>
