@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import Draft, {
-  Editor,
+  Editor as DraftEditor,
   EditorState,
 } from 'draft-js';
 
@@ -48,7 +48,7 @@ class Input extends Component<Props, State> {
     const { placeholder } = this.props;
     return (
       <div style={{ border: '1px solid black', padding: 10 }}>
-        <Editor
+        <DraftEditor
           editorKey="editor"
           handleReturn={this.handleReturn}
           placeholder={placeholder}
