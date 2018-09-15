@@ -31,7 +31,7 @@ const emptyContentState = Draft.convertFromRaw({
 class Editor extends Component<Props, State> {
   static defaultProps = {
     editorKey: 'editor',
-    placeholder: 'Search...',
+    placeholder: 'Tell a story...',
   };
 
   constructor(props: Props) {
