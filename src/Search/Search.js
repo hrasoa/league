@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Search = ({ placeholder }: Props) => (
-  <form className={styles.root}>
+  <div className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
         <Editor
@@ -20,7 +20,7 @@ const Search = ({ placeholder }: Props) => (
         />
       </div>
     </div>
-  </form>
+  </div>
 );
 
 Search.defaultProps = {
