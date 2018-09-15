@@ -50,7 +50,7 @@ class Editor extends Component<Props, State> {
     return handleReturn(editorState);
   }
 
-  onChange = (editorState: EditorState) => this.setState({ editorState });
+  handleChange = (editorState: EditorState) => this.setState({ editorState });
 
   render() {
     const { editorState } = this.state;
@@ -62,7 +62,7 @@ class Editor extends Component<Props, State> {
         editorState={editorState}
         handleReturn={this.handleReturn}
         placeholder={placeholder}
-        onChange={this.onChange}
+        onChange={this.handleChange}
       />
     );
   }
