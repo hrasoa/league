@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Search = ({ placeholder, editorKey }: Props) => (
-  <div className={styles.root}>
+  <form className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
         <div className={styles.editor}>
@@ -24,7 +24,7 @@ const Search = ({ placeholder, editorKey }: Props) => (
         </div>
       </div>
     </div>
-  </div>
+  </form>
 );
 
 export default Search;
