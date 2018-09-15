@@ -28,7 +28,6 @@
 
 .wrapper {
   @include inuit-clearfix();
-  @include inuit-font-size(14px);
   color: $white;
 }
 
