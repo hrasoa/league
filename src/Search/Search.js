@@ -15,6 +15,7 @@ const Search = ({ placeholder }: Props) => (
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
         <Editor
+          handleReturn={() => 'handled'}
           editorKey="search-player"
           placeholder={placeholder}
         />

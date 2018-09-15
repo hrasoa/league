@@ -7,6 +7,7 @@ import Draft, {
 
 type Props = {
   editorKey?: string,
+  handleReturn?: (editorState: EditorState) => string,
   placeholder?: string
 }
 
@@ -31,6 +32,7 @@ const emptyContentState = Draft.convertFromRaw({
 class Editor extends Component<Props, State> {
   static defaultProps = {
     editorKey: 'editor',
+    handleReturn: () => 'not-handled',
     placeholder: 'Tell a story...',
   };
 
@@ -41,7 +43,11 @@ class Editor extends Component<Props, State> {
     };
   }
 
-  handleReturn = (): string => 'handled';
+  handleReturn = (): string => {
+    const { editorState } = this.state;
+    const { handleReturn } = this.props;
+    return handleReturn ? handleReturn(editorState) : 'not-handled';
+  }
 
   onChange = (editorState: EditorState) => this.setState({ editorState });
 
