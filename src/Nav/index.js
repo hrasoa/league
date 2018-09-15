@@ -33,13 +33,13 @@ const Nav = () => (
       <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
         <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
-            <Link to="/">
+            <Link to="/" title="Home">
               <Logo className={styles.logo} />
             </Link>
           </li>
-          {links.map((link, i) => (
+          {links.map(link => (
             <li key={link.to} className={uMarginRight}>
-              <Link to={`${i}-${link.to}`}>
+              <Link to={link.to} title={link.label}>
                 {link.label}
               </Link>
             </li>
