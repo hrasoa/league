@@ -3,7 +3,7 @@ import React from 'react';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
-import Input from './Input';
+import Editor from './Editor';
 import styles from './Search.scss';
 
 type Props = {
@@ -14,7 +14,7 @@ const Search = ({ placeholder }: Props) => (
   <form className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
-        <Input placeholder={placeholder} />
+        <Editor placeholder={placeholder} />
       </div>
     </div>
   </form>
