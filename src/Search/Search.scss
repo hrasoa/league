@@ -1,6 +1,5 @@
 .root {
   @include inuit-font-size($inuit-font-size-h1, +1);
-  @include global-font-family();
   text-align: center;
 }
 
