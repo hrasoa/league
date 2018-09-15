@@ -86,7 +86,9 @@ module.exports = {
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
-          !dev && new BundleAnalyzerPlugin(),
+          !dev && new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+          }),
         ].filter(Boolean),
       };
     }
