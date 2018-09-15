@@ -6,6 +6,7 @@ import Draft, {
 } from 'draft-js';
 
 type Props = {
+  editorKey?: string,
   placeholder?: string
 }
 
@@ -29,6 +30,7 @@ const emptyContentState = Draft.convertFromRaw({
 
 class Editor extends Component<Props, State> {
   static defaultProps = {
+    editorKey: 'editor',
     placeholder: 'Search...',
   };
 
@@ -45,10 +47,10 @@ class Editor extends Component<Props, State> {
 
   render() {
     const { editorState } = this.state;
-    const { placeholder } = this.props;
+    const { placeholder, editorKey } = this.props;
     return (
       <DraftEditor
-        editorKey="editor"
+        editorKey={editorKey}
         handleReturn={this.handleReturn}
         placeholder={placeholder}
         editorState={editorState}

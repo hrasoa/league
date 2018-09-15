@@ -14,7 +14,10 @@ const Search = ({ placeholder }: Props) => (
   <form className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
-        <Editor placeholder={placeholder} />
+        <Editor
+          editorKey="search-player"
+          placeholder={placeholder}
+        />
       </div>
     </div>
   </form>
