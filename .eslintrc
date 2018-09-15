@@ -24,6 +24,8 @@
     "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-one-expression-per-line": ["error", { "allow": "literal" }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": ["error", { "forbidDefaultForRequired": false }],
+    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
     "sort-keys": ["error", "asc"]
   }
 }

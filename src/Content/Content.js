@@ -6,7 +6,7 @@ import styles from './Content.scss';
 import classname from '../classname';
 
 type Props = {
-  lift?: boolean,
+  lift: boolean,
   children: Node
 }
 

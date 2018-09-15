@@ -6,9 +6,9 @@ import Draft, {
 } from 'draft-js';
 
 type Props = {
-  editorKey?: string,
-  handleReturn?: (editorState: EditorState) => string,
-  placeholder?: string
+  editorKey: string,
+  handleReturn: (editorState: EditorState) => string,
+  placeholder: string
 }
 
 type State = {
