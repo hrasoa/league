@@ -6,7 +6,13 @@ type Props = {
   className?: ?string
 }
 
-const Logo = ({ className }: Props) => <img src={logo} className={className} alt="logo" />;
+const Logo = ({ className }: Props) => (
+  <img
+    alt="logo"
+    className={className}
+    src={logo}
+  />
+);
 
 Logo.defaultProps = {
   className: null,

@@ -26,6 +26,11 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": ["error", { "forbidDefaultForRequired": false }],
     "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
+    "react/jsx-sort-props": ["error", {
+      "callbacksLast": true,
+      "ignoreCase": true,
+      "reservedFirst": true
+    }],
     "sort-keys": ["error", "asc"]
   }
 }

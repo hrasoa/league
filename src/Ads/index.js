@@ -3,7 +3,10 @@ import { adsense } from './Banner.scss';
 
 const Banner = () => (
   <div className={adsense}>
-    <img src="https://via.placeholder.com/728x90/AAA?text=728x90" alt="" />
+    <img
+      alt="adsense"
+      src="https://via.placeholder.com/728x90/AAA?text=728x90"
+    />
   </div>
 );
 

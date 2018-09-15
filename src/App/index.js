@@ -16,9 +16,9 @@ const App = () => (
       <Banner />
     </Header>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/players" component={Players} />
-      <Route exact path="/teams" component={Teams} />
+      <Route component={Home} exact path="/" />
+      <Route component={Players} exact path="/players" />
+      <Route component={Teams} exact path="/teams" />
     </Switch>
   </Fragment>
 );

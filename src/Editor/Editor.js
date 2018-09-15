@@ -57,9 +57,9 @@ class Editor extends Component<Props, State> {
     return (
       <DraftEditor
         editorKey={editorKey}
+        editorState={editorState}
         handleReturn={this.handleReturn}
         placeholder={placeholder}
-        editorState={editorState}
         onChange={this.onChange}
       />
     );

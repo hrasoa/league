@@ -15,13 +15,13 @@ const Nav = () => (
       <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
         <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
-            <Link to="/" title="Home">
+            <Link title="Home" to="/">
               <Logo className={styles.logo} />
             </Link>
           </li>
           {links.map(link => (
             <li key={link.to} className={uMarginRight}>
-              <Link to={link.to} title={link.label}>
+              <Link title={link.label} to={link.to}>
                 {link.label}
               </Link>
             </li>
