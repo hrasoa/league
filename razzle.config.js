@@ -60,7 +60,6 @@ module.exports = {
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 1,
-                    // minimize: !dev,
                   },
                 },
                 {
