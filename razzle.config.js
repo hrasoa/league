@@ -1,6 +1,7 @@
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const merge = require('lodash/merge');
 
 module.exports = {
@@ -85,6 +86,7 @@ module.exports = {
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
+          !dev && new BundleAnalyzerPlugin(),
         ].filter(Boolean),
       };
     }
