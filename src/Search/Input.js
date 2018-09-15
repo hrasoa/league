@@ -34,10 +34,9 @@ class Input extends Component<Props, State> {
     this.state = {
       editorState: EditorState.createWithContent(emptyContentState),
     };
-    this.onChange = editorState => this.setState({ editorState });
   }
 
-  onChange: Function
+  onChange = (editorState: EditorState) => this.setState({ editorState });
 
   render() {
     const { editorState } = this.state;
