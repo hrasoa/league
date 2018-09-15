@@ -7,22 +7,16 @@ import classname from '../classname';
 import Logo from '../Logo';
 import User from './User';
 import links from './links';
-import {
-  root,
-  fixed,
-  wrapper,
-  list,
-  logo,
-} from './Nav.scss';
+import styles from './Nav.scss';
 
 const Nav = () => (
-  <nav className={root}>
-    <div className={fixed}>
-      <div className={classname(wrapper, oWrapper, uPaddingVerticalSmall)}>
-        <ul className={classname(list, oListInline)}>
+  <nav className={styles.root}>
+    <div className={styles.fixed}>
+      <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
+        <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
             <Link to="/" title="Home">
-              <Logo className={logo} />
+              <Logo className={styles.logo} />
             </Link>
           </li>
           {links.map(link => (
