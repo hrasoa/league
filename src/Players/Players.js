@@ -10,7 +10,7 @@ const Players = () => (
       placeholder="Enter a player name..."
     />
     <Filters>
-      filters
+      Filter by
     </Filters>
     <Listing>
       list

@@ -32,10 +32,8 @@
 }
 
 .list {
+  align-items: center;
+  display: flex;
+  float: left;
   margin-bottom: 0;
-
-  > li {
-    float: left;
-    line-height: 30px;
-  }
 }

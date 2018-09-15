@@ -60,6 +60,7 @@ module.exports = {
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 1,
+                    sourceMap: dev,
                   },
                 },
                 {
