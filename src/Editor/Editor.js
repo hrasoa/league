@@ -46,7 +46,7 @@ class Editor extends Component<Props, State> {
   handleReturn = (): string => {
     const { editorState } = this.state;
     const { handleReturn } = this.props;
-    return handleReturn ? handleReturn(editorState) : 'not-handled';
+    return handleReturn(editorState);
   }
 
   onChange = (editorState: EditorState) => this.setState({ editorState });
