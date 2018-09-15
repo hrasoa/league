@@ -1,4 +1,4 @@
 html {
-  @include font-family();
+  @include global-font-family();
   color: $black;
 }
