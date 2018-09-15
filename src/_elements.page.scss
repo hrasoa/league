@@ -1,4 +1,6 @@
 html {
   @include global-font-family();
   color: $soft-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
