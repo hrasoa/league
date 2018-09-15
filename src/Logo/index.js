@@ -1,7 +1,15 @@
+// @flow
 import React from 'react';
-import { root } from './Logo.scss';
 import logo from './nav_logoman.svg';
 
-const Logo = () => <img src={logo} className={root} alt="logo" />;
+type Props = {
+  className?: ?string
+}
+
+const Logo = ({ className }: Props) => <img src={logo} className={className} alt="logo" />;
+
+Logo.defaultProps = {
+  className: null,
+};
 
 export default Logo;

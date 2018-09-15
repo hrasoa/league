@@ -15,7 +15,7 @@ const Nav = () => (
         <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
             <Link to="/">
-              <Logo />
+              <Logo className={styles.logo} />
             </Link>
           </li>
           <li className={uMarginRight}>
