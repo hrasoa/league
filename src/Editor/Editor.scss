@@ -1,5 +1,7 @@
 :global {
   .DraftEditor-root {
+    position: relative;
+
     .public-DraftEditorPlaceholder-root {
       opacity: .3;
       position: absolute;
