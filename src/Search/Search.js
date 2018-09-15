@@ -7,7 +7,7 @@ import Editor from '../Editor';
 import styles from './Search.scss';
 
 type Props = {
-  placeholder?: string
+  placeholder: string
 }
 
 const Search = ({ placeholder }: Props) => (
