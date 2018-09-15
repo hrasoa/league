@@ -4,7 +4,6 @@ import Draft, {
   Editor as DraftEditor,
   EditorState,
 } from 'draft-js';
-import styles from './Editor.scss';
 
 type Props = {
   editorKey: string,
@@ -57,7 +56,6 @@ class Editor extends Component<Props, State> {
     const { placeholder, editorKey } = this.props;
     return (
       <DraftEditor
-        className={styles.DraftEditorRoot}
         editorKey={editorKey}
         editorState={editorState}
         handleReturn={this.handleReturn}

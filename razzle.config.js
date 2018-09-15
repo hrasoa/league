@@ -28,15 +28,13 @@ module.exports = {
       const optimization = dev ? config.optimization : merge(config.optimization, {
         splitChunks: {
           cacheGroups: {
-            shared: {
-              chunks: 'all',
-              minChunks: 2,
-              minSize: 1,
-              name: 'shared',
-              test: /.*\.scss/,
+            commons: {
+              chunks: 'async',
+              name: true,
+              test: /[\\/]node_modules[\\/].*\.js/,
             },
             vendor: {
-              chunks: 'all',
+              chunks: 'initial',
               name: 'vendor',
               test: /[\\/]node_modules[\\/].*\.js/,
             },
@@ -61,7 +59,7 @@ module.exports = {
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 1,
-                    minimize: !dev,
+                    // minimize: !dev,
                   },
                 },
                 {

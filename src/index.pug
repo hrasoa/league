@@ -11,7 +11,8 @@ html(lang='en')
   body
     #root !{markup}
     if prod
-      script(src=assets.vendor.js)
+      if assets.vendor
+        script(src=assets.vendor.js)      
       script(src=assets.client.js)
     else
       script(src=assets.client.js crossorigin)

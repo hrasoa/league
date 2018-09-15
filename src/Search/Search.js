@@ -7,15 +7,17 @@ import Editor from '../Editor';
 import styles from './Search.scss';
 
 type Props = {
-  placeholder: string
+  placeholder: string,
+  editorKey: string
 }
 
-const Search = ({ placeholder }: Props) => (
+const Search = ({ placeholder, editorKey }: Props) => (
   <div className={styles.root}>
     <div className={oWrapper}>
       <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
         <div className={styles.editor}>
           <Editor
+            editorKey={editorKey}
             handleReturn={() => 'handled'}
             placeholder={placeholder}
           />
@@ -24,9 +26,5 @@ const Search = ({ placeholder }: Props) => (
     </div>
   </div>
 );
-
-Search.defaultProps = {
-  placeholder: 'Search ...',
-};
 
 export default Search;

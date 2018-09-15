@@ -5,7 +5,10 @@ import Listing from '../Listing';
 
 const Teams = () => (
   <div>
-    <Search id="search-player" placeholder="Enter a team name..." />
+    <Search
+      editorKey="team-search"
+      placeholder="Enter a team name..."
+    />
     <Filters>
       filters
     </Filters>

@@ -39,7 +39,7 @@ server.get('/*', (req: express$Request, res: express$Response) => {
           ? `/${chunk.file}`
           : `http://${process.env.HOST || 'localhost'}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
         ),
-      ).filter(chunk => chunk !== assets.client.js),
+      ).filter(chunk => assets.client && chunk !== assets.client.js),
       markup,
       prod,
       styles: styles.map(style => `/${style.file}`),

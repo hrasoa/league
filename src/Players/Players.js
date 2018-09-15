@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Search from '../Search';
 import Filters from '../Filters';
 import Listing from '../Listing';
 
 const Players = () => (
-  <div>
-    <Search placeholder="Enter a player name..." />
+  <Fragment>
+    <Search
+      editorKey="player-search"
+      placeholder="Enter a player name..."
+    />
     <Filters>
       filters
     </Filters>
     <Listing>
       list
     </Listing>
-  </div>
+  </Fragment>
 );
 
 export default Players;
