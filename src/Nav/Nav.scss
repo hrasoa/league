@@ -1,14 +1,16 @@
 .root {
   background: $black;
   height: 54px;
-  
-  a {
-    color: $soft-white;
-    display: block;
+}
 
-    &:not(:hover) {
-      text-decoration: none;
-    }
+.link {
+  color: $soft-white;
+  display: block;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    text-decoration: underline;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { oListInline } from 'inuitcss/objects/_objects.list-inline.scss';
 import { uPaddingVerticalSmall, uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
@@ -15,15 +15,20 @@ const Nav = () => (
       <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
         <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
-            <Link title="Home" to="/">
+            <NavLink title="Home" to="/">
               <Logo className={styles.logo} />
-            </Link>
+            </NavLink>
           </li>
           {links.map(link => (
             <li key={link.to} className={uMarginRight}>
-              <Link title={link.label} to={link.to}>
+              <NavLink
+                activeClassName={styles.active}
+                className={styles.link}
+                title={link.label}
+                to={link.to}
+              >
                 {link.label}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
