@@ -7,7 +7,7 @@
   color: $soft-white;
   display: block;
 
-  &:not(.active) {
+  &:not(:hover):not(.active) {
     text-decoration: none;
   }
 }
