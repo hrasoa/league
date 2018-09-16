@@ -1,7 +1,10 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
-import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
+import {
+  uMarginVerticalLarge,
+  uPaddingVerticalTiny,
+} from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import Editor from '../Editor';
 import styles from './Search.scss';
@@ -11,24 +14,41 @@ type Props = {
   editorKey: string
 }
 
-const Search = ({ placeholder, editorKey }: Props) => (
-  <form className={styles.root}>
-    <div className={oWrapper}>
-      <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
-        <div className={styles.editor}>
-          <Editor
-            editorKey={editorKey}
-            handleReturn={() => 'handled'}
-            placeholder={placeholder}
-            onChange={(editorState) => {
-              console.log(editorState.getCurrentContent().hasText());
-              console.log(editorState.getCurrentContent().getPlainText());
-            }}
-          />
+type State = {
+  hasText: boolean
+}
+
+class Search extends Component<Props, State> {
+  state = {
+    hasText: false,
+  }
+
+  handleChange = (editorState: EditorState) => {
+    this.setState({
+      hasText: editorState.getCurrentContent().hasText(),
+    });
+  }
+
+  render() {
+    const { hasText } = this.state;
+    const { placeholder, editorKey } = this.props;
+    return (
+      <form className={styles.root}>
+        <div className={oWrapper}>
+          <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
+            <div className={classname(styles.editor, hasText ? styles.hasText : '')}>
+              <Editor
+                editorKey={editorKey}
+                handleReturn={() => 'handled'}
+                placeholder={placeholder}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </form>
-);
+      </form>
+    );
+  }
+}
 
 export default Search;
