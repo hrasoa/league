@@ -8,6 +8,7 @@ const Players = () => (
     <Search
       editorKey="player-search"
       placeholder="Enter a player name..."
+      onChange={console.log}
     />
     <Filters>
       Filter by

@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import { EditorState } from 'draft-js';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
@@ -9,21 +8,33 @@ import styles from './Search.scss';
 
 type Props = {
   placeholder: string,
-  editorKey: string
+  editorKey: string,
+  onChange: ({ hasText: boolean, plainText: string }) => void,
 }
 
 type State = {
-  hasText: boolean
+  hasText: boolean,
+  plainText: string
 }
 
 class Search extends Component<Props, State> {
   state = {
     hasText: false,
+    plainText: '',
   }
 
-  handleChange = (editorState: EditorState) => {
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    const { onChange } = this.props;
+    const { hasText, plainText } = this.state;
+    if (onChange && prevState.plainText !== plainText) {
+      onChange({ hasText, plainText });
+    }
+  }
+
+  handleChange = (editorState: { hasText: boolean, plainText: string }) => {
     this.setState({
-      hasText: editorState.getCurrentContent().hasText(),
+      hasText: editorState.hasText,
+      plainText: editorState.plainText,
     });
   }
 

@@ -10,7 +10,7 @@ import styles from './Editor.scss';
 type Props = {
   editorKey: string,
   handleReturn: (editorState: EditorState) => string,
-  onChange: (editorState: EditorState) => string,
+  onChange: ({ hasText: boolean, plainText: string }) => void,
   placeholder: string
 }
 
@@ -64,7 +64,10 @@ class Editor extends Component<Props, State> {
       plainText !== prevPlainText
       && !is(blockMap, prevBlockMap)
     ) {
-      onChange(editorState);
+      onChange({
+        hasText: contentState.hasText(),
+        plainText,
+      });
     }
   }
 
