@@ -2,10 +2,7 @@
 import React, { Component } from 'react';
 import { EditorState } from 'draft-js';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
-import {
-  uMarginVerticalLarge,
-  uPaddingVerticalTiny,
-} from 'inuitcss/utilities/_utilities.spacings.scss';
+import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import Editor from '../Editor';
 import styles from './Search.scss';
