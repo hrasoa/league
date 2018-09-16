@@ -7,7 +7,7 @@ const merge = require('lodash/merge');
 module.exports = {
   modify: (config, { target, dev }) => {
     const cssLoaderOpts = {
-      camelCase: 'dashes',
+      camelCase: true,
       localIdentName: dev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
     };
