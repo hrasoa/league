@@ -42,6 +42,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "flow-bin": "^0.80.0",
     "flow-typed": "^2.5.1",
+    "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.0",
@@ -54,5 +55,10 @@
     "stylelint-scss": "^3.3.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "webpack-bundle-analyzer": "^3.0.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.scss$": "identity-obj-proxy"
+    }
   }
 }
