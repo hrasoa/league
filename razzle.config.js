@@ -32,12 +32,12 @@ module.exports = {
             commons: {
               chunks: 'async',
               name: true,
-              test: /[\\/]node_modules[\\/]/,
+              test: /[\\/]node_modules[\\/].*\.js/,
             },
             vendor: {
               chunks: 'initial',
               name: 'vendor',
-              test: /[\\/]node_modules[\\/]/,
+              test: /[\\/]node_modules[\\/].*\.js/,
             },
           },
         },
