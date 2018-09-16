@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { EditorState } from 'draft-js';
 import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import {
   uMarginVerticalLarge,
