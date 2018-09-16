@@ -20,6 +20,10 @@ const Search = ({ placeholder, editorKey }: Props) => (
             editorKey={editorKey}
             handleReturn={() => 'handled'}
             placeholder={placeholder}
+            onChange={(editorState) => {
+              console.log(editorState.getCurrentContent().hasText());
+              console.log(editorState.getCurrentContent().getPlainText());
+            }}
           />
         </div>
       </div>

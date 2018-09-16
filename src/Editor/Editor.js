@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { is } from 'immutable';
 import Draft, {
   Editor as DraftEditor,
   EditorState,
@@ -9,6 +10,7 @@ import styles from './Editor.scss';
 type Props = {
   editorKey: string,
   handleReturn: (editorState: EditorState) => string,
+  onChange: (editorState: EditorState) => string,
   placeholder: string
 }
 
@@ -34,6 +36,7 @@ class Editor extends Component<Props, State> {
   static defaultProps = {
     editorKey: 'editor',
     handleReturn: () => 'not-handled',
+    onChange: null,
     placeholder: 'Tell a story...',
   };
 
@@ -42,6 +45,27 @@ class Editor extends Component<Props, State> {
     this.state = {
       editorState: EditorState.createWithContent(emptyContentState),
     };
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    const { onChange } = this.props;
+    if (!onChange) {
+      return;
+    }
+    const { editorState: prevEditorState } = prevState;
+    const { editorState } = this.state;
+    const prevContentState = prevEditorState.getCurrentContent();
+    const contentState = editorState.getCurrentContent();
+    const prevPlainText = prevContentState.getPlainText();
+    const plainText = contentState.getPlainText();
+    const prevBlockMap = prevContentState.getBlockMap();
+    const blockMap = contentState.getBlockMap();
+    if (
+      plainText !== prevPlainText
+      && !is(blockMap, prevBlockMap)
+    ) {
+      onChange(editorState);
+    }
   }
 
   handleReturn = (): string => {
