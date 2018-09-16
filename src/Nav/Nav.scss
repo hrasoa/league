@@ -6,11 +6,9 @@
 .link {
   color: $soft-white;
   display: block;
-  text-decoration: none;
 
-  &:hover,
-  &.active {
-    text-decoration: underline;
+  &:not(.active) {
+    text-decoration: none;
   }
 }
 
