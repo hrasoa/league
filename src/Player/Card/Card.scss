@@ -3,6 +3,10 @@
   padding: 12px 24px;
 }
 
+.wrapper {
+  position: relative;
+}
+
 .outer-shadow {
   filter: drop-shadow(0 0 2px transparentize($black, .6));
 }
@@ -16,4 +20,19 @@
 .inner-shape {
   background-color: transparentize($black, .3);
   clip-path: polygon(96% 0, 100% 6%, 100% 86%, 50% 100%, 0 86%, 0 6%, 6% 0);
+}
+
+.bio {
+  background-color: $dark-slate-gray;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  text-align: center;
+  transform: translateY(-16px);
+}
+
+.name {
+  background-color: transparentize($black, .3);
+  color: $dark-slate-gray;
+  display: block;
+  padding: 4px 0;
 }
