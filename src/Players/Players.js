@@ -1,7 +1,13 @@
 import React, { Fragment } from 'react';
+import Card from '../Player/Card';
 import Search from '../Search';
 import Filters from '../Filters';
 import Listing from '../Listing';
+
+const items = [];
+for (let i = 0; i < 9; i += 1) {
+  items.push({ key: `item-${i}` });
+}
 
 const Players = () => (
   <Fragment>
@@ -13,8 +19,12 @@ const Players = () => (
     <Filters>
       Filter by
     </Filters>
-    <Listing>
-      list
+    <Listing items={items}>
+      {() => (
+        <a href="/">
+          <Card />
+        </a>
+      )}
     </Listing>
   </Fragment>
 );

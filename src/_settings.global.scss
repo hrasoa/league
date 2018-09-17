@@ -47,6 +47,10 @@ $dark-slate-green:  #4B998A !default;
   font-family: $global-font-family;
 }
 
+@mixin global-radius() {
+  border-radius: $global-radius;
+}
+
 @mixin global-box-shadow() {
   box-shadow: 0 0 6px 0 transparentize($midnight-blue, .9);
 }

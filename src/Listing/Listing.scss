@@ -2,3 +2,9 @@
   background-color: #f9f9f9;
   min-height: 500px;
 }
+
+.list {
+  display: grid;
+  grid-gap: $inuit-global-spacing-unit;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
