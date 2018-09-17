@@ -34,15 +34,17 @@ server.get('/*', (req: express$Request, res: express$Response) => {
     const prod = process.env.NODE_ENV === 'production';
     res.status(200).render('index', {
       assets,
-      chunks: chunks.map(
-        chunk => (prod
-          ? `/${chunk.file}`
-          : `http://${process.env.HOST || 'localhost'}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
-        ),
-      ).filter(chunk => assets.client && chunk !== assets.client.js),
+      chunks: [...new Set(
+        chunks.map(
+          chunk => (prod
+            ? `/${chunk.file}`
+            : `http://${process.env.HOST || 'localhost'}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
+          ),
+        ).filter(chunk => assets.client && chunk !== assets.client.js),
+      )],
       markup,
       prod,
-      styles: styles.map(style => `/${style.file}`),
+      styles: [...new Set(styles.map(style => `/${style.file}`))],
     });
   }
 });
