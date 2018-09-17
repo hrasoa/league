@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Card.scss';
 import image from './card.png';
+import team from './team.png';
 
 const Card = () => (
   <div className={styles.root}>
@@ -9,6 +10,9 @@ const Card = () => (
         <div className={styles.outerShape}>
           <div>
             <div className={styles.innerShape}>
+              <span className={styles.team}>
+                <img alt="" src={team} />
+              </span>
               <img alt="" src={image} />
             </div>
           </div>

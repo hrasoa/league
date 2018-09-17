@@ -1,6 +1,6 @@
 .root {
   background-color: $dark-slate-gray;
-  padding: 12px 24px;
+  padding: 24px;
 }
 
 .wrapper {
@@ -13,13 +13,14 @@
 
 .outer-shape {
   background-color: $dark-slate-gray;
-  clip-path: polygon(96% 0, 100% 6%, 100% 86%, 50% 100%, 0 86%, 0 6%, 6% 0);
+  clip-path: polygon(93% 0, 100% 7%, 100% 86%, 50% 100%, 0 86%, 0 7%, 7% 0);
   padding: 8px;
 }
 
 .inner-shape {
   background-color: transparentize($black, .3);
-  clip-path: polygon(96% 0, 100% 6%, 100% 86%, 50% 100%, 0 86%, 0 6%, 6% 0);
+  clip-path: polygon(95% 0, 100% 5%, 100% 86%, 50% 100%, 0 86%, 0 5%, 5% 0);
+  position: relative;
 }
 
 .bio {
@@ -35,4 +36,21 @@
   color: $dark-slate-gray;
   display: block;
   padding: 4px 0;
+}
+
+.team {
+  left: 8px;
+  min-width: 30px;
+  position: absolute;
+  top: 8px;
+  width: 25%;
+  z-index: 1;
+}
+
+.pos {
+  background-color: transparentize($black, .3);
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 50px;
 }
