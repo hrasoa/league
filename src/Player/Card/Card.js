@@ -1,15 +1,17 @@
 import React from 'react';
-import image from './card.png';
 import styles from './Card.scss';
+import image from './card.png';
 
 const Card = () => (
   <div className={styles.root}>
-    <div className={styles.thumbnail}>
-      <span className={styles.pos}>cb</span>
-      <img alt="" className={styles.image} src={image} />
-    </div>
-    <div className={styles.profile}>
-      <span className={styles.name}>aiirmad</span>
+    <div className={styles.outerShadow}>
+      <div className={styles.outerShape}>
+        <div>
+          <div className={styles.innerShape}>
+            <img alt="" src={image} />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 );

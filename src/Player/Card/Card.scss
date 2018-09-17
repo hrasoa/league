@@ -1,37 +1,19 @@
 .root {
-  border: 3px solid black;
-  box-shadow: 0 0px 12px 0 rgba(6, 18, 33, 0.6);
-  text-align: center;
+  background-color: $dark-slate-gray;
+  padding: 12px 24px;
 }
 
-.thumbnail {
-  position: relative;
+.outer-shadow {
+  filter: drop-shadow(0 0 2px transparentize($black, .6));
 }
 
-.pos {
-  background-color: black;
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
-  color: #4B998A;
-  height: 32px;
-  left: 0px;
-  line-height: 32px;
-  position: absolute;
-  text-transform: uppercase;
-  top: 0;
-  width: 32px;
-}
-
-.profile {
-  background-color: black;
-  border-top: 3px solid black;
-  color: #fff;
+.outer-shape {
+  background-color: $dark-slate-gray;
+  clip-path: polygon(96% 0, 100% 6%, 100% 86%, 50% 100%, 0 86%, 0 6%, 6% 0);
   padding: 8px;
 }
 
-.name {
-  background-color: #4B998A;
-  box-shadow: inset 0 0 4px 2px rgba(0, 0, 0, .2);
-  color: black;
-  display: block;
+.inner-shape {
+  background-color: transparentize($black, .3);
+  clip-path: polygon(96% 0, 100% 6%, 100% 86%, 50% 100%, 0 86%, 0 6%, 6% 0);
 }
