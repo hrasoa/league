@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Search from '../Search';
 import Filters from '../Filters';
@@ -12,7 +13,7 @@ const Teams = () => (
     <Filters>
       filters
     </Filters>
-    <Listing>
+    <Listing items={[]}>
       list
     </Listing>
   </div>

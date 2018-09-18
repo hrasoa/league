@@ -8,13 +8,11 @@ const Card = () => (
     <div className={styles.wrapper}>
       <div className={styles.outerShadow}>
         <div className={styles.outerShape}>
-          <div>
-            <div className={styles.innerShape}>
-              <span className={styles.team}>
-                <img alt="" src={team} />
-              </span>
-              <img alt="" src={image} />
-            </div>
+          <div className={styles.innerShape}>
+            <span className={styles.team}>
+              <img alt="" src={team} />
+            </span>
+            <img alt="" src={image} />
           </div>
         </div>
       </div>
