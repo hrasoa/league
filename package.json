@@ -43,6 +43,7 @@
     "flow-bin": "^0.80.0",
     "flow-typed": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
+    "lqip-cli": "^0.2.2",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "postcss-reporter": "^6.0.0",

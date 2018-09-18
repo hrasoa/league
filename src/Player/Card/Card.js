@@ -20,6 +20,13 @@ const Card = () => (
         <div className={styles.bio}>
           <span className={styles.name}>aiirmad</span>
         </div>
+        <div className={styles.posOuterShadow}>
+          <div className={styles.posOuterShape}>
+            <div className={styles.posInnerShape}>
+              <span className={styles.posLabel}>CDM</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,3 +1,5 @@
+// https://bennettfeely.com/clippy/
+
 .outer-shape {
   background-color: $dark-slate-gray;
   clip-path: polygon(93% 0, 100% 7%, 100% 86%, 50% 100%, 0 86%, 0 7%, 7% 0);
@@ -102,8 +104,9 @@
   background-color: $dark-slate-gray;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   padding: 4px;
+  position: relative;
   text-align: center;
-  transform: translateY(-16px);
+  z-index: 1;
 }
 
 .name {
@@ -124,10 +127,30 @@
   z-index: 1;
 }
 
-.pos {
-  background-color: transparentize($black, .3);
-  display: block;
-  margin: 0 auto;
+.pos-outer-shadow {
+  filter: drop-shadow(0 0 2px transparentize($black, .6));
+}
+
+.pos-outer-shape {
+  background-color: $dark-slate-gray;
+  clip-path: polygon(90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%, 10% 0);
+  margin: auto;
+  max-width: 100px;
+  padding: 4px;
+  position: relative;
   text-align: center;
-  width: 50px;
+  width: 50%;
+}
+
+.pos-inner-shape {
+  clip-path: polygon(92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%, 8% 0);
+}
+
+.pos-label {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #9FBDBF;
+  display: block;
+  font-weight: bold;
+  padding: 4px 0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
