@@ -1,56 +1,3 @@
-.root {
-  overflow: hidden;
-  padding: 8px;
-  position: relative;
-
-  &::before {
-    background: linear-gradient(
-      to right,
-      #9fbdbf 0%,
-      #90acaf 25%,
-      #9fbdbf 45%,
-      #9fbdbf 65%,
-      #90acaf 75%,
-      #9fbdbf 100%
-    );
-    background-color: #9FBDBF;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0px;
-    transform-origin: left;
-    transition: transform .2s;
-    width: 110%;
-    z-index: 0;
-  }
-
-  &:hover::before {
-    transform: scaleX(1.2);
-  }
-
-  &:hover .outer-shape::before {
-    transform: scaleX(1.05);
-  }
-}
-
-.inner {
-  background-color: rgba(0, 0, 0, .3);
-  box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .4);
-  padding: 16px;
-  position: relative;
-  z-index: 1;
-}
-
-.wrapper {
-  position: relative;
-}
-
-.outer-shadow {
-  filter: drop-shadow(0 0 2px transparentize($black, .6));
-}
-
 .outer-shape {
   background-color: $dark-slate-gray;
   clip-path: polygon(93% 0, 100% 7%, 100% 86%, 50% 100%, 0 86%, 0 7%, 7% 0);
@@ -76,15 +23,68 @@
     opacity: 1;
     position: absolute;
     top: 0px;
-    transform-origin: left;
-    transition: transform .2s;
+    transform-origin: center;
+    transition: transform .1s ease-in;
     width: 100%;
     z-index: 0;
   }
 }
 
+.root {
+  overflow: hidden;
+  padding: 8px;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(
+      to right,
+      #9fbdbf 0%,
+      #90acaf 25%,
+      #9fbdbf 45%,
+      #9fbdbf 65%,
+      #90acaf 75%,
+      #9fbdbf 100%
+    );
+    background-color: #9FBDBF;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    transform-origin: center;
+    transition: transform .2s ease-in;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &:hover .outer-shape::before {
+    transform: scaleX(1.05);
+  }
+
+  &:hover::before {
+    transform: scaleX(1.2);
+  }
+}
+
+.inner {
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .4);
+  padding: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.outer-shadow {
+  filter: drop-shadow(0 0 2px transparentize($black, .6));
+}
+
 .inner-shape {
-  background-color: transparentize($black, .3);
+  background-color: darken($dark-slate-gray, 58%);
   clip-path: polygon(95% 0, 100% 5%, 100% 86%, 50% 100%, 0 86%, 0 5%, 5% 0);
   position: relative;
 }
