@@ -1,5 +1,13 @@
 .root {
-  background: linear-gradient(to right, #9fbdbf 0%, #809698 20%, #9fbdbf 40%, #9fbdbf 60%, #788e90 80%, #9fbdbf 100%);
+  background: linear-gradient(
+    to right,
+    #9fbdbf 0%,
+    #90acaf 25%,
+    #9fbdbf 45%,
+    #9fbdbf 65%,
+    #90acaf 75%,
+    #9fbdbf 100%
+  );
   background-color: $dark-slate-gray;
   padding: 8px;
 }
