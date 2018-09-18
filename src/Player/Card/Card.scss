@@ -1,21 +1,46 @@
 .root {
-  background: linear-gradient(
-    to right,
-    #9fbdbf 0%,
-    #90acaf 25%,
-    #9fbdbf 45%,
-    #9fbdbf 65%,
-    #90acaf 75%,
-    #9fbdbf 100%
-  );
-  background-color: $dark-slate-gray;
+  overflow: hidden;
   padding: 8px;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(
+      to right,
+      #9fbdbf 0%,
+      #90acaf 25%,
+      #9fbdbf 45%,
+      #9fbdbf 65%,
+      #90acaf 75%,
+      #9fbdbf 100%
+    );
+    background-color: #9FBDBF;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    transform-origin: left;
+    transition: transform .2s;
+    width: 110%;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    transform: scaleX(1.2);
+  }
+
+  &:hover .outer-shape::before {
+    transform: scaleX(1.05);
+  }
 }
 
 .inner {
   background-color: rgba(0, 0, 0, .3);
   box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .4);
   padding: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .wrapper {
@@ -27,18 +52,35 @@
 }
 
 .outer-shape {
-  background: linear-gradient(
-    to right,
-    rgba(159,189,191,1) 0%,
-    rgba(60,70,71,1) 20%,
-    rgba(159,189,191,1) 40%,
-    rgba(159,189,191,1) 60%,
-    rgba(60,70,71,1) 80%,
-    rgba(159,189,191,1) 100%
-  );
   background-color: $dark-slate-gray;
   clip-path: polygon(93% 0, 100% 7%, 100% 86%, 50% 100%, 0 86%, 0 7%, 7% 0);
   padding: 8px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    background: linear-gradient(
+      to right,
+      #9fbdbf 0%,
+      #3c4647 20%,
+      #9fbdbf 40%,
+      #9fbdbf 60%,
+      #3c4647 80%,
+      #9fbdbf 100%
+    );
+    background-color: #9FBDBF;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    transform-origin: left;
+    transition: transform .2s;
+    width: 100%;
+    z-index: 0;
+  }
 }
 
 .inner-shape {
