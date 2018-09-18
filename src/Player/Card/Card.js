@@ -17,13 +17,15 @@ const Card = () => (
             </div>
           </div>
         </div>
-        <div className={styles.bio}>
-          <span className={styles.name}>aiirmad</span>
-        </div>
-        <div className={styles.posOuterShadow}>
-          <div className={styles.posOuterShape}>
-            <div className={styles.posInnerShape}>
-              <span className={styles.posLabel}>CDM</span>
+        <div className={styles.profile}>
+          <div className={styles.bio}>
+            <span className={styles.name}>aiirmad</span>
+          </div>
+          <div className={styles.posOuterShadow}>
+            <div className={styles.posOuterShape}>
+              <div className={styles.posInnerShape}>
+                <span className={styles.posLabel}>CDM</span>
+              </div>
             </div>
           </div>
         </div>
