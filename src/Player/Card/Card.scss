@@ -1,6 +1,13 @@
 .root {
+  background: linear-gradient(to right, #9fbdbf 0%, #809698 20%, #9fbdbf 40%, #9fbdbf 60%, #788e90 80%, #9fbdbf 100%);
   background-color: $dark-slate-gray;
-  padding: 24px;
+  padding: 8px;
+}
+
+.inner {
+  background-color: rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .4);
+  padding: 16px;
 }
 
 .wrapper {
