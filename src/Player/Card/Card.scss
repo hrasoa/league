@@ -133,6 +133,7 @@
 
 .pos-outer-shadow {
   filter: drop-shadow(0 0 2px transparentize($black, .6));
+  margin-top: -4px;
 }
 
 .pos-outer-shape {
@@ -147,7 +148,7 @@
 }
 
 .pos-inner-shape {
-  clip-path: polygon(92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%, 8% 0);
+  clip-path: polygon(91% 0, 99% 50%, 91% 100%, 9% 100%, 1% 50%, 9% 0);
 }
 
 .pos-label {
