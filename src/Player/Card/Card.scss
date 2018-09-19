@@ -82,9 +82,30 @@
   height: 76px;
   position: absolute;
   width: 100%;
+}
 
-  > div {
-    background: linear-gradient(to bottom, #9e9e9e 0%, #2d2d2d 100%);
-    height: 100%;
+.bio {
+  @include inuit-font-size(14px);
+  align-items: center;
+  background: linear-gradient(to bottom, #9e9e9e 0%, #2d2d2d 100%);
+  color: $soft-white;
+  display: flex;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;  
+  padding-top: 16px;
+  text-align: center;
+  text-shadow: 0 0 3px rgba(0,0,0,.7);
+  text-transform: uppercase;
+}
+
+.name {
+  display: inline-block;
+  text-transform: none;
+  
+  &::after {
+    content: '\2022';
+    display: inline-block;
+    margin-left: $inuit-global-spacing-unit-tiny;
   }
 }

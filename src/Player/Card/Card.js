@@ -1,4 +1,5 @@
 import React from 'react';
+import { uMarginRightTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
 import styles from './Card.scss';
 import classname from '../../classname';
 import team from './team.png';
@@ -28,7 +29,12 @@ const Card = () => (
     <div className={styles.bottomShadow}>
       <div className={styles.bottomBorderShape}>
         <div className={styles.bottomShape}>
-          <div />
+          <div className={styles.bio}>
+            <span className={classname(styles.name, uMarginRightTiny)}>
+              aiirmad
+            </span>
+            cb
+          </div>
         </div>
       </div>
     </div>
