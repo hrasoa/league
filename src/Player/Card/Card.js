@@ -1,33 +1,29 @@
 import React from 'react';
 import styles from './Card.scss';
-import image from './card.png';
+import classname from '../../classname';
 import team from './team.png';
 
 const Card = () => (
   <div className={styles.root}>
-    <div className={styles.inner}>
-      <div className={styles.wrapper}>
-        <div className={styles.outerShadow}>
-          <div className={styles.outerShape}>
-            <div className={styles.innerShape}>
-              <span className={styles.team}>
-                <img alt="" src={team} />
-              </span>
-              <img alt="" src={image} />
-            </div>
-          </div>
+    <div className={styles.topShadow}>
+      <div className={classname(styles.top, styles.topBorderShape)}>
+        <div className={styles.topShape}>
+          <div />
         </div>
-        <div className={styles.profile}>
-          <div className={styles.bio}>
-            <span className={styles.name}>aiirmad</span>
-          </div>
-          <div className={styles.posOuterShadow}>
-            <div className={styles.posOuterShape}>
-              <div className={styles.posInnerShape}>
-                <span className={styles.posLabel}>CDM</span>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+    <div className={styles.inner}>
+      <img alt="" className={styles.team} src={team} />
+      <div className={styles.imageShadow}>
+        <div className={styles.imageShape}>
+          <img alt="" src="https://pbs.twimg.com/profile_images/976109234906640384/YQJK5Ilz_400x400.jpg" />
+        </div>
+      </div>
+    </div>
+    <div className={styles.bottomShadow}>
+      <div className={styles.bottomBorderShape}>
+        <div className={styles.bottomShape}>
+          <div />
         </div>
       </div>
     </div>
