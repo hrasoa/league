@@ -60,8 +60,9 @@
 }
 
 .image-bg {
-  filter: blur(10px);
+  filter: blur(4px);
   height: 100%;
+  opacity: .9;
   position: absolute;
   width: 100%;
 }
