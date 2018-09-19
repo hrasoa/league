@@ -1,7 +1,7 @@
 import React from 'react';
 import { uMarginRightTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
-import styles from './Card.scss';
 import classname from '../../classname';
+import styles from './Card.scss';
 import team from './team.png';
 import image from './card.png';
 import crowd from './crowd.jpeg';
