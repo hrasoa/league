@@ -15,9 +15,13 @@
 }
 
 .top-shape {
-  background: blue;
   clip-path: inherit;  
   height: 46px;
+
+  > div {
+    background: linear-gradient(to bottom, darken($dark-slate-gray, 40%) 0%, darken($dark-slate-gray, 60%) 100%);
+    height: 100%;
+  }
 }
 
 .inner {
@@ -46,6 +50,22 @@
   clip-path: polygon(50% 0%, 100% 42px, 100% calc(100% - 42px), 50% 100%, 0 calc(100% - 42px), 0 42px);  
 }
 
+.image-container {
+  background: linear-gradient(to bottom, darken($dark-slate-gray, 20%) 0%, darken($dark-slate-gray, 40%) 100%);
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+}
+
+.image-bg {
+  filter: blur(10px);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
 .bottom-border-shape {
   background-color: $white;
   bottom: 0;  
@@ -55,11 +75,15 @@
   position: relative;
 }
 
-.bottom-shape {
-  background: blue;
+.bottom-shape {  
   bottom: 0;
   clip-path: polygon(16px 0, 50% 16px, calc(100% - 16px) 0, 100% 18%, 100% 100%, 0 100%, 0 18%);
   height: 76px;
   position: absolute;
   width: 100%;
+
+  > div {
+    background: linear-gradient(to bottom, darken($dark-slate-gray, 40%) 0%, darken($dark-slate-gray, 60%) 100%);
+    height: 100%;
+  }
 }

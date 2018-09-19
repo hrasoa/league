@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Card.scss';
 import classname from '../../classname';
 import team from './team.png';
+import image from './card.png';
+import crowd from './crowd.jpeg';
 
 const Card = () => (
   <div className={styles.root}>
@@ -16,7 +18,10 @@ const Card = () => (
       <img alt="" className={styles.team} src={team} />
       <div className={styles.imageShadow}>
         <div className={styles.imageShape}>
-          <img alt="" src="https://pbs.twimg.com/profile_images/976109234906640384/YQJK5Ilz_400x400.jpg" />
+          <div className={styles.imageContainer}>
+            <img alt="" className={styles.imageBg} src={crowd} />
+            <img alt="" className={styles.image} src={image} />
+          </div>
         </div>
       </div>
     </div>
