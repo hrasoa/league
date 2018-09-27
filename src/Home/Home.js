@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import Cover from '../Cover';
-import Content from '../Content';
+import Cover from '../_Cover';
+import Content from '../_Content';
 
 const Home = () => (
   <Fragment>

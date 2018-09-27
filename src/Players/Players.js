@@ -1,9 +1,8 @@
 // @flow
 import React, { Fragment } from 'react';
 import Card from '../Player/Card';
-import Search from '../Search';
-import Filters from '../Filters';
-import Listing from '../Listing';
+import Search from '../_Search/Search';
+import Listing from '../_Listing/Listing';
 import styles from './Players.scss';
 
 const items = [];
@@ -18,9 +17,6 @@ const Players = () => (
       placeholder="Enter a player name..."
       onChange={console.log}
     />
-    <Filters>
-      Filter by
-    </Filters>
     <Listing items={items}>
       {() => (
         <a className={styles.link} href="/">

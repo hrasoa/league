@@ -1,111 +1,11 @@
-// https://bennettfeely.com/clippy/
-
 .root {
-  background-color: rgba(0,0,0,.1);
-  border-radius: 16px;
-  box-shadow: 0 0px 6px 0px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  position: relative;
+  background-color: gray;
+  border-radius: 12px;
+  padding: 12px 0 24px;
 }
 
-.top-border-shape {
-  background-color: $white;
-  clip-path: polygon(0 0, 100% 0, 100% 65%, calc(100% - 16px) 100%, 50% 14px, 16px 100%, 0 65%);
-  height: 56px;
-}
-
-.top-shape {
-  clip-path: inherit;  
-  height: 46px;
-
-  > div {
-    background: linear-gradient(to top, #9e9e9e 0%, #2d2d2d 100%);
-    height: 100%;
-  }
-}
-
-.inner {
-  margin-top: -32px;
-  padding: 0 16px;
-  position: relative;
-}
-
-.team {
-  bottom: 0;
-  left: 50%;
-  max-width: 70px;
-  position: absolute;
-  transform: translate(-50%, 50%);
-  width: 25%;
-  z-index: 1;
-}
-
-.image-shadow,
-.top-shadow,
-.bottom-shadow {
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.6));
-}
-
-.image-shape {
-  clip-path: polygon(50% 0%, 100% 42px, 100% calc(100% - 42px), 50% 100%, 0 calc(100% - 42px), 0 42px);  
-}
-
-.image-container {
-  background: linear-gradient(to bottom, darken($dark-slate-gray, 20%) 0%, darken($dark-slate-gray, 40%) 100%);
-}
-
-.image {
-  position: relative;
-  z-index: 1;
-}
-
-.image-bg {
-  filter: blur(4px);
-  height: 100%;
-  opacity: .9;
-  position: absolute;
-  width: 100%;
-}
-
-.bottom-border-shape {
-  background-color: $white;
-  bottom: 0;  
-  clip-path: polygon(16px 0, 50% 24px, calc(100% - 16px) 0, 100% 18%, 100% 100%, 0 100%, 0 18%);
-  height: 84px;
-  margin-top: -18px;
-  position: relative;
-}
-
-.bottom-shape {  
-  bottom: 0;
-  clip-path: polygon(16px 0, 50% 16px, calc(100% - 16px) 0, 100% 18%, 100% 100%, 0 100%, 0 18%);
-  height: 76px;
-  position: absolute;
-  width: 100%;
-}
-
-.bio {
-  @include inuit-font-size(14px);
-  align-items: center;
-  background: linear-gradient(to bottom, #9e9e9e 0%, #2d2d2d 100%);
-  color: $soft-white;
-  display: flex;
-  font-weight: bold;
-  height: 100%;
-  justify-content: center;  
-  padding-top: 16px;
-  text-align: center;
-  text-shadow: 0 0 3px rgba(0,0,0,.7);
-  text-transform: uppercase;
-}
-
-.name {
-  display: inline-block;
-  text-transform: none;
-  
-  &::after {
-    content: '\2022';
-    display: inline-block;
-    margin-left: $inuit-global-spacing-unit-tiny;
-  }
+.body {
+  background-color: orange;
+  clip-path: url(#player-card-body);
+  padding: 6% 3%;
 }

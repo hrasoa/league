@@ -3,5 +3,8 @@
   "type": "node",
   "request": "attach",
   "protocol": "inspector",
-  "address": "localhost"
+  "address": "localhost",
+  "sourceMapPathOverrides": {
+    "webpack:///*": "${workspaceRoot}/*"
+  }
 }

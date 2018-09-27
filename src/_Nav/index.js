@@ -4,7 +4,7 @@ import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { oListInline } from 'inuitcss/objects/_objects.list-inline.scss';
 import { uPaddingVerticalSmall, uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
-import Logo from '../Logo';
+import Logo from '../_Logo';
 import User from './User';
 import links from './links';
 import styles from './Nav.scss';
