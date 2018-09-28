@@ -65,15 +65,4 @@ server.get('/*', (req: express$Request, res: express$Response) => {
   }
 });
 
-// function readFile(file) {
-//   return new Promise((resolve, reject) => {
-//     fs.readFile(file, (err, data) => {
-//       if (err) {
-//         reject(err);
-//       }
-//       resolve(data);
-//     });
-//   });
-// }
-
 export default server;
