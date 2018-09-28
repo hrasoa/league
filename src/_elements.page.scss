@@ -1,11 +1,9 @@
-html {  
+html {
   color: $soft-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-:global {
-  .font-stage-1 {
-    @include global-font-family();
-  }
+.font-stage-1 {
+  composes: fontStageOne from "../_utilities.fout.scss";
 }

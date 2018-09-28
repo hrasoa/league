@@ -12,6 +12,7 @@ import stats from '../build/react-loadable.json'; // eslint-disable-line import/
 import App from './App';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import openSans from './_Fonts/open-sans-v15-latin-regular.woff2';
+import fout from './_utilities.fout.scss';
 
 const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 const prod = process.env.NODE_ENV === 'production';
@@ -23,6 +24,14 @@ const fonts = prod
   ? [lora, openSans]
   : null;
 const preloadCss = fs.readFileSync(path.join(paths.appNodeModules, 'fg-loadcss/dist/cssrelpreload.min.js'), { encoding: 'utf8' });
+
+const fontStages = {
+  fonts: ['1em Lora Regular', '1em Open Sans Regular'],
+  name: fout.fontStageOne,
+  next: {
+    fonts: ['700 1em Lora Bold', '700 1em Open Sans Regular'],
+  },
+};
 
 const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
@@ -56,6 +65,7 @@ server.get('/*', (req: express$Request, res: express$Response) => {
         ).filter(chunk => assets.client && chunk !== assets.client.js),
       )],
       critical,
+      fontStages,
       fonts,
       markup,
       preloadCss,

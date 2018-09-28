@@ -19,6 +19,7 @@ $inuit-font-size-h5:  18px;
 $inuit-font-size-h6:  16px;
 
 $global-font-family: 'Lora', serif !default;
+$global-font-family-heading: 'Open Sans', sans-serif !default;
 
 $global-radius: 3px !default;
 
@@ -45,6 +46,10 @@ $dark-slate-green:  #4B998A !default;
 
 @mixin global-font-family() {
   font-family: $global-font-family;
+}
+
+@mixin global-font-family-heading() {
+  font-family: $global-font-family-heading;
 }
 
 @mixin global-radius() {

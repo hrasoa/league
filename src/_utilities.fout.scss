@@ -1,0 +1,7 @@
+.font-stage-one {
+  @include global-font-family();
+}
+
+.font-stage-two {
+  @include global-font-family-heading();
+}

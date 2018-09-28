@@ -10,30 +10,31 @@ html(lang='en')
       each font in fonts
         link(rel='prelod' as='font' type='font/woff2' href=font)
       script.
-        if ('fonts' in document) {
-          function fetchFonts(fonts) {
-            return Promise.all(fonts.map(function(font) {
-              return document.fonts.load(font);
-            }));
-          }
+        (function(stages) {
+          var docEl = document.documentElement;
 
-          fetchFonts([
-            '1em Lora Regular',
-            '1em Open Sans Regular'
-          ]).then(function() {
-            var docEl = document.documentElement;
-            docEl.classList.add('font-stage-1');
-            sessionStorage.foutFontsStage1Loaded = true;
+          if ('fonts' in document) {
+            function fetchFonts(fonts) {
+              return Promise.all(fonts.map(function(font) {
+                return document.fonts.load(font);
+              }));
+            }
 
-            fetchFonts([
-              '700 1em Lora Bold',
-              '700 1em Open Sans Regular'
-            ]).then(function() {
-              docEl.classList.add('font-stage-2');
-              sessionStorage.foutFontsStage2Loaded = true;
-            });
-          });
-        } 
+            function fetchState(stage) {              
+              fetchFonts(stage.fonts).then(function() {
+                if (stage.name) {
+                  docEl.classList.add(stage.name);
+                  sessionStorage[stage.name] = true;
+                }                
+                if (stage.next) {
+                  fetchState(stage.next);
+                }
+              });
+            }
+
+            fetchState(stages);
+          } 
+        })(!{JSON.stringify(fontStages)});
       
       each style in styles
         link(rel='preload' as='style' onload='this.rel="stylesheet"' href=style)
