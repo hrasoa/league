@@ -27,39 +27,9 @@ module.exports = {
     };
 
     if (target === 'web') {
-      const optimization = dev ? config.optimization : merge(config.optimization, {
-        splitChunks: {
-          cacheGroups: {
-            commons: {
-              chunks: 'async',
-              name: true,
-              test: /[\\/]node_modules[\\/].*\.js$/,
-            },
-            fonts: {
-              chunks: 'initial',
-              name: 'fonts',
-              test: /(lora|open-sans)\.css$/,
-            },
-            vendor: {
-              chunks: 'initial',
-              name: 'vendor',
-              test: /[\\/]node_modules[\\/].*\.js$/,
-            },
-          },
-        },
-      });
-
-      const fonts = ['./src/_generic.lora.css', './src/_generic.open-sans.css'];
-
       return {
         ...config,
         devtool: dev ? config.devtool : false,
-        entry: dev ? {
-          client: [...config.entry.client, ...fonts],
-        } : {
-          ...config.entry,
-          fonts,
-        },
         module: {
           rules: [
             ...config.module.rules,
@@ -92,7 +62,22 @@ module.exports = {
             },
           ],
         },
-        optimization,
+        optimization: dev ? config.optimization : merge(config.optimization, {
+          splitChunks: {
+            cacheGroups: {
+              commons: {
+                chunks: 'async',
+                name: true,
+                test: /[\\/]node_modules[\\/].*\.js$/,
+              },
+              vendor: {
+                chunks: 'initial',
+                name: 'vendor',
+                test: /[\\/]node_modules[\\/].*\.js$/,
+              },
+            },
+          },
+        }),
         plugins: [
           ...config.plugins,
           dev && new StyleLintPlugin(),

@@ -4,14 +4,23 @@ html(lang='en')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(charset='utf-8')
     title='league'
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='stylesheet' href=assets.client.css)
-    each style in styles
-      link(rel='stylesheet' href=style)
+    meta(name='viewport' content='width=device-width, initial-scale=1')    
+    if prod
+      style !{critical}
+      each font in fonts
+        link(rel='prelod' as='font' type='font/woff2' href=font)
+      script.
+        !{loadCss}
+        !{JSON.stringify(styles)}.forEach(function(style) { loadCSS(style); });
+      each style in styles
+        noscript
+          link(rel='stylesheet' href=style)
+    else
+      link(rel='stylesheet' href=assets.client.css)
   body
     #root !{markup}
     if prod
-      script(src=assets.vendor.js)      
+      script(src=assets.vendor.js)
       script(src=assets.client.js)
     else
       script(src=assets.client.js crossorigin)

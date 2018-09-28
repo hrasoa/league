@@ -23,6 +23,7 @@
   "dependencies": {
     "draft-js": "^0.10.5",
     "express": "^4.16.2",
+    "fg-loadcss": "^2.0.1",
     "inuitcss": "^6.0.0",
     "lodash": "^4.17.11",
     "pug": "^2.0.3",
