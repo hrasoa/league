@@ -1,6 +1,11 @@
-html {
-  // @include global-font-family();
+html {  
   color: $soft-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:global {
+  .font-stage-1 {
+    @include global-font-family();
+  }
 }
