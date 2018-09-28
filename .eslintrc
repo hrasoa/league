@@ -29,7 +29,8 @@
     "react/jsx-sort-props": ["error", {
       "callbacksLast": true,
       "ignoreCase": true,
-      "reservedFirst": true
+      "reservedFirst": true,
+      "noSortAlphabetically": true
     }],
     "sort-keys": ["error", "asc"]
   }

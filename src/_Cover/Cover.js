@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Cover.scss';
+import image from './mahkeo-245724-unsplash.jpg';
 
 const Cover = () => (
   <div className={styles.root}>
@@ -7,7 +8,8 @@ const Cover = () => (
     <img
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
       className={styles.image}
-      src="https://images.unsplash.com/photo-1493038950213-29266628eb06?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be9efd9d3d5e666e2f852a8022364d3f&auto=format&fit=crop&w=1400&q=80"
+      src={image.preSrc}
+      data-src={image.src}
     />
   </div>
 );
