@@ -20,19 +20,19 @@ html(lang='en')
               }));
             }
 
-            function fetchState(stage) {              
+            function fetchStage(stage) {              
               fetchFonts(stage.fonts).then(function() {
                 if (stage.name) {
                   docEl.classList.add(stage.name);
                   sessionStorage[stage.name] = true;
                 }                
                 if (stage.next) {
-                  fetchState(stage.next);
+                  fetchStage(stage.next);
                 }
               });
             }
 
-            fetchState(stages);
+            fetchStage(stages);
           } 
         })(!{JSON.stringify(fontStages)});
       
