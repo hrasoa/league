@@ -26,10 +26,12 @@ const fonts = prod
 const preloadCss = fs.readFileSync(path.join(paths.appNodeModules, 'fg-loadcss/dist/cssrelpreload.min.js'), { encoding: 'utf8' });
 
 const fontStages = {
+  className: fout.fontStageOne,
   fonts: ['1em Lora Regular', '1em Open Sans Regular'],
   name: fout.fontStageOne,
   next: {
     fonts: ['700 1em Lora Bold', '700 1em Open Sans Regular'],
+    name: fout.fontStageTwo,
   },
 };
 

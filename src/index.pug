@@ -22,10 +22,12 @@ html(lang='en')
 
             function fetchStage(stage) {              
               fetchFonts(stage.fonts).then(function() {
-                if (stage.name) {
+                if (stage.className) {
                   docEl.classList.add(stage.name);
+                }
+                if (state.name) {
                   sessionStorage[stage.name] = true;
-                }                
+                }
                 if (stage.next) {
                   fetchStage(stage.next);
                 }
