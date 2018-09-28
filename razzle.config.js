@@ -13,13 +13,13 @@ module.exports = {
       modules: true,
     };
 
-    const fontLoader = {
-      loader: 'url-loader',
-      options: {
-        limit: Infinity,
-      },
-      test: /\.(woff|woff2|eot|ttf)$/,
-    };
+    // const fontLoader = {
+    //   loader: 'url-loader',
+    //   options: {
+    //     limit: Infinity,
+    //   },
+    //   test: /\.(woff2)$/,
+    // };
 
     const sassLoader = {
       loader: 'sass-loader',
@@ -43,16 +43,16 @@ module.exports = {
               name: true,
               test: /[\\/]node_modules[\\/].*\.js$/,
             },
-            'font.lora': {
-              chunks: 'initial',
-              name: 'font.lora',
-              test: /typeface-lora/,
-            },
-            'font.open-sans': {
-              chunks: 'initial',
-              name: 'font.open-sans',
-              test: /typeface-open-sans/,
-            },
+            // 'font.lora': {
+            //   chunks: 'initial',
+            //   name: 'font.lora',
+            //   test: /lora\.scss$/,
+            // },
+            // 'font.open-sans': {
+            //   chunks: 'initial',
+            //   name: 'font.open-sans',
+            //   test: /open-sans\.scss$/,
+            // },
             vendor: {
               chunks: 'initial',
               name: 'vendor',
@@ -62,33 +62,34 @@ module.exports = {
         },
       });
 
-      const fonts = ['typeface-lora', 'typeface-open-sans'];
+      // const fonts = ['./src/elements.lora', './src/elements.open-sans'];
 
       return {
         ...config,
         devtool: false,
-        entry: dev ? {
-          client: [...config.entry.client, ...fonts],
-        } : {
-          ...config.entry,
-          fonts,
-        },
+        // entry: dev ? {
+        //   client: [...config.entry.client, ...fonts],
+        // } : {
+        //   ...config.entry,
+        //   fonts,
+        // },
         module: {
           rules: [
-            fontLoader,
-            ...(config.module.rules.map((rule) => {
-              if (rule.loader === require.resolve('file-loader')) {
-                return {
-                  ...rule,
-                  exclude: [
-                    ...rule.exclude,
-                    /\.woff$/,
-                    /\.woff2$/,
-                  ],
-                };
-              }
-              return rule;
-            })),
+            // fontLoader,
+            // ...(config.module.rules.map((rule) => {
+            //   if (rule.loader === require.resolve('file-loader')) {
+            //     return {
+            //       ...rule,
+            //       exclude: [
+            //         ...rule.exclude,
+            //         // /\.woff$/,
+            //         /\.woff2$/,
+            //       ],
+            //     };
+            //   }
+            //   return rule;
+            // })),
+            ...config.module.rules,
             {
               test: /\.scss$/,
               use: [
