@@ -53,7 +53,7 @@ module.exports = {
 
       return {
         ...config,
-        devtool: false,
+        devtool: dev ? config.devtool : false,
         entry: dev ? {
           client: [...config.entry.client, ...fonts],
         } : {
