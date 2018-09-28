@@ -2,6 +2,7 @@
   box-shadow: 0 64px 182px -64px rgba(0, 0, 0, .3);
   overflow: hidden;
   position: relative;
+  z-index: 1;
 
   &::before {
     box-shadow: 0 0 42px 36px #000;
