@@ -8,8 +8,17 @@ module.exports = {
   modify: (config, { target, dev }) => {
     const cssLoaderOpts = {
       camelCase: true,
+      importLoaders: 1,
       localIdentName: dev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
+    };
+
+    const fontLoader = {
+      loader: 'url-loader',
+      options: {
+        limit: Infinity,
+      },
+      test: /\.(woff|woff2|eot|ttf)$/,
     };
 
     const sassLoader = {
@@ -34,6 +43,16 @@ module.exports = {
               name: true,
               test: /[\\/]node_modules[\\/].*\.js$/,
             },
+            'font.lora': {
+              chunks: 'initial',
+              name: 'font.lora',
+              test: /typeface-lora/,
+            },
+            'font.open-sans': {
+              chunks: 'initial',
+              name: 'font.open-sans',
+              test: /typeface-open-sans/,
+            },
             vendor: {
               chunks: 'initial',
               name: 'vendor',
@@ -43,12 +62,33 @@ module.exports = {
         },
       });
 
+      const fonts = ['typeface-lora', 'typeface-open-sans'];
+
       return {
         ...config,
-        devtool: dev ? config.devtool : false,
+        devtool: false,
+        entry: dev ? {
+          client: [...config.entry.client, ...fonts],
+        } : {
+          ...config.entry,
+          fonts,
+        },
         module: {
           rules: [
-            ...config.module.rules,
+            fontLoader,
+            ...(config.module.rules.map((rule) => {
+              if (rule.loader === require.resolve('file-loader')) {
+                return {
+                  ...rule,
+                  exclude: [
+                    ...rule.exclude,
+                    /\.woff$/,
+                    /\.woff2$/,
+                  ],
+                };
+              }
+              return rule;
+            })),
             {
               test: /\.scss$/,
               use: [
@@ -59,16 +99,16 @@ module.exports = {
                   loader: 'css-loader',
                   options: {
                     ...cssLoaderOpts,
-                    importLoaders: 1,
-                    sourceMap: dev,
+                    importLoaders: 2,
                   },
                 },
                 {
                   loader: 'postcss-loader',
                   options: {
-                    ident: 'postcss',
+                    ident: 'postscss',
                     plugins: () => [
                       require('autoprefixer')(),
+                      !dev && require('cssnano')(),
                       require('postcss-reporter'),
                     ].filter(Boolean),
                   },
