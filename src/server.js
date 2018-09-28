@@ -22,7 +22,7 @@ const critical = prod
 const fonts = prod
   ? [lora, openSans]
   : null;
-const loadCss = fs.readFileSync(path.join(paths.appNodeModules, 'fg-loadcss/dist/loadCss.min.js'), { encoding: 'utf8' });
+const preloadCss = fs.readFileSync(path.join(paths.appNodeModules, 'fg-loadcss/dist/cssrelpreload.min.js'), { encoding: 'utf8' });
 
 const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
@@ -57,8 +57,8 @@ server.get('/*', (req: express$Request, res: express$Response) => {
       )],
       critical,
       fonts,
-      loadCss,
       markup,
+      preloadCss,
       prod,
       styles: [...new Set(styles.map(style => `/${style.file}`))],
     });

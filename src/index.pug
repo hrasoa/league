@@ -34,12 +34,13 @@ html(lang='en')
             });
           });
         } 
-      script.
-        !{loadCss}
-        !{JSON.stringify(styles)}.forEach(function(style) { loadCSS(style); });
+      
       each style in styles
+        link(rel='preload' as='style' onload='this.rel="stylesheet"' href=style)
         noscript
           link(rel='stylesheet' href=style)
+      script.
+        !{preloadCss} 
     else
       link(rel='stylesheet' href=assets.client.css)
   body
