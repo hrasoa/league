@@ -11,6 +11,7 @@ module.exports = {
       importLoaders: 1,
       localIdentName: dev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
+      sourceMap: dev,
     };
 
     const sassLoader = {
