@@ -5,5 +5,7 @@
 }
 
 .lift {
+  position: relative;
   transform: translateY(-$inuit-global-spacing-unit-large);
+  z-index: 2;
 }
