@@ -9,35 +9,35 @@ html(lang='en')
       style !{critical}
       each font in fonts
         link(rel='prelod' as='font' type='font/woff2' href=font)
-      script.
-        (function(stages) {
-          var docEl = document.documentElement;
+    script.
+      (function(stages) {
+        var docEl = document.documentElement;
 
-          if ('fonts' in document) {
-            function fetchFonts(fonts) {
-              return Promise.all(fonts.map(function(font) {
-                return document.fonts.load(font);
-              }));
-            }
+        if ('fonts' in document) {
+          function fetchFonts(fonts) {
+            return Promise.all(fonts.map(function(font) {
+              return document.fonts.load(font);
+            }));
+          }
 
-            function fetchStage(stage) {              
-              fetchFonts(stage.fonts).then(function() {
-                if (stage.className) {
-                  docEl.classList.add(stage.name);
-                }
-                if (state.name) {
-                  sessionStorage[stage.name] = true;
-                }
-                if (stage.next) {
-                  fetchStage(stage.next);
-                }
-              });
-            }
+          function fetchStage(stage) {              
+            fetchFonts(stage.fonts).then(function() {
+              if (stage.className) {
+                docEl.classList.add(stage.name);
+              }
+              if (stage.name) {
+                sessionStorage[stage.name] = true;
+              }
+              if (stage.next) {
+                fetchStage(stage.next);
+              }
+            });
+          }
 
-            fetchStage(stages);
-          } 
-        })(!{JSON.stringify(fontStages)});
-      
+          fetchStage(stages);
+        } 
+      })(!{JSON.stringify(fontStages)}); 
+    if prod         
       each style in styles
         link(rel='preload' as='style' onload='this.rel="stylesheet"' href=style)
         noscript

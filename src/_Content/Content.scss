@@ -1,4 +1,5 @@
 .root {
+  composes: oWrapper from 'inuitcss/objects/_objects.wrapper.scss';
   background: $white;
   min-height: 500px;
 }

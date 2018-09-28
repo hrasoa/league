@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
 import { oListInline } from 'inuitcss/objects/_objects.list-inline.scss';
-import { uPaddingVerticalSmall, uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
+import { uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import Logo from '../_Logo';
 import User from './User';
@@ -12,7 +11,7 @@ import styles from './Nav.scss';
 const Nav = () => (
   <nav className={styles.root}>
     <div className={styles.fixed}>
-      <div className={classname(styles.wrapper, oWrapper, uPaddingVerticalSmall)}>
+      <div className={styles.wrapper}>
         <ul className={classname(styles.list, oListInline)}>
           <li className={uMarginRight}>
             <NavLink title="Home" to="/">
