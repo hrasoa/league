@@ -1,5 +1,5 @@
 import React from 'react';
-import LazyPicture from '../../_LazyPicture';
+import LazyPicture from '../../_LazyPicture/Picture';
 import classname from '../../classname';
 import styles from './Card.scss';
 import image from './card.png';

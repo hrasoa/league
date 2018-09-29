@@ -1,6 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
-import Card from '../Player/Card';
+import Card from '../Player/Card/Card';
 import Search from '../_Search/Search';
 import Listing from '../_Listing/Listing';
 import styles from './Players.scss';

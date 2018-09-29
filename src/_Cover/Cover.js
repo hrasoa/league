@@ -1,5 +1,5 @@
 import React from 'react';
-import LazyPicture from '../_LazyPicture';
+import LazyPicture from '../_LazyPicture/Picture';
 import styles from './Cover.scss';
 import image from './mahkeo-245724-unsplash.jpg';
 
