@@ -24,6 +24,7 @@ module.exports = {
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
         ].join('\n'),
+        sourceMap: dev,
       },
     };
 
@@ -60,6 +61,9 @@ module.exports = {
                 dev
                   ? {
                     loader: 'style-loader',
+                    options: {
+                      sourceMap: dev,
+                    },
                   }
                   : MiniCssExtractPlugin.loader,
                 {
