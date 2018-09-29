@@ -19,6 +19,15 @@ type State = {
   visible: boolean
 }
 
+type RefRect = {
+  bottom: number,
+  top: number
+}
+
+type Size = {
+  height: number
+}
+
 class Picture extends Component<Props, State> {
   state = {
     loaded: false,
@@ -28,6 +37,12 @@ class Picture extends Component<Props, State> {
   shouldComponentUpdate(nextProps: Props, nextState: State) {
     const { visible, loaded } = this.state;
     return visible !== nextState.visible || loaded !== nextState.loaded;
+  }
+
+  handleOnChange = (rect: RefRect, size: Size) => {
+    if (rect.top <= size.height && rect.bottom >= 0) {
+      this.setState({ visible: true });
+    }
   }
 
   handleOnLoad = () => {
@@ -46,13 +61,11 @@ class Picture extends Component<Props, State> {
     } = this.props;
     return (
       <WindowSize>
-        {size => (
+        {(size: Size) => (
           <Rect
             observe={!visible}
-            onChange={(rect) => {
-              if (rect.top <= size.height && rect.bottom >= 0) {
-                this.setState({ visible: true });
-              }
+            onChange={(rect: RefRect) => {
+              this.handleOnChange(rect, size);
             }}
           >
             {({ ref }) => (
