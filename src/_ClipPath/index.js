@@ -9,13 +9,13 @@ type Props = {
 }
 
 const ClipPath = ({ id, viewBox, children }: Props) => {
-  const [minX, minY, w, h] = viewBox;
+  const [w, h] = viewBox.split(' ').slice(2);
   const scaleX = 1 / parseInt(w, 10);
   const scaleY = 1 / parseInt(h, 10);
   return (
     <svg
       height="0"
-      viewBox={[minX, minY, w, h].join(' ')}
+      viewBox={viewBox}
       width="0"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
