@@ -82,7 +82,7 @@ class Picture extends Component<Props, State> {
                   <img
                     alt={alt}
                     className={classname(styles.image, className)}
-                    src={visible ? src : preSrc}
+                    src={visible ? src : null}
                     data-src={src}
                     onLoad={this.handleOnLoad}
                   />
