@@ -69,9 +69,11 @@ class Picture extends Component<Props, State> {
             }}
           >
             {({ ref }) => (
-              <div className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}>
+              <div
+                ref={ref}
+                className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
+              >
                 <img
-                  ref={ref}
                   className={classname(styles.pre, preClassName)}
                   alt={alt}
                   src={preSrc}
@@ -80,7 +82,7 @@ class Picture extends Component<Props, State> {
                   <img
                     alt={alt}
                     className={classname(styles.image, className)}
-                    src={visible ? src : null}
+                    src={visible ? src : preSrc}
                     data-src={src}
                     onLoad={this.handleOnLoad}
                   />
