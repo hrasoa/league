@@ -18,7 +18,7 @@
 
 .title {
   @include inuit-font-size($inuit-font-size-h1 + 8);
-  color: white;
+  color: $soft-white;
   font-weight: 400;
   left: 50%;
   max-width: 800px;
