@@ -16,7 +16,7 @@ type Props = {
 
 type State = {
   loaded: boolean,
-  visible: boolean,
+  visible: boolean
 }
 
 class Picture extends Component<Props, State> {
