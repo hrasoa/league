@@ -9,7 +9,7 @@ type Props = {
   alt: string,
   className: string,
   preClassName: string,
-  pictureClassName: string,
+  rootClassName: string,
   preSrc: string,
   src: string
 }
@@ -42,7 +42,7 @@ class Picture extends Component<Props, State> {
       src,
       className,
       preClassName,
-      pictureClassName,
+      rootClassName,
     } = this.props;
     return (
       <WindowSize>
@@ -56,24 +56,26 @@ class Picture extends Component<Props, State> {
             }}
           >
             {({ ref }) => (
-              <picture className={classname(styles.root, pictureClassName, loaded ? styles.loaded : '')}>
+              <div className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}>
                 <img
                   ref={ref}
                   className={classname(styles.pre, preClassName)}
                   alt={alt}
                   src={preSrc}
                 />
-                <img
-                  alt={alt}
-                  className={classname(styles.image, className)}
-                  src={visible ? src : null}
-                  data-src={src}
-                  onLoad={this.handleOnLoad}
-                />
+                <picture className={styles.picture}>
+                  <img
+                    alt={alt}
+                    className={classname(styles.image, className)}
+                    src={visible ? src : null}
+                    data-src={src}
+                    onLoad={this.handleOnLoad}
+                  />
+                </picture>
                 <noscript>
                   <img alt={alt} className={className} src={src} />
                 </noscript>
-              </picture>
+              </div>
             )}
           </Rect>
         )}

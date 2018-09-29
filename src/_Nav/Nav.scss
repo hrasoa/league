@@ -33,6 +33,7 @@
 }
 
 .list {
+  composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
   align-items: center;
   display: flex;
   float: left;
