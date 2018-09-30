@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { uMarginRight } from 'inuitcss/utilities/_utilities.spacings.scss';
+import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import Logo from '../_Logo';
 import User from './User';
 import links from './links';
@@ -11,13 +11,13 @@ const Nav = () => (
     <div className={styles.fixed}>
       <div className={styles.wrapper}>
         <ul className={styles.list}>
-          <li className={uMarginRight}>
+          <li className={spacings.uMarginRight}>
             <NavLink title="Home" to="/">
               <Logo className={styles.logo} />
             </NavLink>
           </li>
           {links.map(link => (
-            <li key={link.to} className={uMarginRight}>
+            <li key={link.to} className={spacings.uMarginRight}>
               <NavLink
                 activeClassName={styles.active}
                 className={styles.link}
