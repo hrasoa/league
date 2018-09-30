@@ -12,8 +12,6 @@ const Cover = () => (
       className={styles.image}
       preClassName={styles.image}
       image={coverImage}
-      src={typeof coverImage !== 'string' ? coverImage.src : coverImage}
-      preSrc={typeof coverImage !== 'string' ? coverImage.preSrc : coverImage}
     />
   </div>
 );
