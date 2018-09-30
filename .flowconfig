@@ -1,4 +1,5 @@
 [ignore]
+.*/node_modules/inuitcss/.*
 
 [include]
 
@@ -13,8 +14,8 @@ module.file_ext=.scss
 module.file_ext=.json
 module.ignore_non_literal_requires=true
 module.name_mapper='.*loadable\.json$' -> '<PROJECT_ROOT>/flow/loadable.json'
-module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow/css-module.json'
-module.name_mapper='.*\.preload\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow/lqip-loader.js'
+module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow/css-module.js.flow'
+module.name_mapper='.*\.preload\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow/lqip-loader.js.flow'
 
 [strict]
 

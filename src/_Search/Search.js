@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
-import { uMarginVerticalLarge, uPaddingVerticalTiny } from 'inuitcss/utilities/_utilities.spacings.scss';
+import wrapper from 'inuitcss/objects/_objects.wrapper.scss';
+import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import classname from '../classname';
 import Editor from '../_Editor/Editor';
 import styles from './Search.scss';
@@ -43,8 +43,8 @@ class Search extends Component<Props, State> {
     const { placeholder, editorKey } = this.props;
     return (
       <form className={styles.root}>
-        <div className={oWrapper}>
-          <div className={classname(uMarginVerticalLarge, uPaddingVerticalTiny)}>
+        <div className={wrapper.oWrapper}>
+          <div className={classname(spacings.uMarginVerticalLarge, spacings.uPaddingVerticalTiny)}>
             <div className={classname(styles.editor, hasText ? styles.hasText : '')}>
               <Editor
                 editorKey={editorKey}

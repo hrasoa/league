@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import { oWrapper } from 'inuitcss/objects/_objects.wrapper.scss';
+import wrapper from 'inuitcss/objects/_objects.wrapper.scss';
 import styles from './Filters.scss';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 const Filters = ({ children }: Props) => (
   <div className={styles.root}>
-    <div className={oWrapper}>
+    <div className={wrapper.oWrapper}>
       {children}
     </div>
   </div>
