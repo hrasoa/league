@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import LazyPicture from '../_LazyPicture';
 import styles from './Cover.scss';

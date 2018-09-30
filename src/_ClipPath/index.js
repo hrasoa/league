@@ -5,7 +5,7 @@ import type { Node } from 'react';
 type Props = {
   children: Node,
   id: string,
-  viewBox: string
+  viewBox: string,
 }
 
 const ClipPath = ({ id, viewBox, children }: Props) => {

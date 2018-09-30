@@ -4,37 +4,31 @@ import Rect from '@reach/rect';
 import WindowSize from '@reach/window-size';
 import classname from '../classname';
 import styles from './LazyPicture.scss';
-
-type Props = {
-  alt: string,
-  className: string,
-  preClassName: string,
-  rootClassName: string,
-  preSrc: string,
-  src: string
-}
+import defaultProps from './defaultProps';
 
 type State = {
   loaded: boolean,
-  visible: boolean
+  visible: boolean,
 }
 
 type RefRect = {
   bottom: number,
-  top: number
+  top: number,
 }
 
 type Size = {
   height: number
 }
 
-class Picture extends Component<Props, State> {
+class Picture extends Component<LazyPictureProps, State> {
+  static defaultProps = defaultProps;
+
   state = {
     loaded: false,
     visible: false,
   };
 
-  shouldComponentUpdate(nextProps: Props, nextState: State) {
+  shouldComponentUpdate(nextProps: LazyPictureProps, nextState: State) {
     const { visible, loaded } = this.state;
     return visible !== nextState.visible || loaded !== nextState.loaded;
   }

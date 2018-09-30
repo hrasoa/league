@@ -14,7 +14,7 @@ type Props = {
 
 type State = {
   hasText: boolean,
-  plainText: string
+  plainText: string,
 }
 
 class Search extends Component<Props, State> {

@@ -7,7 +7,7 @@ import styles from './Listing.scss';
 
 type Props = {
   children: (any) => Node,
-  items: Array<any>
+  items: Array<any>,
 }
 
 const Listing = ({ children, items }: Props) => (

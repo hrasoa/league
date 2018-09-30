@@ -6,7 +6,7 @@ import classname from '../classname';
 
 type Props = {
   lift: boolean,
-  children: Node
+  children: Node,
 }
 
 const Content = ({ lift, children }: Props) => (
