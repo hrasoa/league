@@ -12,13 +12,7 @@ html(lang="en")
     script.
       "use strict";(function(a){function b(e){return Promise.all(e.map(function(f){return document.fonts.load(f)}))}function c(e){b(e.fonts).then(function(){e.className&&d.classList.add(e.name),e.name&&(sessionStorage[e.name]=!0),e.next&&c(e.next)})}var d=document.documentElement;"fonts"in document&&c(a)})(!{JSON.stringify(fontStages)});
     if prod         
-      each style in styles
-        link(rel="preload" as="style" onload="this.rel='stylesheet'" href=style)
-      each style in styles
-        noscript
-          link(rel="stylesheet" href=style)
-      script.
-        !{preloadCss} 
+      style !{styles}
     else
       link(rel="stylesheet" href=assets.client.css)
   body

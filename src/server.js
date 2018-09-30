@@ -72,7 +72,9 @@ server.get('/*', (req: express$Request, res: express$Response) => {
       markup,
       preloadCss,
       prod,
-      styles: [...new Set(styles.map(style => `/${style.file}`))],
+      styles: [...new Set(styles.map(style => `${style.file}`))]
+        .map(style => fs.readFileSync(path.join(paths.appBuildPublic, style), { encoding: 'utf8' }))
+        .join(''),
     });
   }
 });
