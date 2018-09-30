@@ -7,7 +7,7 @@ import styles from './Players.scss';
 
 const items = [];
 for (let i = 0; i < 9; i += 1) {
-  items.push({ key: `item-${i}` });
+  items.push({ id: `item-${i}` });
 }
 
 const Players = () => (
@@ -18,9 +18,9 @@ const Players = () => (
       onChange={console.log}
     />
     <Listing items={items}>
-      {() => (
+      {item => (
         <a className={styles.link} href="/">
-          <Card />
+          <Card {...item} />
         </a>
       )}
     </Listing>

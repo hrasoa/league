@@ -13,6 +13,7 @@ type State = {
 }
 
 type RefRect = {
+  height: number,
   bottom: number,
   top: number,
 }
@@ -35,7 +36,7 @@ class LazyPicture extends Component<Props, State> {
   }
 
   handleOnChange = (rect: RefRect, size: Size) => {
-    if (rect.top <= size.height && rect.bottom >= 0) {
+    if (isInWindow(rect, size)) {
       this.setState({ visible: true });
     }
   }
@@ -96,6 +97,19 @@ class LazyPicture extends Component<Props, State> {
       </WindowSize>
     );
   }
+}
+
+function topOfElementIsInWindow(rect, size): boolean {
+  return rect.top <= size.height;
+}
+
+function bottomOfElementIsInWindow(rect, size): boolean {
+  return rect.bottom <= size.height && rect.bottom >= 0;
+}
+
+function isInWindow(rect, size): boolean {
+  return topOfElementIsInWindow(rect, size)
+    && bottomOfElementIsInWindow(rect, size);
 }
 
 export default LazyPicture;

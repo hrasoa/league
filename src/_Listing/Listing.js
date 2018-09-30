@@ -15,7 +15,7 @@ const Listing = ({ children, items }: Props) => (
     <div className={wrapper.oWrapper}>
       <ul className={styles.list}>
         {items.map(item => (
-          <li key={item.key} className={listBare.oListBareItem}>
+          <li key={item.id} className={listBare.oListBareItem}>
             {children(item)}
           </li>
         ))}
