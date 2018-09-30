@@ -10,6 +10,7 @@ const LoadableComponent = Loadable({
 
 const LazyPicture = (props: LazyPictureProps) => <LoadableComponent {...props} />;
 
+LazyPicture.displayName = 'Loadable(LazyPicture)';
 LazyPicture.defaultProps = defaultProps;
 
 export default LazyPicture;

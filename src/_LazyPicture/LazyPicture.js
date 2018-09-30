@@ -20,7 +20,7 @@ type Size = {
   height: number
 }
 
-class Picture extends Component<LazyPictureProps, State> {
+class LazyPicture extends Component<LazyPictureProps, State> {
   static defaultProps = defaultProps;
 
   state = {
@@ -92,4 +92,4 @@ class Picture extends Component<LazyPictureProps, State> {
   }
 }
 
-export default Picture;
+export default LazyPicture;
