@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Rect from '@reach/rect';
 import WindowSize from '@reach/window-size';
-import type { Props } from 'lazy-picture'; // eslint-disable-line import/no-unresolved
+import type { Props } from 'lazy-picture';
 import classname from '../classname';
 import defaultProps from './defaultProps';
 import styles from './LazyPicture.scss';

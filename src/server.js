@@ -8,7 +8,7 @@ import { StaticRouter } from 'react-router-dom';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
-import stats from '../build/react-loadable.json'; // eslint-disable-line import/no-unresolved
+import stats from '../build/react-loadable.json';
 import App from './App';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import openSans from './_Fonts/open-sans-v15-latin-regular.woff2';
