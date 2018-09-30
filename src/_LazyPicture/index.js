@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Loadable from 'react-loadable';
+import type { Props } from 'lazy-picture'; // eslint-disable-line import/no-unresolved
 import defaultProps from './defaultProps';
 
 const LoadableComponent = Loadable({
@@ -8,7 +9,7 @@ const LoadableComponent = Loadable({
   loading: () => null,
 });
 
-const LazyPicture = (props: LazyPictureProps) => <LoadableComponent {...props} />;
+const LazyPicture = (props: Props) => <LoadableComponent {...props} />;
 
 LazyPicture.displayName = 'Loadable(LazyPicture)';
 LazyPicture.defaultProps = defaultProps;

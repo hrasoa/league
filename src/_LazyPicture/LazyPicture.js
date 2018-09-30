@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 import Rect from '@reach/rect';
 import WindowSize from '@reach/window-size';
+import type { Props } from 'lazy-picture'; // eslint-disable-line import/no-unresolved
 import classname from '../classname';
-import styles from './LazyPicture.scss';
 import defaultProps from './defaultProps';
+import styles from './LazyPicture.scss';
 
 type State = {
   loaded: boolean,
@@ -20,7 +21,7 @@ type Size = {
   height: number
 }
 
-class LazyPicture extends Component<LazyPictureProps, State> {
+class LazyPicture extends Component<Props, State> {
   static defaultProps = defaultProps;
 
   state = {
@@ -28,7 +29,7 @@ class LazyPicture extends Component<LazyPictureProps, State> {
     visible: false,
   };
 
-  shouldComponentUpdate(nextProps: LazyPictureProps, nextState: State) {
+  shouldComponentUpdate(nextProps: Props, nextState: State) {
     const { visible, loaded } = this.state;
     return visible !== nextState.visible || loaded !== nextState.loaded;
   }
