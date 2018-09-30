@@ -99,17 +99,9 @@ class LazyPicture extends Component<Props, State> {
   }
 }
 
-function topOfElementIsInWindow(rect, size): boolean {
-  return rect.top <= size.height;
-}
-
-function bottomOfElementIsInWindow(rect, size): boolean {
-  return rect.bottom <= size.height && rect.bottom >= 0;
-}
-
 function isInWindow(rect, size): boolean {
-  return topOfElementIsInWindow(rect, size)
-    && bottomOfElementIsInWindow(rect, size);
+  return (rect.top <= size.height && rect.bottom >= 0)
+    || (rect.top <= 0 && rect.bottom >= 0);
 }
 
 export default LazyPicture;
