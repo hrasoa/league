@@ -12,8 +12,7 @@ const Card = () => (
           alt="player"
           className={styles.image}
           preClassName={classname(styles.image, styles.pre)}
-          src={image.src}
-          preSrc={image.preSrc}
+          image={image}
         />
       </div>
     </div>

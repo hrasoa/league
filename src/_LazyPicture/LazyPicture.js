@@ -47,12 +47,13 @@ class LazyPicture extends Component<LazyPictureProps, State> {
     const { loaded, visible } = this.state;
     const {
       alt,
-      preSrc,
-      src,
       className,
       preClassName,
       rootClassName,
+      image,
     } = this.props;
+    const src = typeof image === 'string' ? image : image.src;
+    const preSrc = typeof image === 'string' ? image : image.preSrc;
     return (
       <WindowSize>
         {(size: Size) => (
@@ -67,11 +68,16 @@ class LazyPicture extends Component<LazyPictureProps, State> {
                 ref={ref}
                 className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
               >
-                <img
-                  className={classname(styles.pre, preClassName)}
-                  alt={alt}
-                  src={preSrc}
-                />
+                {typeof image !== 'string'
+                  && preSrc
+                  && (
+                    <img
+                      className={classname(styles.pre, preClassName)}
+                      alt={alt}
+                      src={preSrc}
+                    />
+                  )
+                }
                 <picture className={styles.picture}>
                   <img
                     alt={alt}

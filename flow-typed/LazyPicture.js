@@ -4,6 +4,5 @@ declare type LazyPictureProps = {
   className: ?string,
   preClassName: ?string,
   rootClassName: ?string,
-  preSrc: string,
-  src: string,
+  image: string | { src: string, preSrc: string },
 }

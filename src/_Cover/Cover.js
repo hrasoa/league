@@ -11,6 +11,7 @@ const Cover = () => (
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
       className={styles.image}
       preClassName={styles.image}
+      image={coverImage}
       src={typeof coverImage !== 'string' ? coverImage.src : coverImage}
       preSrc={typeof coverImage !== 'string' ? coverImage.preSrc : coverImage}
     />
