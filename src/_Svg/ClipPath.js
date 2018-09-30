@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import Svg from './Svg';
+import Svg from '.';
 
 type Props = {
   children: Node,
