@@ -1,6 +1,6 @@
 import React from 'react';
 import { oListInline } from 'inuitcss/objects/_objects.list-inline.scss';
-import classname from '../classname';
+import classname from '../../classname';
 import styles from './User.scss';
 
 const User = () => (
