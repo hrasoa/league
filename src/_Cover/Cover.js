@@ -2,7 +2,7 @@
 import React from 'react';
 import LazyPicture from '../_LazyPicture';
 import styles from './Cover.scss';
-import coverImage from './mahkeo-245724-unsplash.jpg';
+import coverImage from './mahkeo-245724-unsplash.preload.jpg';
 
 const Cover = () => (
   <div className={styles.root}>

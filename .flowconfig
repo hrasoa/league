@@ -14,7 +14,7 @@ module.file_ext=.json
 module.ignore_non_literal_requires=true
 module.name_mapper='.*loadable\.json$' -> '<PROJECT_ROOT>/flow-stub/loadable.json'
 module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow-stub/css-module.json'
-module.name_mapper='.*\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow-stub/url-loader.js'
+module.name_mapper='.*\.preload\.\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow-stub/lqip-loader.js'
 
 [strict]
 
