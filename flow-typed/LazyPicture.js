@@ -1,5 +1,4 @@
 // @flow
-
 declare type LazyPictureProps = {
   alt: string,
   className: ?string,
