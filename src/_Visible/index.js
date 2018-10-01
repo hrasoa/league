@@ -12,6 +12,5 @@ const LoadableComponent = Loadable({
 const Visible = (props: Props) => <LoadableComponent {...props} />;
 
 Visible.defaultProps = defaultProps;
-Visible.displayName = 'Loadable(Visible)';
 
 export default Visible;
