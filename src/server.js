@@ -40,7 +40,7 @@ server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
 server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
-server.get('/*', (req: express$Request, res: express$Response) => {
+server.get('/*', async (req: express$Request, res: express$Response) => {
   const context: { url?: string } = {};
   const modules: Array<string> = [];
   const markup = renderToString(
@@ -56,6 +56,13 @@ server.get('/*', (req: express$Request, res: express$Response) => {
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
+    const inlineStyles = await getInlineStyles(styles);
+    const errors = inlineStyles.filter(style => typeof style !== 'string');
+    if (errors.length) {
+      console.log(errors.join('\n'));
+      res.status(500).send('Something broke!');
+    }
+
     res.status(200).render('index', {
       assets,
       chunks: [...new Set(
@@ -72,11 +79,28 @@ server.get('/*', (req: express$Request, res: express$Response) => {
       markup,
       preloadCss,
       prod,
-      styles: [...new Set(styles.map(style => `${style.file}`))]
-        .map(style => fs.readFileSync(path.join(paths.appBuildPublic, style), { encoding: 'utf8' }))
-        .join(''),
+      styles: inlineStyles.join(''),
     });
   }
 });
+
+function getInlineStyles(styles) {
+  return Promise.all(
+    [...new Set(styles.map(style => style.file))].map(readFile),
+  );
+}
+
+function readFile(file) {
+  const filePath = path.join(paths.appBuildPublic, file);
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, { encoding: 'utf8' }, (err: ?Error, data: string) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  }).then(data => data)
+    .catch(err => Error(err));
+}
 
 export default server;
