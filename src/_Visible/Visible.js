@@ -19,7 +19,7 @@ type Size = {
   height: number,
 }
 
-class LazyPicture extends Component<Props, State> {
+class Visible extends Component<Props, State> {
   static defaultProps = defaultProps;
 
   state = {
@@ -65,4 +65,4 @@ function isInWindow(rect, size): boolean {
     || (rect.top <= 0 && rect.bottom >= 0);
 }
 
-export default LazyPicture;
+export default Visible;
