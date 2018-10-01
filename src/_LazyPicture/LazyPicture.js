@@ -86,10 +86,10 @@ class LazyPicture extends Component<Props, State> {
                     src={visible ? src : null}
                     onLoad={this.handleOnLoad}
                   />
+                  <noscript>
+                    <img alt={alt} className={className} src={src} />
+                  </noscript>
                 </picture>
-                <noscript>
-                  <img alt={alt} className={className} src={src} />
-                </noscript>
               </div>
             )}
           </Rect>
