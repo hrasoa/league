@@ -23,7 +23,6 @@ const critical = prod
 const fonts = prod
   ? [lora, openSans]
   : null;
-const preloadCss = fs.readFileSync(path.join(paths.appNodeModules, 'fg-loadcss/dist/cssrelpreload.min.js'), { encoding: 'utf8' });
 
 const fontStages = {
   className: fout.fontStageOne,
@@ -77,7 +76,6 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       fontStages,
       fonts,
       markup,
-      preloadCss,
       prod,
       styles: inlineStyles,
     });
