@@ -57,10 +57,10 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
     const inlineStyles = await getInlineStyles(styles);
-    const errors = inlineStyles.filter(style => typeof style !== 'string');
+    const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
     if (errors.length) {
       console.log(errors.join('\n'));
-      res.status(500).send('Something broke!');
+      res.status(500).end('Something broke!');
     }
 
     res.status(200).render('index', {
@@ -79,7 +79,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       markup,
       preloadCss,
       prod,
-      styles: inlineStyles.join(''),
+      styles: inlineStyles,
     });
   }
 });
@@ -90,7 +90,7 @@ function getInlineStyles(styles) {
   );
 }
 
-function readFile(file) {
+function readFile(file: string) {
   const filePath = path.join(paths.appBuildPublic, file);
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, { encoding: 'utf8' }, (err: ?Error, data: string) => {
@@ -99,8 +99,8 @@ function readFile(file) {
       }
       resolve(data);
     });
-  }).then(data => data)
-    .catch(err => Error(err));
+  }).then(data => ({ content: data, href: `/${file}` }))
+    .catch(err => err);
 }
 
 export default server;
