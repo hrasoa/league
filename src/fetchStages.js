@@ -13,7 +13,7 @@
 
   function getSessions(stage) {
     const arr = [stage.name in sessionStorage];
-    return stage.next ? [...arr, ...getSessions(stage.next)] : arr;
+    return stage.next ? arr.concat(getSessions(stage.next)) : arr;
   }
 
   function fetchFonts(fonts) {

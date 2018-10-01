@@ -21,6 +21,6 @@
 
   function getClassNames(stage) {
     const arr = [(sessionStorage[stage.name] && stage.className) || null];
-    return stage.next ? [...arr, ...getClassNames(stage.next)] : arr;
+    return stage.next ? arr.concat(getClassNames(stage.next)) : arr;
   }
 })(window.fonts);
