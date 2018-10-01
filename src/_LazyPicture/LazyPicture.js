@@ -1,25 +1,13 @@
 // @flow
 import React, { Component } from 'react';
-import Rect from '@reach/rect';
-import WindowSize from '@reach/window-size';
 import type { Props } from 'lazy-picture';
+import Visible from '../_Visible';
 import classname from '../classname';
 import defaultProps from './defaultProps';
 import styles from './LazyPicture.scss';
 
 type State = {
   loaded: boolean,
-  visible: boolean,
-}
-
-type RefRect = {
-  height: number,
-  bottom: number,
-  top: number,
-}
-
-type Size = {
-  height: number
 }
 
 class LazyPicture extends Component<Props, State> {
@@ -27,18 +15,11 @@ class LazyPicture extends Component<Props, State> {
 
   state = {
     loaded: false,
-    visible: false,
   };
 
   shouldComponentUpdate(nextProps: Props, nextState: State) {
-    const { visible, loaded } = this.state;
-    return visible !== nextState.visible || loaded !== nextState.loaded;
-  }
-
-  handleOnChange = (rect: RefRect, size: Size) => {
-    if (isInWindow(rect, size)) {
-      this.setState({ visible: true });
-    }
+    const { loaded } = this.state;
+    return loaded !== nextState.loaded;
   }
 
   handleOnLoad = () => {
@@ -46,7 +27,7 @@ class LazyPicture extends Component<Props, State> {
   }
 
   render() {
-    const { loaded, visible } = this.state;
+    const { loaded } = this.state;
     const {
       alt,
       className,
@@ -57,51 +38,37 @@ class LazyPicture extends Component<Props, State> {
     const src = typeof image === 'string' ? image : image.src;
     const preSrc = typeof image === 'string' ? null : image.preSrc;
     return (
-      <WindowSize>
-        {(size: Size) => (
-          <Rect
-            observe={!visible}
-            onChange={(rect: RefRect) => {
-              this.handleOnChange(rect, size);
-            }}
+      <Visible once>
+        {({ ref, visible }) => (
+          <div
+            ref={ref}
+            className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
           >
-            {({ ref }) => (
-              <div
-                ref={ref}
-                className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
-              >
-                {preSrc
-                  && (
-                    <img
-                      className={classname(styles.pre, preClassName)}
-                      alt={alt}
-                      src={preSrc}
-                    />
-                  )
-                }
-                <picture className={classname(preSrc ? styles.hasPre : '', styles.picture)}>
-                  <img
-                    alt={alt}
-                    className={classname(styles.image, className)}
-                    src={visible ? src : null}
-                    onLoad={this.handleOnLoad}
-                  />
-                  <noscript>
-                    <img alt={alt} className={className} src={src} />
-                  </noscript>
-                </picture>
-              </div>
-            )}
-          </Rect>
+            {preSrc
+              && (
+                <img
+                  className={classname(styles.pre, preClassName)}
+                  alt={alt}
+                  src={preSrc}
+                />
+              )
+            }
+            <picture className={classname(preSrc ? styles.hasPre : '', styles.picture)}>
+              <img
+                alt={alt}
+                className={classname(styles.image, className)}
+                src={visible ? src : null}
+                onLoad={this.handleOnLoad}
+              />
+              <noscript>
+                <img alt={alt} className={className} src={src} />
+              </noscript>
+            </picture>
+          </div>
         )}
-      </WindowSize>
+      </Visible>
     );
   }
-}
-
-function isInWindow(rect, size): boolean {
-  return (rect.top <= size.height && rect.bottom >= 0)
-    || (rect.top <= 0 && rect.bottom >= 0);
 }
 
 export default LazyPicture;

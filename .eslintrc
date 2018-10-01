@@ -24,7 +24,8 @@
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": ["error", { "ignore": [
       "react-loadable.json",
-      "lazy-picture"
+      "lazy-picture",
+      "visible"
     ] }],
     "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-one-expression-per-line": ["error", { "allow": "literal" }],
