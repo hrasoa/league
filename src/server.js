@@ -59,7 +59,6 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
     if (errors.length) {
       console.log(errors.join('\n'));
-      res.status(500).end('Something broke!');
     }
 
     res.status(200).render('index', {
@@ -77,7 +76,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       fonts,
       markup,
       prod,
-      styles: inlineStyles,
+      styles: inlineStyles.filter(style => typeof style.href !== 'undefined'),
     });
   }
 });
