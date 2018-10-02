@@ -1,4 +1,5 @@
 // @flow
+// Stand-alone logo, do not add other components
 import React from 'react';
 import logo from './nav_logoman.svg';
 
