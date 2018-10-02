@@ -8,6 +8,7 @@ import Nav from './_Nav';
 import Home from '../Home';
 import Players from '../Players';
 import Teams from '../Teams';
+import Inline from '../_Svg/_Inline';
 
 const App = () => (
   <Fragment>
@@ -15,11 +16,13 @@ const App = () => (
       <Nav />
       <Banner />
     </Header>
-    <Switch>
-      <Route component={Home} exact path="/" />
-      <Route component={Players} exact path="/players" />
-      <Route component={Teams} exact path="/teams" />
-    </Switch>
+    <Inline>
+      <Switch>
+        <Route component={Home} exact path="/" />
+        <Route component={Players} exact path="/players" />
+        <Route component={Teams} exact path="/teams" />
+      </Switch>
+    </Inline>
   </Fragment>
 );
 

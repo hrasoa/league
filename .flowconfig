@@ -4,8 +4,6 @@
 
 [libs]
 flow-typed
-./src/_LazyPicture/type.js
-./src/_Visible/type.js
 
 [lints]
 

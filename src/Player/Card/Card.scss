@@ -6,7 +6,7 @@
 
 .body {
   background-color: orange;
-  clip-path: url(#player-card-body);
+  clip-path: url(#clip-player-card-body);
   padding: 6% 3%;
 }
 
@@ -15,5 +15,6 @@
 }
 
 .image {
+  clip-path: url(#clip-hexagone);
   display: block;
 }

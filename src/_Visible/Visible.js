@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Rect from '@reach/rect';
 import WindowSize from '@reach/window-size';
-import type { Props } from 'visible';
+import type { Props } from './type';
 import defaultProps from './defaultProps';
 
 type State = {

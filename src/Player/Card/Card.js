@@ -2,6 +2,9 @@
 import React from 'react';
 import LazyPicture from '../../_LazyPicture';
 import classname from '../../classname';
+import withInline from '../../_Svg/_Inline/withInline';
+import ClipBody, { id as ClipBodyId } from './ClipBody';
+import ClipHexagone, { id as ClipHexagoneId } from '../../_Svg/ClipHexagone';
 import styles from './Card.scss';
 import image from './card.png';
 
@@ -20,4 +23,7 @@ const Card = () => (
   </div>
 );
 
-export default Card;
+export default withInline({
+  [ClipBodyId]: ClipBody,
+  [ClipHexagoneId]: ClipHexagone,
+})(Card);
