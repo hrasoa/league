@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
-import type { UrlParams } from './type';
+import type { UrlParams, UrlFormatter } from './type';
 import routes from '../routes';
 
 type Props = {
@@ -18,7 +18,9 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       history.push(url, urlParams.state);
     }
 
-    url = (name: string, urlParams?: UrlParams): string => {
+    url: UrlFormatter; // eslint-disable-line react/sort-comp
+
+    url = (name, urlParams) => {
       let url = name in routes ? routes[name].path : null;
       if (!url) {
         return this.url('home');
