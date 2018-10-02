@@ -6,7 +6,7 @@ import type { ProviderValue } from './type';
 type Props = {
   children: Node,
   captureSvgs: ?({ [id: string]: ComponentType<any> }) => void,
-  svgInlinedIds: Array<string>,
+  inlinedIds: Array<string>,
 }
 
 type State = {
@@ -18,19 +18,19 @@ const { Provider, Consumer }: Object = React.createContext();
 class Inline extends Component<Props, State> {
   static defaultProps = {
     captureSvgs: null,
-    svgInlinedIds: [],
+    inlinedIds: [],
   }
 
   state = {
     svgs: {},
   }
 
-  get providerValue(): ProviderValue {
+  get providerValue(): $Exact<ProviderValue> {
     const { svgs } = this.state;
-    const { svgInlinedIds } = this.props;
+    const { inlinedIds } = this.props;
     return {
       addSvgs: this.addSvgs,
-      svgInlinedIds,
+      inlinedIds,
       svgs,
     };
   }

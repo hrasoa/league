@@ -8,9 +8,9 @@ const root = document.getElementById('svgs');
 
 const Inliner = () => (
   <Consumer>
-    {(value: ProviderValue) => root !== null && createPortal(
+    {(value: $Exact<ProviderValue>) => root !== null && createPortal(
       Object.keys((value && value.svgs) || {}).map((svgId) => {
-        if (value.svgInlinedIds.indexOf(svgId) >= 0) {
+        if (value.inlinedIds.indexOf(svgId) >= 0) {
           return null;
         }
         const Svg = value.svgs[svgId];

@@ -31,7 +31,7 @@ async function render(Root) {
   await Loadable.preloadReady();
   hydrate(
     <BrowserRouter>
-      <Inline svgInlinedIds={svgInlinedIds}>
+      <Inline inlinedIds={svgInlinedIds}>
         <Root />
         <Inliner />
       </Inline>
