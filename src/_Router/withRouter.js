@@ -15,7 +15,7 @@ function withRouter(WrappedComponent: ComponentType<any>) {
     push = (name: string, urlParams: UrlParams) => {
       const { history } = this.props;
       const url = this.url(name, urlParams);
-      history.push(url);
+      history.push(url, urlParams.state);
     }
 
     url = (name: string, urlParams?: UrlParams): string => {
@@ -26,17 +26,17 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       if (!urlParams) {
         return url;
       }
-      const { params, query } = urlParams;
+      const { params, search, hash } = urlParams;
       if (params) {
         url = url.replace(new RegExp('(:[^/]*)', 'g'), (match: string, p1: string): string => {
           const p = p1.replace(':', '');
           return `${params[p]}` || p1;
         });
       }
-      if (query) {
-        url = `${url}?${Object.keys(query).map(q => `${q}=${query[q]}`).join('&')}`;
+      if (search) {
+        url = `${url}?${Object.keys(search).map(q => `${q}=${search[q]}`).join('&')}`;
       }
-      return url;
+      return hash ? `${url}#${hash}` : url;
     }
 
     render() {
