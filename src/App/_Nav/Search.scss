@@ -1,4 +1,5 @@
 .root {
+  composes: uMarginRight from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: root from '../../_objects.input-group.scss';
   border-radius: 3px;
   overflow: hidden;
@@ -8,8 +9,8 @@
   composes: uPaddingHorizontalTiny from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: input from '../../_objects.input-group.scss';
   border: none;
-  padding-bottom: 3px;
-  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-top: 4px;
 }
 
 .input {
