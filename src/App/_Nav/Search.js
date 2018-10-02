@@ -1,13 +1,19 @@
 // @flow
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import type { RouterHistory } from 'react-router-dom';
 import { IoMdSearch } from 'react-icons/io';
 import styles from './Search.scss';
+
+type Props = {
+  history: RouterHistory,
+}
 
 type State = {
   value: string,
 }
 
-class Search extends Component<{}, State> {
+class Search extends Component<Props, State> {
   state = {
     value: '',
   };
@@ -17,15 +23,20 @@ class Search extends Component<{}, State> {
   }
 
   handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
-    const { value } = this.state;
-    console.log(`A name was submitted${value}`);
     event.preventDefault();
+    const { value } = this.state;
+    if (!value.trim().length) {
+      return;
+    }
+    const { history } = this.props;
+    const action = event.currentTarget.getAttribute('action') || '/search';
+    history.push(`${action}?q=${value}`);
   }
 
   render() {
     const { value } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form action="/search" onSubmit={this.handleSubmit}>
         <span className={styles.root}>
           <input
             name="q"
@@ -44,4 +55,4 @@ class Search extends Component<{}, State> {
   }
 }
 
-export default Search;
+export default withRouter(Search);

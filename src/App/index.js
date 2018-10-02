@@ -7,8 +7,7 @@ import Banner from '../_Ads';
 import Header from './_Header';
 import Nav from './_Nav';
 import Home from '../Home';
-import Players from '../Players';
-import Teams from '../Teams';
+import Search from '../Search';
 
 const App = () => (
   <Fragment>
@@ -19,8 +18,7 @@ const App = () => (
     <div className={styles.main}>
       <Switch>
         <Route component={Home} exact path="/" />
-        <Route component={Players} exact path="/players" />
-        <Route component={Teams} exact path="/teams" />
+        <Route component={Search} exact path="/search" />
       </Switch>
     </div>
   </Fragment>
