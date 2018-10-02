@@ -1,25 +1,27 @@
 .root {
+  composes: root from '../../_objects.input-group.scss';
   border-radius: 3px;
-  display: block;
   overflow: hidden;
 }
 
 .inputs {
   composes: uPaddingHorizontalTiny from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: input from '../../_objects.input-group.scss';
   border: none;
-  height: 24px;
+  padding-bottom: 4px;
+  padding-top: 4px;
 }
 
 .input {
   composes: inputs;
-  padding: 0;
+  composes: fontStageTwo from '../../_utilities.fout.scss';
+  @include inuit-font-size($inuit-font-size-h6 - 4);
+  font-weight: bold;
 }
 
 .button {
   composes: inputs;
   background-color: #fff;
-  padding: 0;
-  vertical-align: baseline;
 }
 
 .icon {

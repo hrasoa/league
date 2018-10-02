@@ -22,9 +22,9 @@
 }
 
 .wrapper {
-  @include inuit-clearfix();
   composes: oWrapper from 'inuitcss/objects/_objects.wrapper.scss';
   composes: uPaddingVerticalSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  @include inuit-clearfix();
   align-items: center;
   display: grid;
   grid-column-gap: 24px;
