@@ -35,14 +35,18 @@ class Inline extends Component<Props, State> {
     };
   }
 
-  addSvgs = (svgs: { [id: string]: ComponentType<any> }) => {
+  addSvgs = (svgList: { [id: string]: ComponentType<any> }) => {
+    const { svgs } = this.state;
+    if (Object.keys(svgList).every(id => typeof svgs[id] !== 'undefined')) {
+      return;
+    }
     const { captureSvgs } = this.props;
     if (captureSvgs) {
-      captureSvgs(svgs);
+      captureSvgs(svgList);
     }
     this.setState(state => ({
       ...state,
-      svgs: { ...state.svgs, ...svgs },
+      svgs: { ...state.svgs, ...svgList },
     }));
   }
 
