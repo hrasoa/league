@@ -52,7 +52,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
   if (context.url) {
     res.redirect(context.url);
   } else {
-    const { ids: svgIds, markup: svgMarkup } = getSvgs(svgs);
+    const { ids: svgInlinedIds, markup: svgMarkup } = getSvgs(svgs);
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
@@ -62,7 +62,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       console.log(`inlineStyles errors : ${errors.join('\n')}`);
     }
 
-    const initialState = { svgInlinedIds: svgIds };
+    const initialState = { svgInlinedIds };
 
     res.status(200).render('index', {
       assets,
