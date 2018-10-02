@@ -11,14 +11,6 @@
     });
   }
 
-  // if ('serviceWorker' in navigator) {
-  //   navigator.serviceWorker.register('/sw.js').then((reg) => {
-  //     console.log('Service worker registered.', reg);
-  //   }).catch(() => {
-  //     console.error('Failed to load service worker');
-  //   });
-  // }
-
   function getClassNames(stage) {
     const arr = [(sessionStorage[stage.name] && stage.className) || null];
     return stage.next ? arr.concat(getClassNames(stage.next)) : arr;
