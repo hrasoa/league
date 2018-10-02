@@ -15,9 +15,6 @@ function withRouter(WrappedComponent: ComponentType<any>) {
     push = (name: string, urlParams: UrlParams) => {
       const { history } = this.props;
       const url = this.url(name, urlParams);
-      if (!url) {
-        return;
-      }
       history.push(url);
     }
 
