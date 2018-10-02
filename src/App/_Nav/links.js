@@ -1,11 +1,11 @@
 const links = [
   {
     label: 'Leagues',
-    to: '/leagues',
+    name: 'leagues',
   },
   {
     label: 'Mercato',
-    to: '/mercato',
+    name: 'mercato',
   },
 ];
 

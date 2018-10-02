@@ -1,12 +1,12 @@
 // @flow
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import type { RouterHistory } from 'react-router-dom';
 import { IoMdSearch } from 'react-icons/io';
+import type { UrlPush } from '../../_Router/type';
+import withRouter from '../../_Router/withRouter';
 import styles from './Search.scss';
 
 type Props = {
-  history: RouterHistory,
+  push: UrlPush,
 }
 
 type State = {
@@ -28,15 +28,14 @@ class Search extends Component<Props, State> {
     if (!value.trim().length) {
       return;
     }
-    const { history } = this.props;
-    const action = event.currentTarget.getAttribute('action') || '/search';
-    history.push(`${action}?q=${value}`);
+    const { push } = this.props;
+    push('search', { query: { q: value } });
   }
 
   render() {
     const { value } = this.state;
     return (
-      <form action="/search" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <span className={styles.root}>
           <input
             name="q"

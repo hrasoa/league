@@ -1,7 +1,10 @@
+// @flow
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import listInline from 'inuitcss/objects/_objects.list-inline.scss';
+import withRouter from '../../_Router/withRouter';
+import type { UrlFormatter } from '../../_Router/type';
 import classname from '../../classname';
 import Logo from './Logo';
 import User from './User';
@@ -9,7 +12,7 @@ import links from './links';
 import Search from './Search';
 import styles from './Nav.scss';
 
-const Nav = () => (
+const Nav = ({ url }: { url: UrlFormatter }) => (
   <nav className={styles.root}>
     <div className={styles.fixed}>
       <div className={styles.wrapper}>
@@ -17,14 +20,14 @@ const Nav = () => (
         <ul className={styles.list}>
           {links.map(link => (
             <li
-              key={link.to}
+              key={link.name}
               className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
             >
               <NavLink
                 activeClassName={styles.active}
                 className={styles.link}
                 title={link.label}
-                to={link.to}
+                to={url(link.name)}
               >
                 {link.label}
               </NavLink>
@@ -44,4 +47,4 @@ const Nav = () => (
   </nav>
 );
 
-export default Nav;
+export default withRouter(Nav);
