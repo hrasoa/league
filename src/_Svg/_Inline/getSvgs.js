@@ -6,8 +6,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 type Input = Array<{ [id: string]: ComponentType<any> }>
 
 type Output = {
-  svgIds: Array<string>,
-  svgMarkup: string,
+  ids: Array<string>,
+  markup: string,
 }
 
 export default (svgs: Input): Output => {
@@ -18,7 +18,7 @@ export default (svgs: Input): Output => {
   }).join('');
 
   return {
-    svgIds: Object.keys(inlined),
-    svgMarkup: markup,
+    ids: Object.keys(inlined),
+    markup,
   };
 };
