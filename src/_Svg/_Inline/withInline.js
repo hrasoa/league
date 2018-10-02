@@ -18,7 +18,8 @@ type Svgs = { [id: string]: ComponentType<any> };
 function withInline(svgs: Svgs): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
   return (WrappedComponent) => {
     class AddSvg extends Component<AddSvgProps> {
-      componentDidMount() {
+      constructor(props) {
+        super(props);
         const { addSvgs } = this.props;
         if (addSvgs) {
           addSvgs(svgs);

@@ -5,9 +5,13 @@ import Loadable from 'react-loadable';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
 import './_generic.open-sans.css';
+import Inline from './_Svg/_Inline';
+import Inliner from './_Svg/_Inline/Inliner';
 import App from './App';
 
 const root = document.getElementById('root');
+
+const { svgInlinedIds } = window.INITIAL_STATE;
 
 window.main = () => {
   render(App);
@@ -27,7 +31,10 @@ async function render(Root) {
   await Loadable.preloadReady();
   hydrate(
     <BrowserRouter>
-      <Root />
+      <Inline svgInlinedIds={svgInlinedIds}>
+        <Root />
+        <Inliner />
+      </Inline>
     </BrowserRouter>,
     root,
   );

@@ -5,6 +5,8 @@ import type { ProviderValue } from './type';
 
 type Props = {
   children: Node,
+  captureSvgs: ?({ [id: string]: ComponentType<any> }) => void,
+  svgInlinedIds: Array<string>,
 }
 
 type State = {
@@ -14,17 +16,30 @@ type State = {
 const { Provider, Consumer }: Object = React.createContext();
 
 class Inline extends Component<Props, State> {
+  static defaultProps = {
+    captureSvgs: null,
+    svgInlinedIds: [],
+  }
+
   state = {
     svgs: {},
   }
 
   get providerValue(): ProviderValue {
+    const { svgs } = this.state;
+    const { svgInlinedIds } = this.props;
     return {
       addSvgs: this.addSvgs,
+      svgInlinedIds,
+      svgs,
     };
   }
 
   addSvgs = (svgs: { [id: string]: ComponentType<any> }) => {
+    const { captureSvgs } = this.props;
+    if (captureSvgs) {
+      captureSvgs(svgs);
+    }
     this.setState(state => ({
       ...state,
       svgs: { ...state.svgs, ...svgs },
@@ -32,21 +47,10 @@ class Inline extends Component<Props, State> {
   }
 
   render() {
-    const { svgs } = this.state;
     const { children } = this.props;
     return (
       <Provider value={this.providerValue}>
         {children}
-        {Object.keys(svgs).length > 0
-          && (
-            <div id="svgs">
-              {Object.keys(svgs).map((svgId) => {
-                const Svg = svgs[svgId];
-                return <Svg key={svgId} />;
-              })}
-            </div>
-          )
-        }
       </Provider>
     );
   }

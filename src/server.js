@@ -6,10 +6,11 @@ import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
-import { renderToString } from 'react-dom/server';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
+import Inline from './_Svg/_Inline';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import openSans from './_Fonts/open-sans-v15-latin-regular.woff2';
 import fout from './_utilities.fout.scss';
@@ -42,24 +43,34 @@ server.set('views', './src');
 server.get('/*', async (req: express$Request, res: express$Response) => {
   const context: { url?: string } = {};
   const modules: Array<string> = [];
+  const svgs = [];
   const markup = renderToString(
     <Capture report={(moduleName) => { modules.push(moduleName); }}>
       <StaticRouter context={context} location={req.url}>
-        <App />
+        <Inline captureSvgs={(svgList) => { svgs.push(svgList); }}>
+          <App />
+        </Inline>
       </StaticRouter>
     </Capture>,
   );
   if (context.url) {
     res.redirect(context.url);
   } else {
+    const svgInlined = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});
+    const svgMarkup = Object.keys(svgInlined).map((svgId) => {
+      const Svg = svgInlined[svgId];
+      return renderToStaticMarkup(<Svg />);
+    }).join('');
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
     const inlineStyles = await getInlineStyles(styles);
     const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
     if (errors.length) {
-      console.log(errors.join('\n'));
+      console.log(`inlineStyles errors : ${errors.join('\n')}`);
     }
+
+    const initialState = { svgInlinedIds: Object.keys(svgInlined) };
 
     res.status(200).render('index', {
       assets,
@@ -74,9 +85,11 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       critical,
       fontStages,
       fonts,
+      initialState,
       markup,
       prod,
       styles: inlineStyles.filter(style => typeof style.href !== 'undefined'),
+      svgMarkup,
     });
   }
 });
