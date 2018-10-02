@@ -5,6 +5,7 @@ import classname from '../../classname';
 import withInline from '../../_Svg/_Inline/withInline';
 import ClipBody, { id as ClipBodyId } from './ClipBody';
 import ClipHexagone, { id as ClipHexagoneId } from '../../_Svg/ClipHexagone';
+import InnerShadow, { id as InnerShadowId } from '../../_Svg/InnerShadow';
 import styles from './Card.scss';
 import image from './card.png';
 
@@ -26,4 +27,5 @@ const Card = () => (
 export default withInline({
   [ClipBodyId]: ClipBody,
   [ClipHexagoneId]: ClipHexagone,
+  [InnerShadowId]: InnerShadow,
 })(Card);

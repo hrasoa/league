@@ -6,7 +6,7 @@ type Props = {
   className: ?string,
   children: Node,
   height: ?number,
-  viewBox: string,
+  viewBox: ?string,
   width: ?number,
 }
 
@@ -21,6 +21,7 @@ const Svg = (props: Props) => (
 Svg.defaultProps = {
   className: null,
   height: null,
+  viewBox: null,
   width: null,
 };
 
