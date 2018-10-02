@@ -4,7 +4,7 @@ import { IoMdSearch } from 'react-icons/io';
 import styles from './Search.scss';
 
 const Search = () => (
-  <form action="/search/all">
+  <form action="/search">
     <span className={styles.root}>
       <input className={styles.input} placeholder="Search..." type="search" />
       <button className={styles.button} type="submit">
