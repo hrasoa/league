@@ -29,7 +29,7 @@ class Search extends Component<Props, State> {
       return;
     }
     const { push } = this.props;
-    push('search', { query: { q: value } });
+    push('search', { search: { q: value } });
   }
 
   render() {
