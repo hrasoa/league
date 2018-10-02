@@ -6,11 +6,12 @@ import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
 import express from 'express';
-import { renderToString, renderToStaticMarkup } from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
 import Inline from './_Svg/_Inline';
+import getSvgs from './_Svg/_Inline/getSvgs';
 import fout from './_utilities.fout.scss';
 
 const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
@@ -51,11 +52,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
   if (context.url) {
     res.redirect(context.url);
   } else {
-    const svgInlined = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});
-    const svgMarkup = Object.keys(svgInlined).map((svgId) => {
-      const Svg = svgInlined[svgId];
-      return renderToStaticMarkup(<Svg />);
-    }).join('');
+    const { svgIds, svgMarkup } = getSvgs(svgs);
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
     const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
@@ -65,7 +62,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       console.log(`inlineStyles errors : ${errors.join('\n')}`);
     }
 
-    const initialState = { svgInlinedIds: Object.keys(svgInlined) };
+    const initialState = { svgInlinedIds: svgIds };
 
     res.status(200).render('index', {
       assets,
