@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
+import styles from './Main.scss';
 import './App.scss';
 import Banner from '../_Ads';
 import Header from './_Header';
@@ -16,13 +17,15 @@ const App = () => (
       <Nav />
       <Banner />
     </Header>
-    <Inline>
-      <Switch>
-        <Route component={Home} exact path="/" />
-        <Route component={Players} exact path="/players" />
-        <Route component={Teams} exact path="/teams" />
-      </Switch>
-    </Inline>
+    <div className={styles.main}>
+      <Inline>
+        <Switch>
+          <Route component={Home} exact path="/" />
+          <Route component={Players} exact path="/players" />
+          <Route component={Teams} exact path="/teams" />
+        </Switch>
+      </Inline>
+    </div>
   </Fragment>
 );
 
