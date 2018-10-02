@@ -3,8 +3,8 @@ import React from 'react';
 import Svg from '.';
 
 type Props = {
-  color: ?string,
-  id: ?string,
+  color: string,
+  id: string,
   stdDeviation: number,
 }
 
