@@ -1,0 +1,28 @@
+.root {
+  border-radius: 3px;
+  display: block;
+  overflow: hidden;
+}
+
+.inputs {
+  composes: uPaddingHorizontalTiny from 'inuitcss/utilities/_utilities.spacings.scss';
+  border: none;
+  height: 24px;
+}
+
+.input {
+  composes: inputs;
+  padding: 0;
+}
+
+.button {
+  composes: inputs;
+  background-color: #fff;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.icon {
+  fill: #000;
+  vertical-align: middle;
+}

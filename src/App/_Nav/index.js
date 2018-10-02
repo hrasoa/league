@@ -6,6 +6,7 @@ import classname from '../../classname';
 import Logo from './Logo';
 import User from './User';
 import links from './links';
+import Search from './Search';
 import styles from './Nav.scss';
 
 const Nav = () => (
@@ -31,6 +32,9 @@ const Nav = () => (
           ))}
         </ul>
         <ul className={classname(styles.list, styles.right)}>
+          <li className={listInline.oListInlineItem}>
+            <Search />
+          </li>
           <li className={listInline.oListInlineItem}>
             <User />
           </li>
