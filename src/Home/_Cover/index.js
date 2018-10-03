@@ -2,7 +2,6 @@
 import React from 'react';
 import LazyPicture from '../../_LazyPicture';
 import styles from './Cover.scss';
-import coverImage from './mahkeo-245724-unsplash.preload.jpg';
 
 const Cover = () => (
   <div className={styles.root}>
@@ -11,7 +10,7 @@ const Cover = () => (
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
       className={styles.image}
       preClassName={styles.image}
-      image={coverImage}
+      image={{ preSrc: '/img/mahkeo-245724-unsplash.preload.jpg?r=10', src: '/img/mahkeo-245724-unsplash.preload.jpg' }}
     />
   </div>
 );

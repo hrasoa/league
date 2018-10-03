@@ -1,0 +1,7 @@
+version: "2.1"
+
+services:
+  nginx:
+    volumes:
+      - ./docker/nginx:/conf
+      - ./public:/usr/share/nginx/html
