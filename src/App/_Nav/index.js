@@ -16,7 +16,7 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
   <nav className={styles.root}>
     <div className={styles.fixed}>
       <div className={styles.wrapper}>
-        <Logo />
+        <Logo url={url('home')} />
         <ul className={styles.list}>
           {links.map(link => (
             <li
