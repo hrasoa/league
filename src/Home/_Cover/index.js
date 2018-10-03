@@ -11,7 +11,7 @@ const Cover = () => (
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
       className={styles.image}
       preClassName={styles.image}
-      image={{ preSrc: image, src: image }}
+      image={{ preSrc: `${image}?w=10&q=20`, src: image }}
     />
   </div>
 );
