@@ -28,33 +28,13 @@ module.exports = {
       },
     };
 
-    const rules = config.module.rules.map((rule) => {
-      if (rule.loader === require.resolve('url-loader')) {
-        const { test, ...rest } = rule;
-        return {
-          loaders: [
-            {
-              loader: 'lqip-loader',
-              options: {
-                base64: true,
-                palette: false,
-              },
-            },
-            { ...rest },
-          ],
-          test,
-        };
-      }
-      return rule;
-    });
-
     if (target === 'web') {
       return {
         ...config,
         devtool: dev ? config.devtool : false,
         module: {
           rules: [
-            ...rules,
+            ...config.module.rules,
             {
               test: /\.scss$/,
               use: [
@@ -123,7 +103,7 @@ module.exports = {
         ...config,
         module: {
           rules: [
-            ...rules,
+            ...config.module.rules,
             {
               test: /\.scss$/,
               use: [
