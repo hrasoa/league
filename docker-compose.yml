@@ -1,11 +1,20 @@
 version: "2.1"
 
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
   nginx:
     image: nginx:alpine
-    ports:
-      - "8001:80"
+    expose:
+      - 8001
     volumes:
       - ./docker/nginx:/conf
       - ./build/public:/usr/share/nginx/html
-    command: [nginx, -c, /conf/nginx.conf, -g, 'daemon off;']
+    command: [nginx, -c, /conf/nginx.conf]
+    environment:
+      - VIRTUAL_HOST=*.league.com
