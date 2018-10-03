@@ -1,0 +1,11 @@
+version: "2.1"
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8001:80"
+    volumes:
+      - ./docker/nginx:/conf
+      - ./build/public:/usr/share/nginx/html
+    command: [nginx, -c, /conf/nginx.conf, -g, 'daemon off;']
