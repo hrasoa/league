@@ -13,6 +13,8 @@ import App from './App';
 import Inline from './_Svg/_Inline';
 import getSvgs from './_Svg/_Inline/getSvgs';
 import fout from './_utilities.fout.scss';
+import lora from './_Fonts/lora-v12-latin-regular.woff2';
+import openSans from './_Fonts/open-sans-v15-latin-regular.woff2';
 
 const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 const prod = process.env.NODE_ENV === 'production';
@@ -76,6 +78,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       )],
       critical,
       fontStages,
+      fonts: [lora, openSans],
       initialState,
       markup,
       prod,
