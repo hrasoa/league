@@ -9,10 +9,10 @@ const Cover = () => (
     <h1 className={styles.title}>“ Bring the virtual pro clubs to the next level ”</h1>
     <LazyPicture
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
-      className={styles.image}
-      rootClassName={styles.ratio}
-      preClassName={styles.image}
+      className={styles.ratio}
       ratioClassName={styles.ratio}
+      imageClassName={styles.image}
+      preClassName={styles.image}
       image={{ preSrc: `${image}?w=10&q=20`, src: image }}
     />
   </div>

@@ -2,6 +2,7 @@
 export type Props = {
   alt: string,
   className: ?string,
+  imageClassName: ?string,
   preClassName: ?string,
   rootClassName: ?string,
   ratioClassName: ?string,

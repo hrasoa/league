@@ -3,8 +3,8 @@
   position: relative;
 }
 
-.ration {
-  padding-bottom: 100%;
+.ratio {
+  padding-bottom: 0;
 }
 
 .images {
@@ -19,7 +19,6 @@
 
 .pre {
   composes: images;
-  position: relative;
   transition: opacity .6s;
   z-index: 1;
 

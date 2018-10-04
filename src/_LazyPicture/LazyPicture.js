@@ -31,8 +31,8 @@ class LazyPicture extends Component<Props, State> {
     const {
       alt,
       className,
+      imageClassName,
       preClassName,
-      rootClassName,
       ratioClassName,
       image,
     } = this.props;
@@ -42,7 +42,7 @@ class LazyPicture extends Component<Props, State> {
         {({ ref, visible }) => (
           <div
             ref={ref}
-            className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
+            className={classname(styles.root, className, loaded ? styles.loaded : '')}
           >
             <div className={classname(styles.ratio, ratioClassName)} />
             <img
@@ -53,7 +53,7 @@ class LazyPicture extends Component<Props, State> {
             <picture className={classname(styles.picture)}>
               <img
                 alt={alt}
-                className={classname(styles.image, className)}
+                className={classname(styles.image, imageClassName)}
                 src={visible ? src : null}
                 onLoad={this.handleOnLoad}
               />
