@@ -8,10 +8,10 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")    
     script.
       'use strict';(function(a){function b(e){var f=[sessionStorage[e.name]&&e.className||null];return e.next?f.concat(b(e.next)):f}var c=document.documentElement,d=b(a).filter(Boolean);(d.length||'serviceWorker'in navigator&&null!==navigator.serviceWorker.controller&&'activated'===navigator.serviceWorker.controller.state)&&d.forEach(function(e){c.classList.add(e)})})(!{JSON.stringify(fontStages)});
-    each font in fonts
-      link(rel="prelod" as="font" type="font/woff2" href=font)
     if prod
       style !{critical}
+    each font in fonts
+      link(rel="preload" as="font" type="font/woff2" href=font crossorigin)
     script.
       'use strict';(function(a){function b(g){var h=[g.name in sessionStorage];return g.next?h.concat(b(g.next)):h}function c(g){return Promise.all(g.map(function(h){return document.fonts.load(h)}))}function d(g){c(g.fonts).then(function(){g.className&&e.classList.add(g.className),g.name&&(sessionStorage[g.name]=!0),g.next&&d(g.next)})}var e=document.documentElement,f=b(a).filter(Boolean);f.length||'serviceWorker'in navigator&&null!==navigator.serviceWorker.controller&&'activated'===navigator.serviceWorker.controller.state||'fonts'in document&&d(a)})(!{JSON.stringify(fontStages)});
     if prod         
