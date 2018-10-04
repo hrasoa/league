@@ -4,3 +4,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.font-body {
+  composes: fontBody from '../_utilities.fonts.scss';
+}
