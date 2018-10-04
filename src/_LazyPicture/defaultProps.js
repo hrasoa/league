@@ -4,5 +4,4 @@ export default {
   imageClassName: null,
   preClassName: null,
   ratioClassName: null,
-  rootClassName: null,
 };
