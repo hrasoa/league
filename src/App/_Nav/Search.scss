@@ -15,18 +15,17 @@
 
 .input {
   composes: inputs;
-  composes: fontStageTwo from '../../_utilities.fout.scss';
   @include inuit-font-size($inuit-font-size-h6 - 4);
   font-weight: bold;
 }
 
 .button {
   composes: inputs;
-  background-color: #fff;
+  background-color: var(--color-white);
   cursor: pointer;
 }
 
 .icon {
-  fill: #000;
+  fill: var(--color-black);
   vertical-align: middle;
 }

@@ -12,9 +12,9 @@ import stats from '../build/react-loadable.json';
 import App from './App';
 import Inline from './_Svg/_Inline';
 import getSvgs from './_Svg/_Inline/getSvgs';
-import fout from './_utilities.fout.scss';
+import fout from './_utilities.fonts.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
-import openSans from './_Fonts/open-sans-v15-latin-regular.woff2';
+import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
 
 const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
 const prod = process.env.NODE_ENV === 'production';
@@ -24,12 +24,12 @@ const critical = prod
   : null;
 
 const fontStages = {
-  className: fout.fontStageOne,
-  fonts: ['1em Lora Regular', '1em Open Sans Regular'],
-  name: fout.fontStageOne,
+  className: fout.fontBody,
+  fonts: ['1em Lora Regular', '1em Roboto Regular'],
+  name: 'foutStageOne',
   next: {
-    fonts: ['700 1em Lora Bold', '700 1em Open Sans Regular'],
-    name: fout.fontStageTwo,
+    fonts: ['700 1em Lora Bold', '700 1em Roboto Regular'],
+    name: 'foutStageTwo',
   },
 };
 
@@ -78,7 +78,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       )],
       critical,
       fontStages,
-      fonts: [lora, openSans],
+      fonts: [lora, roboto],
       initialState,
       markup,
       prod,

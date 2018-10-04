@@ -4,7 +4,7 @@ import { hydrate } from 'react-dom';
 import Loadable from 'react-loadable';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
-import './_generic.open-sans.css';
+import './_generic.roboto.css';
 import Inline from './_Svg/_Inline';
 import Inliner from './_Svg/_Inline/Inliner';
 import App from './App';

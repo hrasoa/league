@@ -4,7 +4,3 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.font-stage-1 {
-  composes: fontStageOne from "../_utilities.fout.scss";
-}

@@ -17,6 +17,7 @@
 }
 
 .title {
+  composes: fontHeadline from "../_utilities.fonts.scss";
   @include inuit-font-size($inuit-font-size-h1 + 8);
   color: var(--color-soft-white);
   font-weight: 400;
