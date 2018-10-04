@@ -38,14 +38,16 @@ class Search extends Component<Props, State> {
       <form action="/search" onSubmit={this.handleSubmit}>
         <span className={styles.root}>
           <input
+            aria-labelledby="search-btn"
             name="q"
+            id="search-q"
             className={styles.input}
             placeholder="Search..."
             type="search"
             value={value}
             onChange={this.handleChange}
           />
-          <button className={styles.button} type="submit">
+          <button id="search-btn" aria-label="Search" className={styles.button} type="submit">
             <IoMdSearch className={styles.icon} />
           </button>
         </span>

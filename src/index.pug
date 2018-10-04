@@ -4,6 +4,7 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(charset="utf-8")
     title="league"
+    meta(name="description" content="league description")
     meta(name="viewport" content="width=device-width, initial-scale=1")    
     script.
       'use strict';(function(a){function b(e){var f=[sessionStorage[e.name]&&e.className||null];return e.next?f.concat(b(e.next)):f}var c=document.documentElement,d=b(a).filter(Boolean);(d.length||'serviceWorker'in navigator&&null!==navigator.serviceWorker.controller&&'activated'===navigator.serviceWorker.controller.state)&&d.forEach(function(e){c.classList.add(e)})})(!{JSON.stringify(fontStages)});
