@@ -1,7 +1,7 @@
 .font-stage-one {
-  @include global-font-family();
+  font-family: var(--font);
 }
 
 .font-stage-two {
-  @include global-font-family-heading();
+  font-family: var(--font-alternate);
 }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
-import type { UrlParams, UrlFormatter } from './type';
+import type { UrlPush, UrlFormatter } from './type';
 import routes from '../routes';
 
 type Props = {
@@ -12,7 +12,9 @@ type Props = {
 
 function withRouter(WrappedComponent: ComponentType<any>) {
   class WithRouter extends Component<Props> {
-    push = (name: string, urlParams: UrlParams) => {
+    push: UrlPush; // eslint-disable-line react/sort-comp
+
+    push = (name, urlParams) => {
       const { history } = this.props;
       const url = this.url(name, urlParams);
       history.push(url, urlParams.state);

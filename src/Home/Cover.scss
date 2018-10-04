@@ -5,7 +5,7 @@
   z-index: 1;
 
   &::before {
-    box-shadow: 0 0 42px 36px #000;
+    box-shadow: 0 0 42px 36px var(--color-black);
     content: '';
     display: block;
     left: 0;
@@ -18,7 +18,7 @@
 
 .title {
   @include inuit-font-size($inuit-font-size-h1 + 8);
-  color: $soft-white;
+  color: var(--color-soft-white);
   font-weight: 400;
   left: 50%;
   max-width: 800px;
@@ -37,6 +37,6 @@
 }
 
 .ratio {
-  background-color: #000;
+  background-color: var(--color-black);
   height: calc(100vh - 240px);
 }

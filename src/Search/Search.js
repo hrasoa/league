@@ -1,6 +1,9 @@
 // @flow
 import React from 'react';
+import Categories from './Categories';
 
-const Search = () => <div>Search</div>;
+const Search = () => (
+  <Categories />
+);
 
 export default Search;
