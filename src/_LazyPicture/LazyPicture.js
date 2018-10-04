@@ -33,10 +33,10 @@ class LazyPicture extends Component<Props, State> {
       className,
       preClassName,
       rootClassName,
+      ratioClassName,
       image,
     } = this.props;
-    const src = typeof image === 'string' ? image : image.src;
-    const preSrc = typeof image === 'string' ? null : image.preSrc;
+    const { src, preSrc } = image;
     return (
       <Visible once>
         {({ ref, visible }) => (
@@ -44,16 +44,13 @@ class LazyPicture extends Component<Props, State> {
             ref={ref}
             className={classname(styles.root, rootClassName, loaded ? styles.loaded : '')}
           >
-            {preSrc
-              && (
-                <img
-                  className={classname(styles.pre, preClassName)}
-                  alt={alt}
-                  src={preSrc}
-                />
-              )
-            }
-            <picture className={classname(preSrc ? styles.hasPre : '', styles.picture)}>
+            <div className={classname(styles.ratio, ratioClassName)} />
+            <img
+              className={classname(styles.pre, preClassName)}
+              alt={alt}
+              src={preSrc}
+            />
+            <picture className={classname(styles.picture)}>
               <img
                 alt={alt}
                 className={classname(styles.image, className)}

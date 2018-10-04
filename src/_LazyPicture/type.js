@@ -4,5 +4,6 @@ export type Props = {
   className: ?string,
   preClassName: ?string,
   rootClassName: ?string,
-  image: string | { src: string, preSrc: string },
+  ratioClassName: ?string,
+  image: { src: string, preSrc: string },
 };

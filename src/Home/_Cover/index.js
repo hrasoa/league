@@ -10,7 +10,9 @@ const Cover = () => (
     <LazyPicture
       alt="https://unsplash.com/photos/_kBrDn-Oir0"
       className={styles.image}
+      rootClassName={styles.ratio}
       preClassName={styles.image}
+      ratioClassName={styles.ratio}
       image={{ preSrc: `${image}?w=10&q=20`, src: image }}
     />
   </div>

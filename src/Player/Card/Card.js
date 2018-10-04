@@ -17,7 +17,7 @@ const Card = () => (
           alt="player"
           className={styles.image}
           preClassName={classname(styles.image, styles.pre)}
-          image={image}
+          image={{ preSrc: image, src: image }}
         />
       </div>
     </div>
