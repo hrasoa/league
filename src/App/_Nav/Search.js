@@ -35,7 +35,7 @@ class Search extends Component<Props, State> {
   render() {
     const { value } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form action="/search" onSubmit={this.handleSubmit}>
         <span className={styles.root}>
           <input
             name="q"
