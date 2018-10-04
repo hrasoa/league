@@ -27,5 +27,5 @@ ocker run --rm -v $PWD:/app -w /app -it v4tech/imagemagick /bin/sh
 ```
 
 ```bash
-convert -quality 32 -resize 80% -interlace none mahkeo.jpg mahkeo_.jpg
+convert -unsharp 0.25x0.25+8+0.065 -quality 32 -resize 70% -interlace none mahkeo.jpg mahkeo.jpg
 ```
