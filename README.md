@@ -19,6 +19,7 @@ yarn start
 This sample has the full SSR setup as described in the [react-loadable docs](https://github.com/thejameskyle/react-loadable#--------------server-side-rendering).
 It demonstrates simple dynamic imports using [react-loadable](https://github.com/thejameskyle/react-loadable) on top of SSR with razzle.
 
-## Commands
+## Usfull Commands
+docker stop $(docker ps -q)
 docker-compose up --remove-orphans
 ocker run --rm -v $PWD:/app -w /app -it v4tech/imagemagick /bin/sh
