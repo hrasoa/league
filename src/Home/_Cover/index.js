@@ -12,7 +12,7 @@ const Cover = () => (
       ratioClassName={styles.ratio}
       imageClassName={styles.image}
       preClassName={styles.image}
-      image={{ preSrc: `${image}?w=10&q=20`, src: image }}
+      image={{ preSrc: `${image}?w=100&q=20`, src: image }}
     />
   </div>
 );
