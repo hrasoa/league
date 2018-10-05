@@ -1,13 +1,15 @@
 .root {
   composes: uMarginRight from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: root from '../../_objects.input-group.scss';
-  border-radius: 3px;
+  composes: tertaryBg from '../../_utilities.theme.scss';
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .inputs {
   composes: uPaddingHorizontalTiny from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: input from '../../_objects.input-group.scss';
+  background: transparent;
   border: none;
   padding-bottom: 4px;
   padding-top: 4px;
@@ -21,7 +23,6 @@
 
 .button {
   composes: inputs;
-  background-color: var(--white);
   cursor: pointer;
 }
 
