@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CompressionPlugin = require('compression-webpack-plugin');
+const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
 const merge = require('lodash/merge');
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
     };
 
     const sassLoader = {
-      loader: 'sass-loader',
+      loader: require.resolve('sass-loader'),
       options: {
         data: [
           '@import "./src/settings.config";',
@@ -41,26 +42,25 @@ module.exports = {
               use: [
                 dev
                   ? {
-                    loader: 'style-loader',
+                    loader: require.resolve('style-loader'),
                     options: {
                       sourceMap: dev,
                     },
                   }
                   : MiniCssExtractPlugin.loader,
                 {
-                  loader: 'css-loader',
+                  loader: require.resolve('css-loader'),
                   options: {
                     ...cssLoaderOpts,
                     importLoaders: 2,
                   },
                 },
                 {
-                  loader: 'postcss-loader',
+                  loader: require.resolve('postcss-loader'),
                   options: {
                     ident: 'postscss',
                     plugins: () => [
                       require('autoprefixer')(),
-                      !dev && require('cssnano')(),
                       require('postcss-reporter'),
                     ].filter(Boolean),
                   },
@@ -88,6 +88,9 @@ module.exports = {
         }),
         plugins: [
           ...config.plugins,
+          !dev && new OptimizeCssnanoPlugin({
+            sourceMap: true,
+          }),
           dev && new StyleLintPlugin(),
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
@@ -110,7 +113,7 @@ module.exports = {
               test: /\.scss$/,
               use: [
                 {
-                  loader: 'css-loader/locals',
+                  loader: require.resolve('css-loader/locals'),
                   options: cssLoaderOpts,
                 },
                 sassLoader,
