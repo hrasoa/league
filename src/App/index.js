@@ -7,10 +7,10 @@ import './App.scss';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
 import Banner from '../_Ads';
-import Header from './_Header';
-import Nav from './_Nav';
 import Home from '../Home';
 import Search from '../Search';
+import Nav from './_Nav';
+import Header from './Header';
 
 const App = ({ url }: { url: UrlFormatter }) => (
   <Fragment>

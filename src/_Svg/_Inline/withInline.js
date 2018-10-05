@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import type { Node, ComponentType } from 'react';
 import type { ProviderValue } from './type';
-import { Consumer } from '.';
+import { Consumer } from './InlineProvider';
 
 type PropsInput = any;
 

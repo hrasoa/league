@@ -8,9 +8,19 @@ import type { UrlFormatter } from '../../_Router/type';
 import classname from '../../classname';
 import Logo from './Logo';
 import User from './User';
-import links from './links';
 import Search from './Search';
 import styles from './Nav.scss';
+
+const links = [
+  {
+    label: 'Leagues',
+    name: 'leagues',
+  },
+  {
+    label: 'Mercato',
+    name: 'mercato',
+  },
+];
 
 const Nav = ({ url }: { url: UrlFormatter }) => (
   <nav className={styles.root}>

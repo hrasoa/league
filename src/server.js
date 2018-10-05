@@ -10,8 +10,7 @@ import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
-import Inline from './_Svg/_Inline';
-import getSvgs from './_Svg/_Inline/getSvgs';
+import InlineProvider, { getSvgs } from './_Svg/_Inline';
 import fout from './_utilities.fonts.scss';
 import page from './App/App.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
@@ -46,9 +45,9 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
   const markup = renderToString(
     <Capture report={(moduleName) => { modules.push(moduleName); }}>
       <StaticRouter context={context} location={req.url}>
-        <Inline captureSvgs={(svgList) => { svgs.push(svgList); }}>
+        <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
           <App />
-        </Inline>
+        </InlineProvider>
       </StaticRouter>
     </Capture>,
   );

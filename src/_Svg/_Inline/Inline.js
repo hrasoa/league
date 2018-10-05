@@ -2,11 +2,11 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import type { ProviderValue } from './type';
-import { Consumer } from '.';
+import { Consumer } from './InlineProvider';
 
 const root = document.getElementById('svgs');
 
-const Inliner = () => (
+const Inline = () => (
   <Consumer>
     {(value: $Exact<ProviderValue>) => root !== null && createPortal(
       Object.keys((value && value.svgs) || {}).map((svgId) => {
@@ -21,4 +21,4 @@ const Inliner = () => (
   </Consumer>
 );
 
-export default Inliner;
+export default Inline;

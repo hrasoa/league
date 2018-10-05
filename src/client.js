@@ -5,8 +5,8 @@ import Loadable from 'react-loadable';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
 import './_generic.roboto.css';
-import Inline from './_Svg/_Inline';
-import Inliner from './_Svg/_Inline/Inliner';
+import InlineProvider from './_Svg/_Inline';
+import Inline from './_Svg/_Inline/Inline';
 import App from './App';
 
 const root = document.getElementById('root');
@@ -31,10 +31,10 @@ async function render(Root) {
   await Loadable.preloadReady();
   hydrate(
     <BrowserRouter>
-      <Inline inlinedIds={svgInlinedIds}>
+      <InlineProvider inlinedIds={svgInlinedIds}>
         <Root />
-        <Inliner />
-      </Inline>
+        <Inline />
+      </InlineProvider>
     </BrowserRouter>,
     root,
   );
