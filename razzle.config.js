@@ -11,7 +11,7 @@ module.exports = {
     const cssLoaderOpts = {
       camelCase: true,
       importLoaders: 1,
-      localIdentName: dev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
+      localIdentName: dev ? '[name]--[local]_[hash:base64:5]' : '[hash:base64:5]',
       modules: true,
       sourceMap: dev,
     };
