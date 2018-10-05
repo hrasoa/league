@@ -25,6 +25,7 @@
     "import/no-unresolved": ["error", { "ignore": [
       "react-loadable.json"
     ] }],
+    "import/order": ["error", { "groups": ["builtin", "external", "parent", "sibling", "index"] }],
     "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-one-expression-per-line": ["error", { "allow": "literal" }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],

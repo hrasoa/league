@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import styles from './Content.scss';
 import classname from '../classname';
+import styles from './Content.scss';
 
 type Props = {
   lift: boolean,

@@ -3,9 +3,9 @@ import React from 'react';
 import LazyPicture from '../../_LazyPicture';
 import classname from '../../classname';
 import withInline from '../../_Svg/_Inline/withInline';
-import ClipBody, { id as ClipBodyId } from './ClipBody';
 import ClipHexagone, { id as ClipHexagoneId } from '../../_Svg/ClipHexagone';
 import InnerShadow, { id as InnerShadowId } from '../../_Svg/InnerShadow';
+import ClipBody, { id as ClipBodyId } from './ClipBody';
 import styles from './Card.scss';
 import image from './card.png';
 

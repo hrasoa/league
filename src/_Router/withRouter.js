@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
 import type { RouterHistory } from 'react-router-dom';
-import type { UrlPush, UrlFormatter } from './type';
 import routes from '../routes';
+import type { UrlPush, UrlFormatter } from './type';
 
 type Props = {
   history: RouterHistory,
