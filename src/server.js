@@ -13,6 +13,7 @@ import App from './App';
 import Inline from './_Svg/_Inline';
 import getSvgs from './_Svg/_Inline/getSvgs';
 import fout from './_utilities.fonts.scss';
+import page from './App/App.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
 
@@ -81,6 +82,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       fonts: [lora, roboto],
       initialState,
       markup,
+      page,
       prod,
       styles: inlineStyles.filter(style => typeof style.href !== 'undefined'),
       svgMarkup,

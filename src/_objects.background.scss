@@ -1,0 +1,7 @@
+.bg {
+  --bg: hsl(
+    var(--bg-hue),
+    var(--bg-sat),
+    var(--bg-light)
+  );
+}

@@ -1,10 +1,14 @@
-html {
-  background-color: var(--color-background);
-  color: var(--color-soft-black);
+.html {
+  color: var(--soft-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .font-body {
   composes: fontBody from '../_utilities.fonts.scss';
+}
+
+.bg {
+  composes: bg from '../_objects.background.scss';
+  background-color: var(--bg);
 }

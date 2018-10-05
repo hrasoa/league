@@ -21,11 +21,11 @@
 
 .button {
   composes: inputs;
-  background-color: var(--color-white);
+  background-color: var(--white);
   cursor: pointer;
 }
 
 .icon {
-  fill: var(--color-black);
+  fill: var(--black);
   vertical-align: middle;
 }

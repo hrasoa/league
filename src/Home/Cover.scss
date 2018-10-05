@@ -5,7 +5,7 @@
   z-index: 1;
 
   &::before {
-    box-shadow: 0 0 42px 36px var(--color-black);
+    box-shadow: 0 0 42px 36px var(--black);
     content: '';
     display: block;
     left: 0;
@@ -19,7 +19,7 @@
 .title {
   composes: fontHeadline from "../_utilities.fonts.scss";
   @include inuit-font-size($inuit-font-size-h1 + 8);
-  color: var(--color-soft-white);
+  color: var(--soft-white);
   font-weight: 400;
   left: 50%;
   max-width: 800px;
@@ -38,6 +38,6 @@
 }
 
 .ratio {
-  background-color: var(--color-black);
+  background-color: var(--black);
   height: calc(100vh - 240px);
 }
