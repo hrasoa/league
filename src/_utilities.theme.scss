@@ -1,0 +1,41 @@
+.primary {
+  --primary: hsl(
+    var(--primary-hue),
+    var(--primary-sat),
+    var(--primary-light)
+  );
+}
+
+.primary-bg {
+  composes: primary;
+  background-color: var(--primary);
+  color: var(--soft-white);
+}
+
+.secondary {
+  --secondary: hsl(
+    var(--secondary-hue),
+    var(--secondary-sat),
+    var(--secondary-light)
+  );
+}
+
+.secondary-bg {
+  composes: secondary;
+  background-color: var(--secondary);
+  color: var(--soft-white);
+}
+
+.tertary {
+  --tertary: hsl(
+    var(--tertary-hue),
+    var(--tertary-sat),
+    var(--tertary-light)
+  );
+}
+
+.tertary-bg {
+  composes: tertary;
+  background-color: var(--tertary);
+  color: var(--soft-black);
+}

@@ -1,7 +1,8 @@
 .bg {
   --bg: hsl(
-    var(--bg-hue),
-    var(--bg-sat),
-    var(--bg-light)
+    var(--tertary-hue),
+    var(--tertary-sat),
+    var(--tertary-light)
   );
+  background-color: var(--bg);
 }
