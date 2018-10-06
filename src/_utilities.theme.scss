@@ -9,7 +9,6 @@
 .primary-bg {
   composes: primary;
   background-color: var(--primary);
-  color: var(--soft-white);
 }
 
 .secondary {
@@ -23,7 +22,6 @@
 .secondary-bg {
   composes: secondary;
   background-color: var(--secondary);
-  color: var(--soft-white);
 }
 
 .tertary {
@@ -37,5 +35,4 @@
 .tertary-bg {
   composes: tertary;
   background-color: var(--tertary);
-  color: var(--soft-black);
 }
