@@ -71,7 +71,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const htmlAttrs = htmlAttributes ? htmlAttributes.reduce((acc, attr) => {
       const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
       return { ...acc, [attrName]: attrValue };
-    }, {}) : null;
+    }, {}) : {};
 
     res.status(200).render('index', {
       assets,
