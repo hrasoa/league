@@ -3,8 +3,8 @@
   margin-bottom: 0;
 }
 
-.icon {  
-  background: red;
+.icon {
+  composes: primaryBg from '../../_utilities.theme.scss';
   border-radius: 50%;
   display: block;  
   height: 24px;
@@ -14,7 +14,8 @@
 }
 
 .picto {
-  fill: var(--white);
+  composes: secondary from '../../_utilities.theme.scss';
+  fill: var(--secondary);
   height: 28px;
   left: 50%;
   position: absolute;

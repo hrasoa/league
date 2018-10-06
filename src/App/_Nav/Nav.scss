@@ -7,9 +7,14 @@
   color: var(--soft-white);
   display: block;
 
-  &:not(:hover):not(.active) {
+  &:not(:hover) {
     text-decoration: none;
   }
+}
+
+.active {
+  composes: secondary from '../../_utilities.theme.scss';
+  color: var(--secondary);
 }
 
 .fixed {
