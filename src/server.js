@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
@@ -12,7 +13,6 @@ import stats from '../build/react-loadable.json';
 import App from './App';
 import InlineProvider, { getSvgs } from './_Svg/_Inline';
 import fout from './_utilities.fonts.scss';
-import page from './App/App.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
 
@@ -51,6 +51,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       </StaticRouter>
     </Capture>,
   );
+  const helmet = Helmet.renderStatic();
   if (context.url) {
     res.redirect(context.url);
   } else {
@@ -66,6 +67,12 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
 
     const initialState = { svgInlinedIds };
 
+    const htmlAttributes = helmet.htmlAttributes.toString().match(/(\w+="[\w-_\s]+")/g);
+    const htmlAttrs = htmlAttributes ? htmlAttributes.reduce((acc, attr) => {
+      const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
+      return { ...acc, [attrName]: attrValue };
+    }, {}) : null;
+
     res.status(200).render('index', {
       assets,
       chunks: [...new Set(
@@ -79,9 +86,9 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       critical,
       fontStages,
       fonts: [lora, roboto],
+      htmlAttrs,
       initialState,
       markup,
-      page,
       prod,
       styles: inlineStyles.filter(style => typeof style.href !== 'undefined'),
       svgMarkup,

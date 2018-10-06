@@ -1,7 +1,10 @@
 // @flow
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import wrapper from 'inuitcss/objects/_objects.wrapper.scss';
+import listInline from 'inuitcss/objects/_objects.list-inline.scss';
+import classname from '../classname';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
 import styles from './Categories.scss';
@@ -15,9 +18,12 @@ const categories = [
 const Categories = ({ url }: { url: UrlFormatter }) => (
   <div className={styles.root}>
     <div className={wrapper.oWrapper}>
-      <ul>
+      <ul className={listInline.oListInline}>
         {categories.map(category => (
-          <li key={category.path}>
+          <li
+            key={category.path}
+            className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
+          >
             <NavLink
               activeClassName={styles.active}
               className={styles.link}

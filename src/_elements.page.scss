@@ -5,9 +5,9 @@
 }
 
 .font-body {
-  composes: fontBody from '../_utilities.fonts.scss';
+  composes: fontBody from './_utilities.fonts.scss';
 }
 
 .bg {
-  composes: tertaryBg from '../_utilities.theme.scss';
+  composes: tertaryBg from './_utilities.theme.scss';
 }

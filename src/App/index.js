@@ -1,9 +1,12 @@
 // @flow
 import React, { Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import styles from './Main.scss'; // eslint-disable-line import/order
 import './App.scss';
+import classname from '../classname';
+import page from '../_elements.page.scss';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
 import Banner from '../_Ads';
@@ -14,6 +17,9 @@ import Header from './Header';
 
 const App = ({ url }: { url: UrlFormatter }) => (
   <Fragment>
+    <Helmet>
+      {typeof document === 'undefined' && <html lang="en" className={classname(page.html, page.bg)} />}
+    </Helmet>
     <Header>
       <Nav />
       <Banner />

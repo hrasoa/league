@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 import React from 'react';
 import { hydrate } from 'react-dom';
 import Loadable from 'react-loadable';
@@ -18,7 +19,9 @@ window.main = () => {
 };
 
 if (module.hot) {
+  console.log('✅  Client-side HMR Enabled!');
   module.hot.accept('./App', () => {
+    console.log('🔁  HMR Reloading `./client`...');
     const NewApp = require('./App').default;
     render(NewApp);
   });
