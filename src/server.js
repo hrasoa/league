@@ -62,7 +62,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const inlineStyles = await getInlineStyles(styles);
     const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
     if (errors.length) {
-      console.log(`inlineStyles errors : ${errors.join('\n')}`);
+      console.log(`inlineStyles errors : ${errors.join('\n')}`); // eslint-disable-line no-console
     }
 
     const initialState = { svgInlinedIds };
