@@ -4,7 +4,7 @@
 }
 
 .icon {
-  composes: primaryBg from '../../_utilities.theme.scss';
+  composes: primaryBg from '../_utilities.theme.scss';
   border-radius: 50%;
   display: block;  
   height: 24px;
@@ -14,7 +14,7 @@
 }
 
 .picto {
-  composes: secondary from '../../_utilities.theme.scss';
+  composes: secondary from '../_utilities.theme.scss';
   fill: var(--secondary);
   height: 28px;
   left: 50%;
