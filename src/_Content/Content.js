@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import classname from '../classname';
+import classname from 'classnames';
 import styles from './Content.scss';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 }
 
 const Content = ({ lift, children }: Props) => (
-  <div className={classname(styles.root, lift ? styles.lift : '')}>
+  <div className={classname(styles.root, { [styles.lift]: lift })}>
     {children}
   </div>
 );

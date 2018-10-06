@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import wrapper from 'inuitcss/objects/_objects.wrapper.scss';
 import listInline from 'inuitcss/objects/_objects.list-inline.scss';
-import classname from '../classname';
+import classname from 'classnames';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
 import styles from './Categories.scss';

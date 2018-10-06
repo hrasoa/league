@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
+import classname from 'classnames';
 import Visible from '../_Visible';
-import classname from '../classname';
 import type { Props } from './type';
 import defaultProps from './defaultProps';
 import styles from './LazyPicture.scss';

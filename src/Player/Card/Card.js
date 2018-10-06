@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import classname from 'classnames';
 import LazyPicture from '../../_LazyPicture';
-import classname from '../../classname';
 import withInline from '../../_Svg/_Inline/withInline';
 import ClipHexagone, { id as ClipHexagoneId } from '../../_Svg/ClipHexagone';
 import InnerShadow, { id as InnerShadowId } from '../../_Svg/InnerShadow';
