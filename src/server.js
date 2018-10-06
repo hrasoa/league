@@ -25,10 +25,10 @@ const critical = prod
 
 const fontStages = {
   className: fout.fontBody,
-  fonts: ['1em Lora Regular', '1em Roboto Regular'],
+  fonts: ['1em Lora', '1em Roboto'],
   name: 'foutStageOne',
   next: {
-    fonts: ['700 1em Lora Bold', '700 1em Roboto Regular'],
+    fonts: ['700 1em Lora', '700 1em Roboto'],
     name: 'foutStageTwo',
   },
 };
