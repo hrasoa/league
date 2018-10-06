@@ -6,7 +6,8 @@
 .link {
   color: var(--soft-white);
   display: block;
-
+  transition: color .2s;
+  
   &:not(:hover) {
     text-decoration: none;
   }
