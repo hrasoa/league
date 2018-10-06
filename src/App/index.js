@@ -12,7 +12,7 @@ import type { UrlFormatter } from '../_Router/type';
 import Banner from '../_Ads';
 import Home from '../Home';
 import Search from '../Search';
-import Nav from './_Nav';
+import Nav from '../_Nav';
 import Header from './Header';
 
 const App = ({ url }: { url: UrlFormatter }) => (

@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import type { UrlPush } from '../../_Router/type';
-import withRouter from '../../_Router/withRouter';
+import type { UrlPush } from '../_Router/type';
+import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
 type Props = {

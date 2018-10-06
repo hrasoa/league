@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import withRouter from '../../_Router/withRouter';
-import LogoImage from '../../_Logo';
+import withRouter from '../_Router/withRouter';
+import LogoImage from '../_Logo';
 import styles from './Logo.scss';
 
 const Logo = ({ url }: { url: string }) => (
