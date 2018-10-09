@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import type { ComponentType } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import type { ProviderValue } from './type';
 
-type Input = Array<{ [id: string]: ComponentType<any> }>
+type Input = Array<$PropertyType<ProviderValue, 'svgs'>>
 
 type Output = {
   ids: Array<string>,
@@ -11,7 +11,7 @@ type Output = {
 }
 
 export default (svgs: Input): Output => {
-  const inlined = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});
+  const inlined: $PropertyType<ProviderValue, 'svgs'> = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});
   const markup = Object.keys(inlined).map((svgId) => {
     const Svg = inlined[svgId];
     return renderToStaticMarkup(<Svg />);

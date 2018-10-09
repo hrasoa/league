@@ -1,16 +1,16 @@
 // @flow
 import React, { Component } from 'react';
-import type { Node, ComponentType } from 'react';
+import type { Node } from 'react';
 import type { ProviderValue } from './type';
 
 type Props = {
   children: Node,
-  captureSvgs: ?({ [id: string]: ComponentType<any> }) => void,
+  captureSvgs: ?($PropertyType<ProviderValue, 'svgs'>) => void,
   inlinedIds: Array<string>,
 }
 
 type State = {
-  svgs: { [id: string]: ComponentType<any> },
+  svgs: $PropertyType<ProviderValue, 'svgs'>,
 }
 
 const { Provider, Consumer }: Object = React.createContext();
@@ -35,7 +35,7 @@ class InlineProvider extends Component<Props, State> {
     };
   }
 
-  addSvgs = (svgList: { [id: string]: ComponentType<any> }) => {
+  addSvgs = (svgList: $PropertyType<ProviderValue, 'svgs'>) => {
     const { svgs } = this.state;
     if (Object.keys(svgList).every(id => typeof svgs[id] !== 'undefined')) {
       return;

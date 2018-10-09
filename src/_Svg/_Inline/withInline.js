@@ -9,16 +9,14 @@ type PropsInput = any;
 type PropsOutput = any;
 
 type AddSvgProps = {
-  addSvgs: ?({ [id: string]: ComponentType<any> }) => void,
+  addSvgs: ?$PropertyType<ProviderValue, 'addSvgs'>,
   children: Node,
 }
 
-type Svgs = { [id: string]: ComponentType<any> };
-
-function withInline(svgs: Svgs): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
+function withInline(svgs: $PropertyType<ProviderValue, 'svgs'>): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
   return (WrappedComponent) => {
     class AddSvg extends Component<AddSvgProps> {
-      constructor(props) {
+      constructor(props: AddSvgProps) {
         super(props);
         const { addSvgs } = this.props;
         if (addSvgs) {

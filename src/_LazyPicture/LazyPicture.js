@@ -44,7 +44,7 @@ class LazyPicture extends Component<Props, State> {
             ref={ref}
             className={classname(styles.root, className, loaded ? styles.loaded : '')}
           >
-            <div className={classname(styles.ratio, ratioClassName)} />
+            <div className={classname(ratioClassName || styles.ratio)} />
             <img
               className={classname(styles.pre, preClassName)}
               alt={alt}
