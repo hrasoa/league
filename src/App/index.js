@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
-import classname from 'classnames';
 import main from './Main.scss'; // eslint-disable-line import/order
 import header from './Header.scss'; // eslint-disable-line import/order
 import './App.scss';
@@ -18,7 +17,7 @@ import Nav from '../_Nav';
 const App = ({ url }: { url: UrlFormatter }) => (
   <Fragment>
     <Helmet>
-      {typeof document === 'undefined' && <html lang="en" className={classname(page.html, page.bg)} />}
+      {typeof document === 'undefined' && <html lang="en" className={page.html} />}
     </Helmet>
     <div className={header.root}>
       <Nav />
