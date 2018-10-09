@@ -1,5 +1,4 @@
 .root {
-  composes: oWrapper from 'inuitcss/objects/_objects.wrapper.scss';
   composes: tertaryBg from '../_utilities.theme.scss';
   min-height: 500px;
 }

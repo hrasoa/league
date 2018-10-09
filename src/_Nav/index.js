@@ -6,6 +6,7 @@ import listInline from 'inuitcss/objects/_objects.list-inline.scss';
 import classname from 'classnames';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
+import Wrapper from '../_Wrapper';
 import Logo from './Logo';
 import User from './User';
 import Search from './Search';
@@ -25,7 +26,7 @@ const links = [
 const Nav = ({ url }: { url: UrlFormatter }) => (
   <nav className={styles.root}>
     <div className={styles.fixed}>
-      <div className={styles.wrapper}>
+      <Wrapper className={styles.wrapper}>
         <Logo url={url('home')} />
         <ul className={styles.list}>
           {links.map(link => (
@@ -52,7 +53,7 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
             <User />
           </li>
         </ul>
-      </div>
+      </Wrapper>
     </div>
   </nav>
 );

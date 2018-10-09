@@ -2,6 +2,7 @@
 import React from 'react';
 import type { Node } from 'react';
 import classname from 'classnames';
+import Wrapper from '../_Wrapper';
 import styles from './Content.scss';
 
 type Props = {
@@ -10,9 +11,9 @@ type Props = {
 }
 
 const Content = ({ lift, children }: Props) => (
-  <div className={classname(styles.root, { [styles.lift]: lift })}>
+  <Wrapper className={classname(styles.root, { [styles.lift]: lift })}>
     {children}
-  </div>
+  </Wrapper>
 );
 
 Content.defaultProps = {
