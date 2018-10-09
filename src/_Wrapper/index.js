@@ -6,7 +6,7 @@ import classname from 'classnames';
 
 type Props = {
   children: Node,
-  className?: string,
+  className: ?string,
 };
 
 const Wrapper = ({ children, className, ...rest }: Props) => (

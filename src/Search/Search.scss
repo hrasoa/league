@@ -1,0 +1,8 @@
+.title {
+  composes: tertaryBg from '../_utilities.theme.scss';
+  composes: uPaddingTop from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: fontHeadline from "../_utilities.fonts.scss";
+  @include inuit-font-size($inuit-font-size-h2);
+  --tertary-light: 24%;
+  color: var(--soft-white);
+}

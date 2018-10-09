@@ -2,12 +2,13 @@
 import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
-import type { RouterHistory } from 'react-router-dom';
+import type { RouterHistory, Location } from 'react-router-dom';
 import routes from '../routes';
-import type { UrlPush, UrlFormatter } from './type';
+import type { UrlPush, UrlFormatter, UrlSearch } from './type';
 
 type Props = {
   history: RouterHistory,
+  location: Location,
 }
 
 function withRouter(WrappedComponent: ComponentType<any>) {
@@ -43,11 +44,22 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       return hash ? `${url}#${hash}` : url;
     }
 
+    search: UrlSearch;
+
+    search = () => {
+      const { location: { search } } = this.props;
+      if (!search) {
+        return {};
+      }
+      return queryStringToJson(search);
+    }
+
     render() {
       return (
         <WrappedComponent
           push={this.push}
           url={this.url}
+          search={this.search}
           {...this.props}
         />
       );
@@ -55,6 +67,14 @@ function withRouter(WrappedComponent: ComponentType<any>) {
   }
 
   return withRouterDom(WithRouter);
+}
+
+function queryStringToJson(qs: string): { [name: string]: string } {
+  const pairs = qs.slice(1).split('&');
+  return pairs.reduce((acc, pair) => {
+    const [name, value] = pair.split('=');
+    return { ...acc, [name]: value };
+  }, {});
 }
 
 export default withRouter;
