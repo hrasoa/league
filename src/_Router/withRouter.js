@@ -73,7 +73,7 @@ function queryStringToJson(qs: string): { [name: string]: string } {
   const pairs = qs.slice(1).split('&');
   return pairs.reduce((acc, pair) => {
     const [name, value] = pair.split('=');
-    return { ...acc, [name]: value };
+    return { ...acc, [name]: decodeURI(value) };
   }, {});
 }
 
