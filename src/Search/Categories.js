@@ -10,25 +10,26 @@ import type { UrlFormatter } from '../_Router/type';
 import styles from './Categories.scss';
 
 const categories = [
-  { label: 'All', path: 'search' },
-  { label: 'Players', path: 'search_players' },
-  { label: 'Teams', path: 'search_teams' },
+  { label: 'All', pathName: 'search' },
+  { label: 'Players', pathName: 'search_players' },
+  { label: 'Teams', pathName: 'search_teams' },
 ];
 
 const Categories = ({ url }: { url: UrlFormatter }) => (
   <div className={styles.root}>
-    <div className={wrapper.oWrapper}>
-      <ul className={listInline.oListInline}>
+    <div className={classname(wrapper.oWrapper, spacings.uPaddingVertical)}>
+      <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
         {categories.map(category => (
           <li
-            key={category.path}
+            key={category.pathName}
             className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
           >
             <NavLink
               activeClassName={styles.active}
               className={styles.link}
+              exact
               title={category.label}
-              to={url(category.path)}
+              to={url(category.pathName)}
             >
               {category.label}
             </NavLink>

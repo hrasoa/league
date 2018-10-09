@@ -12,6 +12,7 @@ import type { UrlFormatter } from '../_Router/type';
 import Banner from '../_Ads';
 import Home from '../Home';
 import Search from '../Search';
+import SearchPlayers from '../Search/Players';
 import Nav from '../_Nav';
 
 const App = ({ url }: { url: UrlFormatter }) => (
@@ -26,7 +27,15 @@ const App = ({ url }: { url: UrlFormatter }) => (
     <div className={main.root}>
       <Switch>
         <Route component={Home} exact path={url('home')} />
-        <Route component={Search} exact path={url('search')} />
+        <Route
+          path={url('search')}
+          render={props => (
+            <Search
+              {...props}
+              routes={[{ component: SearchPlayers, path: url('search_players') }]}
+            />
+          )}
+        />
       </Switch>
     </div>
   </Fragment>

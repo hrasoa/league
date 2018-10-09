@@ -1,12 +1,19 @@
 .root {
-  --color-backgound-l: 10%;
-  background-color: var(--color-background);
+  composes: tertaryBg from '../_utilities.theme.scss';
+  --tertary-light: 24%;
 }
 
 .link {
+  color: var(--soft-white);
   display: block;
+  transition: color .2s;
   
   &:not(:hover) {
     text-decoration: none;
   }
+}
+
+.active {
+  composes: secondary from '../_utilities.theme.scss';
+  color: var(--secondary);
 }

@@ -39,9 +39,9 @@
 
 .list {
   composes: oListInline from 'inuitcss/objects/_objects.list-inline.scss';
+  composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
   align-items: center;
   display: flex;
-  margin-bottom: 0;
 }
 
 .right {
