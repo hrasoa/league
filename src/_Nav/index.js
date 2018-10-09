@@ -15,11 +15,11 @@ import styles from './Nav.scss';
 const links = [
   {
     label: 'Leagues',
-    name: 'leagues',
+    pathName: 'leagues',
   },
   {
     label: 'Mercato',
-    name: 'mercato',
+    pathName: 'mercato',
   },
 ];
 
@@ -31,14 +31,14 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
         <ul className={styles.list}>
           {links.map(link => (
             <li
-              key={link.name}
+              key={link.pathName}
               className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
             >
               <NavLink
                 activeClassName={styles.active}
                 className={styles.link}
                 title={link.label}
-                to={url(link.name)}
+                to={url(link.pathName)}
               >
                 {link.label}
               </NavLink>

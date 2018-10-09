@@ -5,7 +5,7 @@ import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import listInline from 'inuitcss/objects/_objects.list-inline.scss';
 import classname from 'classnames';
 import withRouter from '../_Router/withRouter';
-import type { UrlFormatter } from '../_Router/type';
+import type { UrlFormatter, UrlSearch } from '../_Router/type';
 import Wrapper from '../_Wrapper';
 import styles from './Categories.scss';
 
@@ -15,9 +15,12 @@ const categories = [
   { label: 'Teams', pathName: 'search_teams' },
 ];
 
-const Categories = ({ url }: { url: UrlFormatter }) => (
+const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => (
   <div className={styles.root}>
-    <Wrapper className={spacings.uPaddingVertical}>
+    <Wrapper className={spacings.uPaddingVerticalLarge}>
+      <div className={styles.title}>
+        Search results for {search().q || null}
+      </div>
       <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
         {categories.map(category => (
           <li
