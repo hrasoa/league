@@ -14,7 +14,7 @@ const Search = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => (
   <Fragment>
     <div className={styles.title}>
       <Wrapper>
-        Search for {search().q || null}
+        Search results for {search().q || null}
       </Wrapper>
     </div>
     <Categories />
