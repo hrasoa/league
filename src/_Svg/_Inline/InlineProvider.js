@@ -35,7 +35,7 @@ class InlineProvider extends Component<Props, State> {
     };
   }
 
-  addSvgs = (svgList: $PropertyType<ProviderValue, 'svgs'>) => {
+  addSvgs = (svgList) => {
     const { svgs } = this.state;
     if (Object.keys(svgList).every(id => typeof svgs[id] !== 'undefined')) {
       return;
@@ -49,6 +49,8 @@ class InlineProvider extends Component<Props, State> {
       svgs: { ...state.svgs, ...svgList },
     }));
   }
+
+  addSvgs: $PropertyType<ProviderValue, 'addSvgs'>; // eslint-disable-line react/sort-comp
 
   render() {
     const { children } = this.props;
