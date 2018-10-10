@@ -4,24 +4,32 @@ import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
 import type { RouterHistory, Location } from 'react-router-dom';
 import routes from '../routes';
-import type { UrlPush, UrlFormatter, UrlSearch } from './type';
+import type {
+  UrlPush,
+  UrlFormatter,
+  UrlSearch,
+} from './type';
 
 type Props = {
   history: RouterHistory,
   location: Location,
 };
 
-function withRouter(WrappedComponent: ComponentType<any>) {
-  class WithRouter extends Component<Props> {
-    push: UrlPush; // eslint-disable-line react/sort-comp
+interface Interface {
+  push: UrlPush;
 
+  search: UrlSearch;
+
+  url: UrlFormatter;
+}
+
+function withRouter(WrappedComponent: ComponentType<any>) {
+  class WithRouter extends Component<Props> implements Interface {
     push = (name, urlParams) => {
       const { history } = this.props;
       const url = this.url(name, urlParams);
-      history.push(url, urlParams.state);
+      history.push(url, urlParams ? urlParams.state : null);
     }
-
-    url: UrlFormatter; // eslint-disable-line react/sort-comp
 
     url = (name, urlParams) => {
       let url = name in routes ? routes[name].path : name;
@@ -32,16 +40,14 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       if (params) {
         url = url.replace(new RegExp('(:[^/]*)', 'g'), (match: string, p1: string): string => {
           const p = p1.replace(':', '');
-          return `${encodeURI(params[p]) || p1}`;
+          return encodeURI(`${params[p] || p1}`);
         });
       }
       if (search) {
-        url = `${url}?${Object.keys(search).map(q => `${q}=${encodeURI(search[q])}`).join('&')}`;
+        url = `${url}?${Object.keys(search).map(q => encodeURI(`${q}=${search[q]}`)).join('&')}`;
       }
       return hash ? `${url}#${hash}` : url;
     }
-
-    search: UrlSearch;
 
     search = () => {
       const { location: { search } } = this.props;

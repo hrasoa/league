@@ -13,9 +13,13 @@ type State = {
   svgs: $PropertyType<ProviderValue, 'svgs'>,
 };
 
+interface Interface {
+  addSvgs: $PropertyType<ProviderValue, 'addSvgs'>;
+}
+
 const { Provider, Consumer }: Object = React.createContext();
 
-class InlineProvider extends Component<Props, State> {
+class InlineProvider extends Component<Props, State> implements Interface {
   static defaultProps = {
     captureSvgs: null,
     inlinedIds: [],
@@ -49,8 +53,6 @@ class InlineProvider extends Component<Props, State> {
       svgs: { ...state.svgs, ...svgList },
     }));
   }
-
-  addSvgs: $PropertyType<ProviderValue, 'addSvgs'>; // eslint-disable-line react/sort-comp
 
   render() {
     const { children } = this.props;
