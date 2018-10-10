@@ -32,7 +32,7 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       if (params) {
         url = url.replace(new RegExp('(:[^/]*)', 'g'), (match: string, p1: string): string => {
           const p = p1.replace(':', '');
-          return `${params[p] || p1}`;
+          return `${encodeURI(params[p]) || p1}`;
         });
       }
       if (search) {
