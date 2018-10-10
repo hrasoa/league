@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 import { matchPath } from 'react-router';
 import type { Location } from 'react-router-dom';
-import type { UrlPush, UrlFormatter } from '../_Router/type';
+import type { UrlPush, UrlFormatter, UrlSearch } from '../_Router/type';
 import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
@@ -11,6 +11,7 @@ type Props = {
   location: Location,
   push: UrlPush,
   url: UrlFormatter,
+  search: UrlSearch,
 };
 
 type State = {
@@ -18,9 +19,13 @@ type State = {
 };
 
 class Search extends Component<Props, State> {
-  state = {
-    value: '',
-  };
+  constructor(props: Props) {
+    super(props);
+    const { search } = this.props;
+    this.state = {
+      value: search.q || '',
+    };
+  }
 
   handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ value: event.currentTarget.value });

@@ -16,7 +16,7 @@ const categories = [
 ];
 
 const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
-  const { q } = search();
+  const { q } = search;
   return (
     <div className={styles.root}>
       <Wrapper className={spacings.uPaddingVerticalLarge}>

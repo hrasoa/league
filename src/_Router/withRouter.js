@@ -18,13 +18,21 @@ type Props = {
 interface Interface {
   push: UrlPush;
 
-  search: UrlSearch;
+  +search: UrlSearch;
 
   url: UrlFormatter;
 }
 
 function withRouter(WrappedComponent: ComponentType<any>) {
   class WithRouter extends Component<Props> implements Interface {
+    get search() {
+      const { location: { search } } = this.props;
+      if (!search) {
+        return {};
+      }
+      return queryStringToJson(search);
+    }
+
     push = (name, urlParams) => {
       const { history } = this.props;
       const url = this.url(name, urlParams);
@@ -47,14 +55,6 @@ function withRouter(WrappedComponent: ComponentType<any>) {
         url = `${url}?${Object.keys(search).map(q => encodeURI(`${q}=${search[q]}`)).join('&')}`;
       }
       return hash ? `${url}#${hash}` : url;
-    }
-
-    search = () => {
-      const { location: { search } } = this.props;
-      if (!search) {
-        return {};
-      }
-      return queryStringToJson(search);
     }
 
     render() {
