@@ -8,7 +8,7 @@ import styles from './Content.scss';
 type Props = {
   lift: boolean,
   children: Node,
-}
+};
 
 const Content = ({ lift, children }: Props) => (
   <Wrapper className={classname(styles.root, { [styles.lift]: lift })}>

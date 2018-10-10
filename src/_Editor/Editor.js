@@ -12,11 +12,11 @@ type Props = {
   handleReturn: (editorState: EditorState) => string,
   onChange: ({ hasText: boolean, plainText: string }) => void,
   placeholder: string,
-}
+};
 
 type State = {
   editorState: EditorState
-}
+};
 
 const emptyContentState = Draft.convertFromRaw({
   blocks: [

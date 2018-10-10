@@ -4,8 +4,8 @@ import React from 'react';
 import logo from './nav_logoman.svg';
 
 type Props = {
-  className: ?string
-}
+  className: ?string,
+};
 
 const Logo = ({ className }: Props) => (
   <img

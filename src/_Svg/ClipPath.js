@@ -7,7 +7,7 @@ type Props = {
   children: Node,
   id: string,
   viewBox: string,
-}
+};
 
 const ClipPath = ({ id, viewBox, children }: Props) => {
   const [w, h] = viewBox.split(' ').slice(2);

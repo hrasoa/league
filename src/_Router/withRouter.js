@@ -9,7 +9,7 @@ import type { UrlPush, UrlFormatter, UrlSearch } from './type';
 type Props = {
   history: RouterHistory,
   location: Location,
-}
+};
 
 function withRouter(WrappedComponent: ComponentType<any>) {
   class WithRouter extends Component<Props> {

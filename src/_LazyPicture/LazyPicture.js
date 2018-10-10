@@ -8,7 +8,7 @@ import styles from './LazyPicture.scss';
 
 type State = {
   loaded: boolean,
-}
+};
 
 class LazyPicture extends Component<Props, State> {
   static defaultProps = defaultProps;

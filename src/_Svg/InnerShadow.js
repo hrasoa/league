@@ -6,7 +6,7 @@ type Props = {
   color: string,
   id: string,
   stdDeviation: number,
-}
+};
 
 const innerShadowId = 'inner-shadow';
 

@@ -8,7 +8,7 @@ type Props = {
   height: ?number,
   viewBox: ?string,
   width: ?number,
-}
+};
 
 const Svg = (props: Props) => (
   <svg
