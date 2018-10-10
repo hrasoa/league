@@ -15,6 +15,8 @@ type State = {
 
 interface Interface {
   addSvgs: $PropertyType<ProviderValue, 'addSvgs'>;
+
+  +providerValue: $Exact<ProviderValue>;
 }
 
 const { Provider, Consumer }: Object = React.createContext();
@@ -29,7 +31,7 @@ class InlineProvider extends Component<Props, State> implements Interface {
     svgs: {},
   }
 
-  get providerValue(): $Exact<ProviderValue> {
+  get providerValue() {
     const { svgs } = this.state;
     const { inlinedIds } = this.props;
     return {
