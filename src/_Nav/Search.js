@@ -1,17 +1,21 @@
 // @flow
 import React, { Component } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import type { UrlPush } from '../_Router/type';
+import { matchPath } from 'react-router';
+import type { Location } from 'react-router-dom';
+import type { UrlPush, UrlFormatter } from '../_Router/type';
 import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
 type Props = {
+  location: Location,
   push: UrlPush,
-}
+  url: UrlFormatter,
+};
 
 type State = {
   value: string,
-}
+};
 
 class Search extends Component<Props, State> {
   state = {
@@ -28,8 +32,9 @@ class Search extends Component<Props, State> {
     if (!value.trim().length) {
       return;
     }
-    const { push } = this.props;
-    push('search', { search: { q: value } });
+    const { push, location, url } = this.props;
+    const match = matchPath(location.pathname, { path: url('search') });
+    push(match ? location.pathname : 'search', { search: { q: value.trim() } });
   }
 
   render() {

@@ -15,33 +15,36 @@ const categories = [
   { label: 'Teams', pathName: 'search_teams' },
 ];
 
-const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => (
-  <div className={styles.root}>
-    <Wrapper className={spacings.uPaddingVerticalLarge}>
-      <div className={styles.title}>
-        Search results for {search().q || null}
-      </div>
-      <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
-        {categories.map(category => (
-          <li
-            key={category.pathName}
-            className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
-          >
-            <NavLink
-              activeClassName={styles.active}
-              className={styles.link}
-              exact
-              title={category.label}
-              to={url(category.pathName)}
+const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
+  const { q } = search();
+  return (
+    <div className={styles.root}>
+      <Wrapper className={spacings.uPaddingVerticalLarge}>
+        <div className={styles.title}>
+          Search results for {q}
+        </div>
+        <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
+          {categories.map(category => (
+            <li
+              key={category.pathName}
+              className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
             >
-              {category.label}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </Wrapper>
-  </div>
-);
+              <NavLink
+                activeClassName={styles.active}
+                className={styles.link}
+                isActive={(match, location) => location.pathname === url(category.pathName)}
+                title={category.label}
+                to={url(category.pathName, q ? { search: { q } } : null)}
+              >
+                {category.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </Wrapper>
+    </div>
+  );
+};
 
 export default withRouter(Categories);
 

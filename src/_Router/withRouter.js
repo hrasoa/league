@@ -24,10 +24,7 @@ function withRouter(WrappedComponent: ComponentType<any>) {
     url: UrlFormatter; // eslint-disable-line react/sort-comp
 
     url = (name, urlParams) => {
-      let url = name in routes ? routes[name].path : null;
-      if (!url) {
-        return this.url('home');
-      }
+      let url = name in routes ? routes[name].path : name;
       if (!urlParams) {
         return url;
       }
@@ -39,7 +36,7 @@ function withRouter(WrappedComponent: ComponentType<any>) {
         });
       }
       if (search) {
-        url = `${url}?${Object.keys(search).map(q => `${q}=${search[q]}`).join('&')}`;
+        url = `${url}?${Object.keys(search).map(q => `${q}=${encodeURI(search[q])}`).join('&')}`;
       }
       return hash ? `${url}#${hash}` : url;
     }
