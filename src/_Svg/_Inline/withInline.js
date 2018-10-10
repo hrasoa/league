@@ -35,7 +35,7 @@ function withInline(
     function Inline(ownProps: {}) {
       return (
         <Consumer>
-          {(value: ?ProviderValue) => (
+          {(value: ?$Exact<ProviderValue>) => (
             <AddSvg addSvgs={value ? value.addSvgs : null}>
               <WrappedComponent {...ownProps} />
             </AddSvg>
