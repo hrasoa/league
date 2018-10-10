@@ -3,12 +3,12 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import type { ProviderValue } from './type';
 
-type Input = Array<$PropertyType<ProviderValue, 'svgs'>>
+type Input = Array<$PropertyType<ProviderValue, 'svgs'>>;
 
 type Output = {
   ids: Array<string>,
   markup: string,
-}
+};
 
 export default (svgs: Input): Output => {
   const inlined: $PropertyType<ProviderValue, 'svgs'> = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});

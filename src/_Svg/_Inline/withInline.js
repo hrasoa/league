@@ -11,7 +11,7 @@ type PropsOutput = any;
 type AddSvgProps = {
   addSvgs: ?$PropertyType<ProviderValue, 'addSvgs'>,
   children: Node,
-}
+};
 
 function withInline(svgs: $PropertyType<ProviderValue, 'svgs'>): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
   return (WrappedComponent) => {
