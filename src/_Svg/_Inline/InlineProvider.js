@@ -6,7 +6,7 @@ import type { ProviderValue } from './type';
 type Props = {
   children: Node,
   captureSvgs: ?($PropertyType<ProviderValue, 'svgs'>) => void,
-  inlinedIds: Array<string>,
+  inlinedIds: $PropertyType<ProviderValue, 'inlinedIds'>,
 };
 
 type State = {
