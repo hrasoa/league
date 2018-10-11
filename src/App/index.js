@@ -1,6 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
-import { Helmet } from 'react-helmet';
+import Helmet from 'react-helmet-async';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import main from './Main.scss'; // eslint-disable-line import/order

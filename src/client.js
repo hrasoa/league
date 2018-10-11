@@ -3,6 +3,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import Loadable from 'react-loadable';
+import { HelmetProvider } from 'react-helmet-async';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
 import './_generic.roboto.css';
@@ -34,10 +35,12 @@ async function render(Root) {
   await Loadable.preloadReady();
   hydrate(
     <BrowserRouter>
-      <InlineProvider inlinedIds={svgInlinedIds}>
-        <Root />
-        <Inline />
-      </InlineProvider>
+      <HelmetProvider>
+        <InlineProvider inlinedIds={svgInlinedIds}>
+          <Root />
+          <Inline />
+        </InlineProvider>
+      </HelmetProvider>
     </BrowserRouter>,
     root,
   );

@@ -2,10 +2,10 @@
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import express from 'express';
 import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
@@ -39,22 +39,25 @@ server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
 server.get('/*', async (req: express$Request, res: express$Response) => {
+  const helmetContext = {};
   const context: { url?: string } = {};
   const modules: Array<string> = [];
   const svgs = [];
   const markup = renderToString(
     <Capture report={(moduleName) => { modules.push(moduleName); }}>
       <StaticRouter context={context} location={req.url}>
-        <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
-          <App />
-        </InlineProvider>
+        <HelmetProvider context={helmetContext}>
+          <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
+            <App />
+          </InlineProvider>
+        </HelmetProvider>
       </StaticRouter>
     </Capture>,
   );
-  const helmet = Helmet.renderStatic();
   if (context.url) {
     res.redirect(context.url);
   } else {
+    const { helmet } = helmetContext;
     const { ids: svgInlinedIds, markup: svgMarkup } = getSvgs(svgs);
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
     const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
