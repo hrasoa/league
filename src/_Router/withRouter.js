@@ -17,9 +17,7 @@ type Props = {
 
 interface Interface {
   push: UrlPush;
-
   +search: UrlSearch;
-
   url: UrlFormatter;
 }
 

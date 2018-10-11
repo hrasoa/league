@@ -15,7 +15,6 @@ type State = {
 
 interface Interface {
   addSvgs: $PropertyType<ProviderValue, 'addSvgs'>;
-
   +providerValue: $Exact<ProviderValue>;
 }
 
