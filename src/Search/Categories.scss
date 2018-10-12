@@ -4,7 +4,6 @@
 }
 
 .link {
-  composes: tertary from '../_utilities.theme.scss';
   color: rgba(0, 0, 0, .3);
   display: block; 
   font-weight: var(--bold);
@@ -16,7 +15,8 @@
 }
 
 .active {
-  color: var(--color);
+  composes: primary from '../_utilities.theme.scss';
+  color: var(--primary);
 }
 
 .title {
