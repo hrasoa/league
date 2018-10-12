@@ -4,3 +4,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:global {
+  #svgs {
+    height: 0;
+    overflow: hidden;
+  }
+}
