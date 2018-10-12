@@ -5,7 +5,7 @@
 }
 
 .body {
-  background-color: orange;
+  composes: tertaryBg from '../../_utilities.theme.scss';
   clip-path: url(#clip-player-card-body);
   padding: 6% 3%;
 }

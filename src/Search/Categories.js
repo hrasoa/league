@@ -19,7 +19,7 @@ const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) =
   const { q } = search;
   return (
     <div className={styles.root}>
-      <Wrapper className={spacings.uPaddingVerticalLarge}>
+      <Wrapper className={spacings.uPaddingVertical}>
         <div className={styles.title}>
           Search results for {q}
         </div>

@@ -25,9 +25,6 @@ const All = () => (
       <li>
         <Card />
       </li>
-      <li>
-        <Card />
-      </li>
     </ul>
     <span className={styles.titles}>Teams</span>
   </Fragment>
