@@ -1,11 +1,13 @@
 .root {
   composes: tertaryBg from '../_utilities.theme.scss';
-  --tertary-light: 24%;
+  --tertary-light: 84%;
 }
 
 .link {
-  color: var(--soft-white);
-  display: block;
+  composes: tertary from '../_utilities.theme.scss';
+  color: rgba(0, 0, 0, .3);
+  display: block; 
+  font-weight: var(--bold);
   transition: color .2s;
   
   &:not(:hover) {
@@ -14,13 +16,11 @@
 }
 
 .active {
-  composes: secondary from '../_utilities.theme.scss';
-  color: var(--secondary);
+  color: var(--color);
 }
 
 .title {
   composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from "../_utilities.fonts.scss";
   @include inuit-font-size($inuit-font-size-h2);
-  color: var(--soft-white);
 }
