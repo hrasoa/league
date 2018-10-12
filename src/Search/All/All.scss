@@ -2,6 +2,7 @@
   composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from "../../_utilities.fonts.scss";
   display: block;
+  font-weight: var(--bold);
 }
 
 .list {
@@ -9,5 +10,5 @@
   display: grid;
   grid-gap: $inuit-global-spacing-unit;
   // grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
