@@ -8,19 +8,29 @@ const All = () => (
     <span className={styles.titles}>Players</span>
     <ul className={styles.list}>
       <li>
-        <Card />
+        <a href="/">
+          <Card />
+        </a>
       </li>
       <li>
-        <Card />
+        <a href="/">
+          <Card />
+        </a>
       </li>
       <li>
-        <Card />
+        <a href="/">
+          <Card />
+        </a>
       </li>
       <li>
-        <Card />
+        <a href="/">
+          <Card />
+        </a>
       </li>
       <li>
-        <Card />
+        <a href="/">
+          <Card />
+        </a>
       </li>
     </ul>
     <span className={styles.titles}>Teams</span>
