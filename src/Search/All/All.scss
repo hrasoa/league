@@ -1,0 +1,12 @@
+.titles {
+  composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: fontHeadline from "../../_utilities.fonts.scss";
+  display: block;
+}
+
+.list {
+  composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
+  display: grid;
+  grid-gap: $inuit-global-spacing-unit;
+  grid-template-columns: repeat(auto-fit, max(190px));
+}
