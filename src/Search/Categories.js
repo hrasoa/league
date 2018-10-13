@@ -21,7 +21,7 @@ const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) =
     <div className={styles.root}>
       <Wrapper className={classname(spacings.uPaddingTopLarge, spacings.uPaddingBottom)}>
         <div className={styles.title}>
-          Search results for {q}
+          Search results for <span className={styles.q}>{q}</span>
         </div>
         <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
           {categories.map(category => (

@@ -16,6 +16,11 @@
   }
 }
 
+.q {
+  composes: primary from '../_utilities.theme.scss';
+  color: var(--primary); 
+}
+
 .active {
   composes: primary from '../_utilities.theme.scss';
   color: var(--primary);
