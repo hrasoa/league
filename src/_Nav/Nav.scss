@@ -16,6 +16,10 @@
 .active {
   composes: secondary from '../_utilities.theme.scss';
   color: var(--secondary);
+  
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .fixed {

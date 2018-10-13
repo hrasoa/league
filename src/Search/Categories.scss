@@ -19,6 +19,10 @@
 .active {
   composes: primary from '../_utilities.theme.scss';
   color: var(--primary);
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .title {
