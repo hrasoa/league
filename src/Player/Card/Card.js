@@ -12,14 +12,16 @@ const Card = () => (
   <div className={styles.root}>
     <div className={styles.shadow}>
       <div className={styles.body}>
-        <div className={styles.hex}>
-          <LazyPicture
-            alt="player"
-            preClassName={styles.image}
-            ratioClassName={styles.ratio}
-            imageClassName={styles.image}
-            image={{ preSrc: image, src: image }}
-          />
+        <div className={styles.bodyInner}>
+          <div className={styles.hex}>
+            <LazyPicture
+              alt="player"
+              preClassName={styles.image}
+              ratioClassName={styles.ratio}
+              imageClassName={styles.image}
+              image={{ preSrc: image, src: image }}
+            />
+          </div>
         </div>
       </div>
     </div>

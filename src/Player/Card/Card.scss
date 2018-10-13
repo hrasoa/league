@@ -7,7 +7,10 @@
 .body {
   composes: tertaryBg from '../../_utilities.theme.scss';
   clip-path: url(#clip-player-card-body);
-  padding: 6% 3%;
+}
+
+.body-inner {
+  padding: 6% 4%;
 }
 
 .shadow {
@@ -20,7 +23,7 @@
 
 .ratio {
   height: 0;
-  margin-top: 1%;
+  margin-top: 2%;
   padding-top: 99%;
 }
 
