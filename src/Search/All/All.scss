@@ -1,7 +1,7 @@
 .titles {
   composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from "../../_utilities.fonts.scss";
-  @include inuit-font-size($inuit-font-size-h5);
+  composes: h5 from '../../_utilities.fonts.scss';
   display: block;
   font-weight: var(--bold);
 }

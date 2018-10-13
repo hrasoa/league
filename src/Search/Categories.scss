@@ -21,6 +21,6 @@
 
 .title {
   composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
-  composes: fontHeadline from "../_utilities.fonts.scss";
-  @include inuit-font-size($inuit-font-size-h2);
+  composes: fontHeadline from '../_utilities.fonts.scss';
+  composes: h2 from '../_utilities.fonts.scss';
 }
