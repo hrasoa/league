@@ -1,9 +1,3 @@
-.root {
-  composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
-  display: flex;
-  justify-content: space-between;
-}
-
 .title {
   composes: uMarginRightSmall from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from '../../_utilities.fonts.scss';
