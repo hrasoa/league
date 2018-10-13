@@ -4,7 +4,9 @@
 }
 
 .link {
-  color: rgba(0, 0, 0, .3);
+  composes: tertary from '../_utilities.theme.scss';
+  --tertary-light: 64%;
+  color: var(--tertary);
   display: block; 
   font-weight: var(--bold);
   transition: color .2s;
