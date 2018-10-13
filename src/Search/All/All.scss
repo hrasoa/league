@@ -1,8 +1,8 @@
 .titles {
-  composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
-  composes: fontHeadline from "../../_utilities.fonts.scss";
-  composes: h5 from '../../_utilities.fonts.scss';
-  display: block;
+  composes: uMarginRightSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: fontHeadline from '../../_utilities.fonts.scss';
+  composes: h4 from '../../_utilities.fonts.scss';
+  display: inline-block;
   font-weight: var(--bold);
 }
 
@@ -11,4 +11,19 @@
   display: grid;
   grid-gap: $inuit-global-spacing-unit;
   grid-template-columns: repeat(5, 1fr);
+}
+
+.more {
+  composes: h6 from '../../_utilities.fonts.scss';
+  composes: tertary from '../../_utilities.theme.scss';
+  --tertary-light: 54%;
+  color: var(--tertary);
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+}
+
+.more-icon {
+  vertical-align: middle;
 }
