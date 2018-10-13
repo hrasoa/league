@@ -8,7 +8,7 @@ import ClipBody, { id as ClipBodyId } from './ClipBody';
 import styles from './Card.scss';
 import image from './YQJK5Ilz_400x400.jpg';
 
-const Card = () => (
+const Basic = () => (
   <div className={styles.root}>
     <div className={styles.shadow}>
       <div className={styles.body}>
@@ -32,4 +32,4 @@ export default withInline({
   [ClipBodyId]: ClipBody,
   [ClipHexagoneId]: ClipHexagone,
   [InnerShadowId]: InnerShadow,
-})(Card);
+})(Basic);
