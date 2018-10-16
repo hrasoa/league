@@ -1,6 +1,6 @@
 .html {
   composes: tertaryBg from './_utilities.theme.scss';
-  color: var(--color);
+  color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -11,27 +11,7 @@ const All = () => (
     </Titles>
     <ul className={styles.list}>
       <li>
-        <a href="/">
-          <Card />
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <Card />
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <Card />
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <Card />
-        </a>
-      </li>
-      <li>
-        <a href="/">
+        <a className={styles.item} href="/">
           <Card />
         </a>
       </li>

@@ -1,7 +1,15 @@
 .root {
   background-color: gray;
   border-radius: 12px;
-  padding: 12px 0 24px;
+  padding-top: 12px;
+}
+
+.bio {
+  composes: uPaddingVerticalSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  color: var(--text-color-light);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
 }
 
 .body {
@@ -17,7 +25,7 @@
   filter: url(#inner-shadow);
 }
 
-.hex {
+.hexagone {
   clip-path: url(#clip-hexagone);
 }
 
@@ -30,4 +38,18 @@
 .image {
   display: block;
   width: 100%;
+}
+
+.position {
+  text-transform: uppercase;
+}
+
+.team {
+  display: inline-block;
+  height: 44px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -30px);
+  width: 44px;
 }
