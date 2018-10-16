@@ -1,5 +1,20 @@
 .root {
-  background-color: gray;
+  --background: hsl(
+    var(--tertary-hue),
+    var(--tertary-sat),
+    21%
+  );
+  --body-background: hsl(
+    var(--tertary-hue),
+    var(--tertary-sat),
+    91%
+  );
+  --position-color: hsl(
+    var(--tertary-hue),
+    var(--tertary-sat),
+    60%
+  );
+  background-color: var(--background);
   border-radius: 12px;
   padding-top: 12px;
 }
@@ -13,7 +28,7 @@
 }
 
 .body {
-  composes: tertaryBg from '../../_utilities.theme.scss';
+  background-color: var(--body-background);
   clip-path: url(#clip-player-card-body);
 }
 
@@ -41,6 +56,7 @@
 }
 
 .position {
+  color: var(--position-color);
   text-transform: uppercase;
 }
 
