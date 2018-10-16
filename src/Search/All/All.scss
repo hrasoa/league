@@ -1,4 +1,5 @@
 .list {
+  composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
   display: grid;
   grid-gap: $inuit-global-spacing-unit;

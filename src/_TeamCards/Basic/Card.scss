@@ -1,0 +1,5 @@
+.bio {
+  composes: uPaddingVerticalSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  color: var(--text-color);
+  text-align: center;
+}
