@@ -7887,9 +7887,9 @@ react-helmet-async@^0.2.0:
     react-fast-compare "^2.0.2"
     shallowequal "^1.0.2"
 
-react-icons@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.2.0.tgz#fc1bf36cb4d231d61d1aa1de3a6ba773d07e47d2"
+react-icons@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.2.1.tgz#6f7f9ccbeec05ff7076df070703e03238903ac30"
 
 react-loadable@^5.5.0:
   version "5.5.0"
@@ -9722,9 +9722,9 @@ webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
 
-webpack-bundle-analyzer@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.0.2.tgz#22f19ea6d1b5a15fd7a90baae0bc0f39bd1e4d48"
+webpack-bundle-analyzer@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.0.3.tgz#dbc7fff8f52058b6714a20fddf309d0790e3e0a0"
   dependencies:
     acorn "^5.7.3"
     bfj "^6.1.1"
