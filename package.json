@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@intervolga/optimize-cssnano-plugin": "^1.0.6",
-    "autoprefixer": "^9.2.0",
+    "autoprefixer": "^9.2.1",
     "babel-preset-flow": "^6.23.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.0",
