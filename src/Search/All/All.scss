@@ -1,7 +1,7 @@
 .list {
   composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
-  --gutter: 24px;
+  --gutter: #{$inuit-global-spacing-unit};
   display: grid;
   grid-gap: var(--gutter);
   grid-template-columns: repeat(5, 1fr);
