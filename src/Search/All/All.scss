@@ -1,19 +1,23 @@
 .list {
   composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
+  --gutter: 24px;
   display: grid;
-  grid-gap: $inuit-global-spacing-unit;
+  grid-gap: var(--gutter);
   grid-template-columns: repeat(5, 1fr);
 
   @include mq($until: wide) {
-    grid-template-columns: 24px repeat(5, calc(29% - 48px)) 24px;
-    margin-left: -48px;
-    margin-right: -48px;
+    grid-auto-columns: calc(50% - var(--gutter) * 2);
+    grid-auto-flow: column;
+    grid-template-columns: var(--gutter);
+    margin-left: calc(var(--gutter) * -2);
+    margin-right: calc(var(--gutter) * -2);
     overflow: scroll;
 
     &::after,
     &::before {
       content: '';
+      width: var(--gutter);
     }
   }
 }
