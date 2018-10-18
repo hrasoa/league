@@ -43,7 +43,7 @@
     "babel-preset-flow": "^6.23.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.0",
-    "cssnano": "^4.1.4",
+    "cssnano": "^4.1.5",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-flowtype": "^3.0.0",
     "eslint-plugin-import": "^2.14.0",
