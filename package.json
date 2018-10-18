@@ -35,7 +35,8 @@
     "react-helmet-async": "^0.2.0",
     "react-icons": "^3.2.1",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sass-mq": "^5.0.0"
   },
   "devDependencies": {
     "@intervolga/optimize-cssnano-plugin": "^1.0.6",

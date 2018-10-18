@@ -25,6 +25,7 @@ module.exports = {
           '@import "./src/settings.global";',
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
+          '@import "~sass-mq";',
         ].join('\n'),
         sourceMap: dev,
       },
