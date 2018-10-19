@@ -90,7 +90,7 @@ module.exports = {
         plugins: [
           ...config.plugins,
           !dev && new OptimizeCssnanoPlugin({
-            sourceMap: true,
+            sourceMap: false,
           }),
           dev && new StyleLintPlugin(),
           new ReactLoadablePlugin({
@@ -99,6 +99,7 @@ module.exports = {
           !dev && new CompressionPlugin(),
           !dev && new BundleAnalyzerPlugin({
             analyzerMode: 'static',
+            openAnalyzer: false,
           }),
         ].filter(Boolean),
       };
