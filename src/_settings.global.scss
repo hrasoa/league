@@ -11,6 +11,7 @@
 
 $inuit-wrapper-width: 1132px;
 
+
 $inuit-font-size-h1:  36px;
 $inuit-font-size-h2:  28px;
 $inuit-font-size-h3:  24px;
@@ -19,13 +20,9 @@ $inuit-font-size-h5:  18px;
 $inuit-font-size-h6:  16px;
 
 
-
-
-
-
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    $inuit-wrapper-width
+  mobile:  425px,
+  tablet:  768px,
+  desktop: 1024px,
+  wide:    $inuit-wrapper-width
 );

@@ -5,7 +5,7 @@
   grid-gap: var(--gutter);
   grid-template-columns: repeat(5, 1fr);
 
-  @include mq($until: wide) {
+  @include mq($until: desktop) {
     grid-auto-columns: 40%;
     grid-auto-flow: column;
     grid-gap: calc(var(--gutter) / 2);
@@ -22,8 +22,8 @@
 .carousel {
   composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   --gutter: #{$inuit-global-spacing-unit};
-  
-  @include mq($until: wide) {
+
+  @include mq($until: desktop) {
     margin-left: calc(var(--gutter) * -1);
     margin-right: calc(var(--gutter) * -1);
     overflow: scroll;
