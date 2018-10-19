@@ -18,27 +18,31 @@ const All = () => (
     <Titles url="/">
       Players
     </Titles>
-    <ul className={styles.list}>
-      {items.map(item => (
-        <li key={`player-${item.id}`}>
-          <a className={styles.item} href="/">
-            <PlayerCard />
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.carousel}>
+      <ul className={styles.list}>
+        {items.map(item => (
+          <li key={`player-${item.id}`}>
+            <a className={styles.item} href="/">
+              <PlayerCard />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
     <Titles url="/">
       Teams
     </Titles>
-    <ul className={styles.list}>
-      {items.map(item => (
-        <li key={`team-${item.id}`}>
-          <a className={styles.item} href="/">
-            <TeamCard />
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.carousel}>
+      <ul className={styles.list}>
+        {items.map(item => (
+          <li key={`team-${item.id}`}>
+            <a className={styles.item} href="/">
+              <TeamCard />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   </Fragment>
 );
 

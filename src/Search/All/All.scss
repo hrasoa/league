@@ -7,19 +7,26 @@
   grid-template-columns: repeat(5, 1fr);
 
   @include mq($until: wide) {
-    grid-auto-columns: calc(50% - var(--gutter) * 2);
+    grid-auto-columns: calc(40% - var(--gutter) * 2.5);
     grid-auto-flow: column;
-    grid-template-columns: var(--gutter);
-    margin-left: calc(var(--gutter) * -2);
-    margin-right: calc(var(--gutter) * -2);
-    overflow: scroll;
+    grid-gap: calc(var(--gutter) / 2);
+    grid-template-columns: calc(var(--gutter) / 2);
 
     &::after,
     &::before {
       content: '';
-      width: var(--gutter);
+      width: calc(var(--gutter) / 2);
     }
   }
+}
+
+.carousel {
+  --gutter: #{$inuit-global-spacing-unit};
+  @include mq($until: wide) {
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    overflow: scroll;
+  } 
 }
 
 .item {
