@@ -1,5 +1,4 @@
 .list {
-  composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
   --gutter: #{$inuit-global-spacing-unit};
   display: grid;
@@ -7,7 +6,7 @@
   grid-template-columns: repeat(5, 1fr);
 
   @include mq($until: wide) {
-    grid-auto-columns: calc(40% - var(--gutter) * 2.5);
+    grid-auto-columns: 40%;
     grid-auto-flow: column;
     grid-gap: calc(var(--gutter) / 2);
     grid-template-columns: calc(var(--gutter) / 2);
@@ -21,7 +20,9 @@
 }
 
 .carousel {
+  composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   --gutter: #{$inuit-global-spacing-unit};
+  
   @include mq($until: wide) {
     margin-left: calc(var(--gutter) * -1);
     margin-right: calc(var(--gutter) * -1);
