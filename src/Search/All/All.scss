@@ -28,7 +28,7 @@
     &::after,
     &::before {
       display: none;
-    }  
+    }
   }
 }
 
@@ -42,7 +42,7 @@
   @include mq($from: desktop) {
     --gutter: 0;
     overflow: initial;
-  } 
+  }
 }
 
 .item {
