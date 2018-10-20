@@ -39,7 +39,7 @@
   margin-right: calc(var(--gutter) * -1);
   overflow: scroll;
 
-  @include mq($from: desktop) {
+  @include desktop {
     --gutter: 0;
     overflow: initial;
   }
