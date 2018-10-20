@@ -26,7 +26,7 @@ module.exports = {
           '@import "~inuitcss/tools/tools.font-size";',
           '@import "~inuitcss/tools/tools.clearfix";',
           '@import "~sass-mq";',
-          '@import "/src/utilities.mq";',
+          '@import "./src/utilities.mq";',
         ].join('\n'),
         sourceMap: dev,
       },
