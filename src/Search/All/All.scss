@@ -35,13 +35,14 @@
 .carousel {
   composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
   --gutter: #{$inuit-global-spacing-unit};
+  --overflow: scroll;
   margin-left: calc(var(--gutter) * -1);
   margin-right: calc(var(--gutter) * -1);
-  overflow: scroll;
+  overflow: var(--overflow);
 
   @include desktop {
     --gutter: 0;
-    overflow: initial;
+    --overflow: initial;
   }
 }
 
