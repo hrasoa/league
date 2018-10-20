@@ -7,10 +7,10 @@
   composes: tertary from '../_utilities.theme.scss';
   --tertary-light: 64%;
   color: var(--tertary);
-  display: block; 
+  display: block;
   font-weight: var(--bold);
   transition: color .2s;
-  
+
   &:not(:hover) {
     text-decoration: none;
   }
@@ -18,7 +18,7 @@
 
 .q {
   composes: primary from '../_utilities.theme.scss';
-  color: var(--primary); 
+  color: var(--primary);
 }
 
 .active {

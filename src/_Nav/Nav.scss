@@ -7,7 +7,7 @@
   color: var(--text-color-light);
   display: block;
   transition: color .2s;
-  
+
   &:not(:hover) {
     text-decoration: none;
   }
@@ -16,14 +16,14 @@
 .active {
   composes: secondary from '../_utilities.theme.scss';
   color: var(--secondary);
-  
+
   &:hover {
     text-decoration: none;
   }
 }
 
 .fixed {
-  background: var(--black);  
+  background: var(--black);
   box-shadow: 0 4px 4px -2px rgba(0, 0, 0, .4);
   height: inherit;
   position: fixed;

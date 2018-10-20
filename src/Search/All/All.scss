@@ -17,11 +17,11 @@
     width: calc(var(--gutter) / 2);
   }
 
-  @include mq($from: tablet) {
+  @include tablet {
     --auto-colums: 27%;
   }
 
-  @include mq($from: desktop) {
+  @include desktop {
     --gap: var(--gutter);
     --template-columns: repeat(5, 1fr);
 

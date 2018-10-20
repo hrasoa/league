@@ -1,0 +1,17 @@
+@mixin tablet {
+  @include mq($from: tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include mq($from: desktop) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @include mq($from: wide) {
+    @content;
+  }
+}
