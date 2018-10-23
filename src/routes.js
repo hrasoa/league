@@ -8,6 +8,7 @@ const routes: { [name: string]: { path: string } } = {
   search_leagues: { path: '/search/leagues' },
   search_players: { path: '/search/players' },
   search_teams: { path: '/search/teams' },
+  team: { path: '/team/:id' },
 };
 
 export default routes;

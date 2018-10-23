@@ -1,5 +1,6 @@
 // @flow
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import PlayerCard from '../../_PlayerCards/Basic';
 import TeamCard from '../../_TeamCards/Basic';
 import withRouter from '../../_Router/withRouter';
@@ -26,9 +27,12 @@ const All = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
         <ul className={styles.list}>
           {items.map(item => (
             <li key={`player-${item.id}`}>
-              <a className={styles.item} href="/">
+              <Link
+                className={styles.item}
+                to={url('player', { params: { id: item.id } })}
+              >
                 <PlayerCard />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -40,9 +44,12 @@ const All = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
         <ul className={styles.list}>
           {items.map(item => (
             <li key={`team-${item.id}`}>
-              <a className={styles.item} href="/">
+              <Link
+                className={styles.item}
+                to={url('team', { params: { id: item.id } })}
+              >
                 <TeamCard />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
