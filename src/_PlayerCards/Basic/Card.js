@@ -6,6 +6,7 @@ import ClipHexagone, { id as hexagoneId } from '../../_Svg/ClipHexagone';
 import InnerShadow, { id as shadowId } from '../../_Svg/InnerShadow';
 import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
+import picture from './Picture.scss';
 import image from './YQJK5Ilz_400x400.jpg';
 import team from './team.png';
 
@@ -17,9 +18,7 @@ const Card = () => (
           <div className={styles.hexagone}>
             <LazyPicture
               alt="player"
-              preClassName={styles.image}
-              ratioClassName={styles.ratio}
-              imageClassName={styles.image}
+              styles={picture}
               image={{ preSrc: image, src: image }}
             />
           </div>

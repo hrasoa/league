@@ -29,15 +29,3 @@
   transform: translate(-50%, -80%);
   z-index: 3;
 }
-
-.image {
-  height: calc(100vh - 240px);
-  object-fit: cover;
-  object-position: bottom center;
-  width: 100%;
-}
-
-.ratio {
-  background-color: var(--black);
-  height: calc(100vh - 240px);
-}

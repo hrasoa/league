@@ -1,0 +1,14 @@
+.ratio {
+  height: 0;
+  margin-top: 2%;
+  padding-top: 99%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+}
+
+.pre {
+  composes: image;
+}
