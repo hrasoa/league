@@ -1,7 +1,7 @@
 .list {
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
   composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
-  --auto-colums: 57%;
+  --auto-colums: calc(50% - 30px);
   --gap: calc(var(--gutter) / 2);
   --gutter: #{$inuit-global-spacing-unit};
   --template-columns: calc(var(--gutter) / 2);
@@ -18,7 +18,7 @@
   }
 
   @include tablet {
-    --auto-colums: 27%;
+    --auto-colums: calc(25% - 21px);
   }
 
   @include desktop {
@@ -39,6 +39,7 @@
   margin-left: calc(var(--gutter) * -1);
   margin-right: calc(var(--gutter) * -1);
   overflow: var(--overflow);
+  -webkit-overflow-scrolling: touch;
 
   @include desktop {
     --gutter: 0;
