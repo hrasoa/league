@@ -8,7 +8,9 @@ import styles from './Titles.scss';
 
 const Titles = ({ children, url }: { children: Node, url: string }) => (
   <div className={spacings.uMarginBottom}>
-    <span className={styles.title}>{children}</span>
+    <span className={styles.title}>
+      {children}
+    </span>
     <Link className={styles.more} to={url}>
       See more
       <IoIosArrowRoundForward className={styles.moreIcon} />
