@@ -27,6 +27,11 @@ class Search extends Component<Props, State> {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const { value } = this.state;
+    return nextState.value !== value;
+  }
+
   handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ value: event.currentTarget.value });
   }
