@@ -15,6 +15,7 @@
     }],
     "no-eol-whitespace": true,
     "no-missing-end-of-source-newline": true,
-    "order/properties-order": [["composes"], { unspecified: "bottomAlphabetical" }]
+    "order/properties-order": [["composes"], { unspecified: "bottomAlphabetical" }],
+    "string-quotes": "single"
   }
 }

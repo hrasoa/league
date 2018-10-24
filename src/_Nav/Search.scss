@@ -17,7 +17,7 @@
 
 .input {
   composes: inputs;
-  composes: fontBody from "../_utilities.fonts.scss";
+  composes: fontBody from '../_utilities.fonts.scss';
   @include inuit-font-size($inuit-font-size-h6 - 4);
   font-weight: var(--bold);
 }
