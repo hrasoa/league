@@ -7,17 +7,17 @@ import defaultProps from './defaultProps';
 
 type State = {
   visible: boolean,
-}
+};
 
 type RectRef = {
   height: number,
   bottom: number,
   top: number,
-}
+};
 
 type WinSize = {
   height: number,
-}
+};
 
 class Visible extends Component<Props, State> {
   static defaultProps = defaultProps;
