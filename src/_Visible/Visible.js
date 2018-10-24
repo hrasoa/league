@@ -9,13 +9,13 @@ type State = {
   visible: boolean,
 }
 
-type RefRect = {
+type RectRef = {
   height: number,
   bottom: number,
   top: number,
 }
 
-type Size = {
+type WinSize = {
   height: number,
 }
 
@@ -34,7 +34,7 @@ class Visible extends Component<Props, State> {
     }
   }
 
-  handleOnChange = (rect: RefRect, size: Size) => {
+  handleOnChange = (rect: RectRef, size: WinSize) => {
     if (isInWindow(rect, size)) {
       this.setState({ visible: true });
     }
@@ -45,10 +45,10 @@ class Visible extends Component<Props, State> {
     const { children, once } = this.props;
     return (
       <WindowSize>
-        {(size: Size) => (
+        {(size: WinSize) => (
           <Rect
             observe={!(once && visible)}
-            onChange={(rect: RefRect) => {
+            onChange={(rect: RectRef) => {
               this.handleOnChange(rect, size);
             }}
           >
