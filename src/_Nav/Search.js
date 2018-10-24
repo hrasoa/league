@@ -39,12 +39,13 @@ class Search extends Component<Props, State> {
   handleSubmit = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     const { value } = this.state;
-    if (!value.trim().length) {
+    const q = value.trim();
+    if (!q.length) {
       return;
     }
     const { push, location, url } = this.props;
     const match = matchPath(location.pathname, { path: url('search') });
-    push(match ? location.pathname : 'search', { search: { q: value.trim() } });
+    push(match ? location.pathname : 'search', { search: { q } });
   }
 
   render() {
