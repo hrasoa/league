@@ -62,7 +62,12 @@ class Search extends Component<Props, State> {
             value={value}
             onChange={this.handleChange}
           />
-          <button id="search-btn" aria-label="Search" className={styles.button} type="submit">
+          <button
+            id="search-btn"
+            aria-label="Search"
+            className={styles.button}
+            type="submit"
+          >
             <IoMdSearch aria-hidden="true" className={styles.icon} />
           </button>
         </span>
