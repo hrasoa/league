@@ -15,7 +15,7 @@ type Props = {
 };
 
 type State = {
-  editorState: EditorState
+  editorState: EditorState,
 };
 
 const emptyContentState = Draft.convertFromRaw({

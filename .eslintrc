@@ -18,7 +18,8 @@
   ],
   "rules": {
     "function-paren-newline": "off",
-    "flowtype/delimiter-dangle": ["error", "only-multiline"],
+    "flowtype/delimiter-dangle": ["error", "always-multiline"],
+    "flowtype/semi": "error",
     "global-require": "off",
     "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": "off",
