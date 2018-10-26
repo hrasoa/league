@@ -1,0 +1,23 @@
+.list {
+  composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
+  composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
+  --gap: calc(var(--gutter) / 2);
+  --gutter: #{$inuit-global-spacing-unit};
+  --template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: var(--template-columns);
+
+  @include tablet {
+    --template-columns: repeat(4, 1fr);
+  }
+
+  @include desktop {
+    --template-columns: repeat(5, 1fr);
+  }
+}
+
+.item {
+  display: block;
+  text-decoration: none;
+}
