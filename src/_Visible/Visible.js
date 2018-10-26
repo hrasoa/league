@@ -9,14 +9,18 @@ type State = {
   visible: boolean,
 };
 
-type RectRef = {
+type BoundingRect = {
   height: number,
+  left: number,
   bottom: number,
+  right: number,
   top: number,
+  width: number,
 };
 
 type WinSize = {
   height: number,
+  width: number,
 };
 
 class Visible extends Component<Props, State> {
@@ -34,7 +38,7 @@ class Visible extends Component<Props, State> {
     }
   }
 
-  handleOnChange = (rect: RectRef, size: WinSize) => {
+  handleOnChange = (rect: BoundingRect, size: WinSize) => {
     if (isInWindow(rect, size)) {
       this.setState({ visible: true });
     }
@@ -48,7 +52,7 @@ class Visible extends Component<Props, State> {
         {(size: WinSize) => (
           <Rect
             observe={!(once && visible)}
-            onChange={(rect: RectRef) => {
+            onChange={(rect: BoundingRect) => {
               this.handleOnChange(rect, size);
             }}
           >
@@ -61,8 +65,16 @@ class Visible extends Component<Props, State> {
 }
 
 function isInWindow(rect, size): boolean {
+  return isVerticallyInWindow(rect, size) && isHorizontallyInWindow(rect, size);
+}
+
+function isVerticallyInWindow(rect, size): boolean {
   return (rect.top <= size.height && rect.bottom >= 0)
     || (rect.top <= 0 && rect.bottom >= 0);
+}
+
+function isHorizontallyInWindow(rect, size): boolean {
+  return rect.left <= size.width;
 }
 
 export default Visible;
