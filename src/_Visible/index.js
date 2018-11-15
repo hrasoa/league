@@ -1,7 +1,6 @@
-// @flow
 import React from 'react';
 import Loadable from 'react-loadable';
-import type { Props } from './type';
+// import type { Props } from './type';
 import defaultProps from './defaultProps';
 
 const LoadableComponent = Loadable({
@@ -9,7 +8,8 @@ const LoadableComponent = Loadable({
   loading: () => null,
 });
 
-const Visible = (props: Props) => <LoadableComponent {...props} />;
+// const Visible = (props: Props) => <LoadableComponent {...props} />;
+const Visible = props => <LoadableComponent {...props} />;
 
 Visible.defaultProps = defaultProps;
 
