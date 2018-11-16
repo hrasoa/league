@@ -15,7 +15,7 @@ type State = {
 
 interface Interface {
   addSvgs: $PropertyType<ProviderValue, 'addSvgs'>;
-  +providerValue: $Exact<ProviderValue>;
+  +providerValue: ProviderValue;
 }
 
 const { Provider, Consumer }: Object = React.createContext();
@@ -42,9 +42,13 @@ class InlineProvider extends Component<Props, State> implements Interface {
 
   addSvgs = (svgList) => {
     const { svgs } = this.state;
+    // if every svg we want to add are already inlined
+    // do nothing
     if (Object.keys(svgList).every(id => typeof svgs[id] !== 'undefined')) {
       return;
     }
+    // on the server we pass the captureSvgs props
+    // to pre-render them
     const { captureSvgs } = this.props;
     if (captureSvgs) {
       captureSvgs(svgList);
