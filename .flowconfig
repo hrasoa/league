@@ -13,9 +13,9 @@ module.file_ext=.js
 module.file_ext=.scss
 module.file_ext=.json
 module.ignore_non_literal_requires=true
-module.name_mapper='.*loadable\.json$' -> '<PROJECT_ROOT>/flow/loadable.json'
-module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow/css-module.js.flow'
-; module.name_mapper='.*\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow/url-loader.js.flow'
+module.name_mapper='.*loadable\.json$' -> '<PROJECT_ROOT>/flow-stubs/loadable.json'
+module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow-stubs/css-module.js.flow'
+; module.name_mapper='.*\(svg\|png\|jpg\|gif\)$' -> '<PROJECT_ROOT>/flow-stubs/url-loader.js.flow'
 
 [strict]
 

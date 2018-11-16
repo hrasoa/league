@@ -27,6 +27,11 @@
       "react-loadable.json"
     ] }],
     "import/order": ["error", { "groups": ["builtin", "external", "parent", "sibling", "index"] }],
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "labelAttributes": ["htmlFor"],
+      "labelComponents": ["label"]
+    }],
     "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
