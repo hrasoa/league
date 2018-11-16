@@ -2,12 +2,12 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import type { ProviderValue } from './type';
-import { Consumer } from './InlineProvider';
+import { SvgContext } from './InlineProvider';
 
 const root = document.getElementById('svgs');
 
 const Inline = () => (
-  <Consumer>
+  <SvgContext.Consumer>
     {(value: ProviderValue) => (
       root !== null
       && createPortal(
@@ -22,7 +22,7 @@ const Inline = () => (
         root,
       )
     )}
-  </Consumer>
+  </SvgContext.Consumer>
 );
 
 export default Inline;

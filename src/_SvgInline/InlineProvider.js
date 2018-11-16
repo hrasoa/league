@@ -13,14 +13,14 @@ type State = {
   svgs: $PropertyType<ProviderValue, 'svgs'>,
 };
 
-interface Interface {
+interface I {
   addSvgs: $PropertyType<ProviderValue, 'addSvgs'>;
   +providerValue: ProviderValue;
 }
 
-const { Provider, Consumer }: Object = React.createContext();
+const SvgContext: Object = React.createContext();
 
-class InlineProvider extends Component<Props, State> implements Interface {
+class InlineProvider extends Component<Props, State> implements I {
   static defaultProps = {
     captureSvgs: null,
     inlinedIds: [],
@@ -62,13 +62,13 @@ class InlineProvider extends Component<Props, State> implements Interface {
   render() {
     const { children } = this.props;
     return (
-      <Provider value={this.providerValue}>
+      <SvgContext.Provider value={this.providerValue}>
         {children}
-      </Provider>
+      </SvgContext.Provider>
     );
   }
 }
 
 export default InlineProvider;
 
-export { Consumer };
+export { SvgContext };

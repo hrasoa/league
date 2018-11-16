@@ -7,8 +7,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
 import './_generic.roboto.css';
-import InlineProvider from './_Svg/_Inline';
-import Inline from './_Svg/_Inline/Inline';
+import InlineProvider from './_SvgInline';
+import Inline from './_SvgInline/Inline';
 import App from './App';
 
 const root = document.getElementById('root');

@@ -11,7 +11,7 @@ import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
-import InlineProvider, { getSvgs } from './_Svg/_Inline';
+import InlineProvider, { getSvgs } from './_SvgInline';
 import fout from './_utilities.fonts.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
