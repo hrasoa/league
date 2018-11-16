@@ -1,3 +1,4 @@
+// @@flow
 import React, { useContext } from 'react';
 import LazyPicture from '../../_LazyPicture';
 import { SvgContext } from '../../_SvgInline';

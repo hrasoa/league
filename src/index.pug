@@ -23,7 +23,7 @@ html(lang=htmlAttrs.lang class=htmlAttrs.class)
     #root !{markup}
     #svgs !{svgMarkup}
     script.
-      INITIAL_STATE = !{JSON.stringify(initialState)};
+      window.INITIAL_STATE = !{JSON.stringify(initialState)};
     if prod
       script(src=assets.vendor.js)
       script(src=assets.client.js)
