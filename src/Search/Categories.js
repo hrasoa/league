@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import listInline from 'inuitcss/objects/_objects.list-inline.scss';
-import classname from 'classnames';
+import classnames from 'classnames';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter, UrlSearch } from '../_Router/type';
 import Wrapper from '../_Wrapper';
@@ -19,15 +19,15 @@ const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) =
   const { q } = search;
   return (
     <div className={styles.root}>
-      <Wrapper className={classname(spacings.uPaddingTopLarge, spacings.uPaddingBottom)}>
+      <Wrapper className={classnames(spacings.uPaddingTopLarge, spacings.uPaddingBottom)}>
         <div className={styles.title}>
           Search results for <span className={styles.q}>{q}</span>
         </div>
-        <ul className={classname(listInline.oListInline, spacings.uMarginBottomNone)}>
+        <ul className={classnames(listInline.oListInline, spacings.uMarginBottomNone)}>
           {categories.map(category => (
             <li
               key={category.pathName}
-              className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
+              className={classnames(listInline.oListInlineItem, spacings.uMarginRight)}
             >
               <NavLink
                 activeClassName={styles.active}

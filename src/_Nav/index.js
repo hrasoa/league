@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import spacings from 'inuitcss/utilities/_utilities.spacings.scss';
 import listInline from 'inuitcss/objects/_objects.list-inline.scss';
-import classname from 'classnames';
+import classnames from 'classnames';
 import withRouter from '../_Router/withRouter';
 import type { UrlFormatter } from '../_Router/type';
 import Wrapper from '../_Wrapper';
@@ -32,7 +32,7 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
           {links.map(link => (
             <li
               key={link.pathName}
-              className={classname(listInline.oListInlineItem, spacings.uMarginRight)}
+              className={classnames(listInline.oListInlineItem, spacings.uMarginRight)}
             >
               <NavLink
                 activeClassName={styles.active}
@@ -45,7 +45,7 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
             </li>
           ))}
         </ul>
-        <ul className={classname(styles.list, styles.right)}>
+        <ul className={classnames(styles.list, styles.right)}>
           <li className={listInline.oListInlineItem}>
             <Search />
           </li>

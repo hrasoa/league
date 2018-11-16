@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import classname from 'classnames';
+import classnames from 'classnames';
 import Visible from '../_Visible';
 import type { Props } from './type';
 import defaultProps from './defaultProps';
@@ -40,18 +40,18 @@ class LazyPicture extends Component<Props, State> {
         {({ ref, visible }) => (
           <div
             ref={ref}
-            className={classname(styles.root, className, loaded && styles.loaded)}
+            className={classnames(styles.root, className, loaded && styles.loaded)}
           >
-            <div className={classname((s && s.ratio) || styles.ratio)} />
+            <div className={classnames((s && s.ratio) || styles.ratio)} />
             <img
-              className={classname(styles.pre, s && s.pre)}
+              className={classnames(styles.pre, s && s.pre)}
               alt={alt}
               src={preSrc}
             />
             <picture className={styles.picture}>
               <img
                 alt={alt}
-                className={classname(styles.image, s && s.image)}
+                className={classnames(styles.image, s && s.image)}
                 src={visible ? src : null}
                 onLoad={this.handleOnLoad}
               />

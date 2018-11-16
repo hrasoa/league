@@ -2,7 +2,7 @@
 import React from 'react';
 import type { Node } from 'react';
 import wrapper from 'inuitcss/objects/_objects.wrapper.scss';
-import classname from 'classnames';
+import classnames from 'classnames';
 
 type Props = {
   children: Node,
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Wrapper = ({ children, className, ...rest }: Props) => (
-  <div className={classname(wrapper.oWrapper, className)} {...rest}>
+  <div className={classnames(wrapper.oWrapper, className)} {...rest}>
     {children}
   </div>
 );
