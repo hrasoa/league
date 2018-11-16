@@ -14,7 +14,8 @@
     "import",
     "jsx-a11y",
     "react",
-    "flowtype"
+    "flowtype",
+    "react-hooks"
   ],
   "rules": {
     "function-paren-newline": "off",
@@ -43,6 +44,7 @@
       "reservedFirst": true,
       "noSortAlphabetically": true
     }],
+    "react-hooks/rules-of-hooks": "error",
     "sort-keys": ["error", "asc"]
   },
   "settings": {
