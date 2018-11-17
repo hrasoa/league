@@ -5,8 +5,7 @@ import React, { useState } from 'react';
 const SvgContext = React.createContext();
 
 const InlineProvider = (props) => {
-  const [state, setState] = useState({ svgs: {} });
-  const { svgs } = state;
+  const [svgs, setSvgs] = useState({});
 
   function addSvgs(svgList) {
     // if every svg we want to add are already inlined
@@ -14,15 +13,14 @@ const InlineProvider = (props) => {
     if (Object.keys(svgList).every(id => typeof svgs[id] !== 'undefined')) {
       return;
     }
-    // on the server we pass the captureSvgs props
-    // to pre-render them
+    // on the server we pass the captureSvgs props for pre-render
     const { captureSvgs } = props;
     if (captureSvgs) {
       captureSvgs(svgList);
     }
-    setState(currentState => ({
-      ...currentState,
-      svgs: { ...currentState.svgs, ...svgList },
+    setSvgs(state => ({
+      ...state,
+      ...svgList,
     }));
   }
 

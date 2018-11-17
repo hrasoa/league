@@ -1,5 +1,4 @@
 [ignore]
-.*/node_modules/react-error-overlay/*
 
 [include]
 
