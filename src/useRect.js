@@ -4,13 +4,18 @@ const useRect = (ref, once) => {
   const raf = useRef(null);
   const [rect, setRect] = useState({});
 
+  function updateRect() {
+    setRect(ref.current.getBoundingClientRect());
+    raf.current = requestAnimationFrame(updateRect);
+  }
+
   function observe(cancel) {
     if (cancel && raf.current) {
       unobserve();
       return;
     }
     setRect(ref.current.getBoundingClientRect());
-    raf.current = requestAnimationFrame(observe);
+    raf.current = requestAnimationFrame(updateRect);
   }
 
   function unobserve() {
