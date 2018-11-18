@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { WindowSizeContext } from './_WindowSize';
 import useRect from './useRect';
 
-const useVisible = (ref) => {
-  const { rect } = useRect(ref);
+const useVisible = (ref, once) => {
+  const { rect } = useRect(ref, once);
   const size = useContext(WindowSizeContext);
 
   return size ? isInWindow(rect, size) : false;

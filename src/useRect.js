@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 
-const useRect = (ref) => {
+const useRect = (ref, once) => {
   const raf = useRef(null);
   const [rect, setRect] = useState({});
 
-  function observe() {
+  function observe(cancel) {
+    if (cancel && raf.current) {
+      unobserve();
+      return;
+    }
     setRect(ref.current.getBoundingClientRect());
     raf.current = requestAnimationFrame(observe);
   }
@@ -15,12 +19,12 @@ const useRect = (ref) => {
 
   useEffect(() => {
     if (ref.current) {
-      observe();
+      observe(once);
     }
     return () => {
       unobserve();
     };
-  }, []);
+  }, [once]);
 
   return { observe, rect, unobserve };
 };

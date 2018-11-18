@@ -8,8 +8,8 @@ import baseStyles from './LazyPicture.scss';
 
 const LazyPicture = (props) => {
   const ref = useRef(null);
-  const visible = useVisible(ref);
   const [loaded, setLoaded] = useState(false);
+  const visible = useVisible(ref, loaded);
 
   function handleOnLoad() {
     setLoaded(true);
