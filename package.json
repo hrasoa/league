@@ -21,8 +21,6 @@
     "test": "razzle test --env=jsdom"
   },
   "dependencies": {
-    "@reach/rect": "^0.1.1",
-    "@reach/window-size": "^0.1.1",
     "classnames": "^2.2.6",
     "draft-js": "^0.10.5",
     "express": "^4.16.4",

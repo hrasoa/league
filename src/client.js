@@ -8,6 +8,7 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 import './_generic.lora.css';
 import './_generic.roboto.css';
 import InlineProvider from './_SvgInline';
+import WindowSizeProvider from './_WindowSize';
 import Inline from './_SvgInline/Inline';
 import App from './App';
 
@@ -37,7 +38,9 @@ async function render(Root) {
     <BrowserRouter>
       <HelmetProvider>
         <InlineProvider inlinedIds={svgInlinedIds}>
-          <Root />
+          <WindowSizeProvider>
+            <Root />
+          </WindowSizeProvider>
           <Inline />
         </InlineProvider>
       </HelmetProvider>
