@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
-import classnames from 'classnames';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import elStyles from './Select.scss';
+import baseStyles from './Select.scss';
 
 type Props = {
   children: Array<Node>,
@@ -16,17 +15,20 @@ const Select = ({
   className,
   styles,
   ...rest
-}: Props) => (
-  <span className={classnames(elStyles.root, className)}>
-    <select
-      className={classnames(elStyles.select, styles.select)}
-      {...rest}
-    >
-      {children}
-    </select>
-    <IoMdArrowDropdown className={classnames(elStyles.icon, styles.icon)} />
-  </span>
-);
+}: Props) => {
+  const s = { ...baseStyles, ...styles };
+  return (
+    <span className={s.root}>
+      <select
+        className={s.select}
+        {...rest}
+      >
+        {children}
+      </select>
+      <IoMdArrowDropdown className={s.icon} />
+    </span>
+  );
+};
 
 Select.defaultProps = {
   className: null,

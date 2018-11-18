@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import classnames from 'classnames';
 import Visible from '../_Visible';
 import defaultProps from './defaultProps';
-import styles from './LazyPicture.scss';
+import baseStyles from './LazyPicture.scss';
 
 const LazyPicture = (props) => {
   const [loaded, setLoaded] = useState(false);
@@ -15,32 +15,32 @@ const LazyPicture = (props) => {
 
   const {
     alt,
-    className,
-    styles: s,
+    styles,
     image: { src, preSrc },
   } = props;
+  const s = { ...baseStyles, ...styles };
   return (
     <Visible once>
       {({ ref, visible }) => (
         <div
           ref={ref}
-          className={classnames(styles.root, className, loaded && styles.loaded)}
+          className={classnames(s.root, loaded && s.loaded)}
         >
-          <div className={classnames((s && s.ratio) || styles.ratio)} />
+          <div className={s.ratio} />
           <img
-            className={classnames(styles.pre, s && s.pre)}
+            className={s.pre}
             alt={alt}
             src={preSrc}
           />
-          <picture className={styles.picture}>
+          <picture className={s.picture}>
             <img
               alt={alt}
-              className={classnames(styles.image, s && s.image)}
+              className={s.image}
               src={visible ? src : null}
               onLoad={handleOnLoad}
             />
             <noscript>
-              <img alt={alt} className={className} src={src} />
+              <img alt={alt} src={src} />
             </noscript>
           </picture>
         </div>

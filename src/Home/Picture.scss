@@ -6,6 +6,7 @@
 }
 
 .pre {
+  composes: pre from '../_LazyPicture/LazyPicture.scss';
   composes: image;
 }
 
