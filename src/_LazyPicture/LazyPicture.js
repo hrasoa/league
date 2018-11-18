@@ -9,7 +9,9 @@ import baseStyles from './LazyPicture.scss';
 const LazyPicture = (props) => {
   const ref = useRef(null);
   const [loaded, setLoaded] = useState(false);
+  console.log('render loaded:', loaded);
   const visible = useVisible(ref, loaded);
+  console.log('render visible:', visible);
 
   function handleOnLoad() {
     setLoaded(true);
@@ -21,6 +23,8 @@ const LazyPicture = (props) => {
     image: { src, preSrc },
   } = props;
   const s = { ...baseStyles, ...styles };
+  console.log('render');
+  console.log('--');
   return (
     <div
       ref={ref}

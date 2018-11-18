@@ -1,35 +1,39 @@
 import { useState, useEffect, useRef } from 'react';
 
 const useRect = (ref, once) => {
-  const raf = useRef(null);
+  const reqAf = useRef(null);
   const [rect, setRect] = useState({});
 
   function updateRect() {
     setRect(ref.current.getBoundingClientRect());
-    raf.current = requestAnimationFrame(updateRect);
+    reqAf.current = requestAnimationFrame(updateRect);
+    console.log('updateRect', reqAf.current);
   }
 
   function observe(cancel) {
-    if (cancel && raf.current) {
+    if (cancel && reqAf.current) {
+      console.log('cancel', reqAf.current);
       unobserve();
       return;
     }
-    setRect(ref.current.getBoundingClientRect());
-    raf.current = requestAnimationFrame(updateRect);
+    updateRect();
+    console.log('start updateRect', reqAf.current);
   }
 
   function unobserve() {
-    cancelAnimationFrame(raf.current);
+    console.log('unobserve', reqAf.current);
+    cancelAnimationFrame(reqAf.current);
   }
 
   useEffect(() => {
     if (ref.current) {
+      console.log('observe cancel, raf', once, reqAf.current);
       observe(once);
     }
     return () => {
       unobserve();
     };
-  }, [once]);
+  });
 
   return { observe, rect, unobserve };
 };
