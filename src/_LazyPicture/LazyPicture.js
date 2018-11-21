@@ -17,10 +17,7 @@ const LazyPicture = (props) => {
       rectObserver.current.unobserve();
     } else if (!rectObserver.current) {
       rectObserver.current = observeRect(ref.current, (rect) => {
-        const inWindow = isInWindow(rect, {
-          height: window.innerHeight,
-          width: window.innerHeight,
-        });
+        const inWindow = isInWindow(rect);
         setVisible(inWindow);
       });
       rectObserver.current.observe();
@@ -70,7 +67,11 @@ const LazyPicture = (props) => {
 
 LazyPicture.defaultProps = defaultProps;
 
-function isInWindow(rect, size) {
+function isInWindow(rect) {
+  const size = {
+    height: window.innerHeight,
+    width: window.innerHeight,
+  };
   return isVerticallyInWindow(rect, size) && isHorizontallyInWindow(rect, size);
 }
 
