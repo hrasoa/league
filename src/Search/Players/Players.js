@@ -39,7 +39,7 @@ const Players = ({ url }: { url: UrlFormatter }) => (
             className={styles.item}
             to={url('player', { params: { id: item.id } })}
           >
-            <PlayerCard />
+            <PlayerCard id={item.id} />
           </Link>
         </li>
       ))}

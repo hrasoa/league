@@ -216,6 +216,10 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
+"@reach/observe-rect@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@reach/observe-rect/-/observe-rect-1.0.3.tgz#2ea3dcc369ab22bd9f050a92ea319321356a61e8"
+
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.4.tgz#bfd5b0d0d1ba13e351dff65b6e52783b816826c8"
