@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 // @@flow
-import React, { useLayoutEffect, useState, useRef } from 'react';
-import observeRect from '@reach/observe-rect/src';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+} from 'react';
+import observeRect from '@reach/observe-rect';
 import classnames from 'classnames';
 import defaultProps from './defaultProps';
 import baseStyles from './LazyPicture.scss';
@@ -12,13 +16,18 @@ const LazyPicture = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (loaded) {
-      rectObserver.current.unobserve();
-    } else if (!rectObserver.current) {
+      setTimeout(() => {
+        rectObserver.current.unobserve();
+      }, 0);
+    }
+  }, [loaded]);
+
+  useEffect(() => {
+    if (!loaded && !rectObserver.current) {
       rectObserver.current = observeRect(ref.current, (rect) => {
-        const inWindow = isInWindow(rect);
-        setVisible(inWindow);
+        setVisible(isInWindow(rect));
       });
       rectObserver.current.observe();
     }
