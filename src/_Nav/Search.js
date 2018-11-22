@@ -7,7 +7,12 @@ import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
 const Search = (props) => {
-  const { search } = props;
+  const {
+    location,
+    push,
+    search,
+    url,
+  } = props;
   const [value, setValue] = useState(search.q || '');
 
   function handleChange(event) {
@@ -20,7 +25,6 @@ const Search = (props) => {
     if (!q.length) {
       return;
     }
-    const { push, location, url } = props;
     const match = matchPath(location.pathname, { path: url('search') });
     push(match ? location.pathname : 'search', { search: { q } });
   }
