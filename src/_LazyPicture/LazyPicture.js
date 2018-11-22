@@ -18,9 +18,7 @@ const LazyPicture = (props) => {
 
   useEffect(() => {
     if (loaded) {
-      setTimeout(() => {
-        rectObserver.current.unobserve();
-      }, 0);
+      unobserve();
     }
   }, [loaded]);
 
@@ -32,9 +30,15 @@ const LazyPicture = (props) => {
       rectObserver.current.observe();
     }
     return () => {
-      rectObserver.current.unobserve();
+      unobserve();
     };
   }, [loaded]);
+
+  function unobserve() {
+    setTimeout(() => {
+      rectObserver.current.unobserve();
+    }, 0);
+  }
 
   function handleOnLoad() {
     setLoaded(true);
