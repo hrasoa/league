@@ -76,6 +76,8 @@ const LazyPicture = (props) => {
 
 LazyPicture.defaultProps = defaultProps;
 
+export default LazyPicture;
+
 function isInWindow(rect) {
   const size = {
     height: window.innerHeight,
@@ -92,5 +94,3 @@ function isVerticallyInWindow(rect, size) {
 function isHorizontallyInWindow(rect, size) {
   return rect.left <= size.width;
 }
-
-export default LazyPicture;
