@@ -102,7 +102,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       console.log(`inlineStyles errors : ${errors.join('\n')}`); // eslint-disable-line no-console
     }
 
-    const initialState = { apolloState, svgInlinedIds };
+    const initialState = { data: apolloState, svgInlinedIds };
 
     const htmlAttributes = helmet.htmlAttributes.toString().match(/(\w+="[\w-_\s]+")/g);
     const htmlAttrs = htmlAttributes ? htmlAttributes.reduce((acc, attr) => {
