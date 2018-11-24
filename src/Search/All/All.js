@@ -19,6 +19,16 @@ const items = [
   { id: '5' },
 ];
 
+const GET_PLAYERS = gql`
+  {
+    players {
+      id
+      name
+      image
+    }
+  }
+`;
+
 const All = ({ url, search }) => {
   const { q } = search;
 
@@ -27,16 +37,7 @@ const All = ({ url, search }) => {
       <Titles url={url('search_players', q ? { search: { q } } : null)}>
         Players
       </Titles>
-      <Query query={gql`
-        {
-          players {
-            id
-            name
-            image
-          }
-        }
-      `}
-      >
+      <Query query={GET_PLAYERS}>
         {({ loading, data }) => (loading ? null : (
           <div className={styles.carousel}>
             <ul className={styles.list}>
