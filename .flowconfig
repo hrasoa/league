@@ -25,3 +25,5 @@ module.name_mapper='.*\.scss$' -> '<PROJECT_ROOT>/flow-stubs/css-module.js.flow'
 .*/node_modules/draft-js/lib/ContentBlock.js.flow
 .*/node_modules/draft-js/lib/ContentBlockNode.js.flow
 .*/node_modules/draft-js/lib/DraftEditorLeaf.react.js.flow
+.*/node_modules/graphql/jsutils/keyValMap.js.flow
+.*/node_modules/graphql/utilities/buildASTSchema.js.flow

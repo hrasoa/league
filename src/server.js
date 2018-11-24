@@ -6,8 +6,14 @@ import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { ApolloProvider, renderToStringWithData } from 'react-apollo';
+import { ApolloLink } from 'apollo-link';
+import { createHttpLink } from 'apollo-link-http';
+import { onError } from 'apollo-link-error';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import fetch from 'node-fetch';
 import express from 'express';
-import { renderToString } from 'react-dom/server';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
@@ -39,24 +45,52 @@ server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
 server.get('/*', async (req: express$Request, res: express$Response) => {
+  const link = ApolloLink.from([
+    onError(({ graphQLErrors, networkError }) => {
+      if (graphQLErrors) {
+        graphQLErrors.map(({ message, locations }) => (
+          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}`)
+        ));
+      }
+      if (networkError) {
+        console.log(`[Network error]: ${networkError} - ${networkError.response.data}`);
+      }
+    }),
+    createHttpLink({
+      fetch,
+      uri: 'http://localhost:4000/graphql',
+    }),
+  ]);
+
+  const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    link,
+    ssrMode: true,
+  });
+
   const helmetContext = {};
   const context: { url?: string } = {};
   const modules: Array<string> = [];
   const svgs = [];
-  const markup = renderToString(
-    <Capture report={(moduleName) => { modules.push(moduleName); }}>
-      <StaticRouter context={context} location={req.url}>
-        <HelmetProvider context={helmetContext}>
-          <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
-            <App />
-          </InlineProvider>
-        </HelmetProvider>
-      </StaticRouter>
-    </Capture>,
+
+  const Root = (
+    <ApolloProvider client={client}>
+      <Capture report={(moduleName) => { modules.push(moduleName); }}>
+        <StaticRouter context={context} location={req.url}>
+          <HelmetProvider context={helmetContext}>
+            <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
+              <App />
+            </InlineProvider>
+          </HelmetProvider>
+        </StaticRouter>
+      </Capture>
+    </ApolloProvider>
   );
+  const markup = await renderToStringWithData(Root);
   if (context.url) {
     res.redirect(context.url);
   } else {
+    const apolloState = client.extract();
     const { helmet } = helmetContext;
     const { ids: svgInlinedIds, markup: svgMarkup } = getSvgs(svgs);
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
@@ -68,13 +102,15 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       console.log(`inlineStyles errors : ${errors.join('\n')}`); // eslint-disable-line no-console
     }
 
-    const initialState = { svgInlinedIds };
+    const initialState = { apolloState, svgInlinedIds };
 
     const htmlAttributes = helmet.htmlAttributes.toString().match(/(\w+="[\w-_\s]+")/g);
     const htmlAttrs = htmlAttributes ? htmlAttributes.reduce((acc, attr) => {
       const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
       return { ...acc, [attrName]: attrValue };
     }, {}) : {};
+
+    console.log(client.extract());
 
     res.status(200).render('index', {
       assets,
