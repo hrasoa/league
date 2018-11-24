@@ -8,10 +8,9 @@ import InnerShadow, { id as shadowId } from '../../_Svg/InnerShadow';
 import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
 import picture from './Picture.scss';
-import image from './YQJK5Ilz_400x400.jpg';
 import team from './team.png';
 
-const Card = ({ id }) => {
+const Card = ({ id, name, image }) => {
   const { addSvgs } = useContext(SvgContext);
   addSvgs({
     [bodyId]: ClipBody,
@@ -39,7 +38,7 @@ const Card = ({ id }) => {
         <span className={styles.team}>
           <img alt="team" src={team} />
         </span>
-        player name <span className={styles.position}>cb</span>
+        {name} <span className={styles.position}>cb</span>
       </div>
     </div>
   );

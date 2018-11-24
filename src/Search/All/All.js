@@ -23,54 +23,54 @@ const All = ({ url, search }) => {
   const { q } = search;
 
   return (
-    <Query query={gql`
-      {
-        players {
-          name
-          image
+    <Fragment>
+      <Titles url={url('search_players', q ? { search: { q } } : null)}>
+        Players
+      </Titles>
+      <Query query={gql`
+        {
+          players {
+            name
+            image
+          }
         }
-      }
-    `}
-    >
-      {() => (
-        <Fragment>
-          <Titles url={url('search_players', q ? { search: { q } } : null)}>
-            Players
-          </Titles>
+      `}
+      >
+        {({ loading, data }) => (loading ? null : (
           <div className={styles.carousel}>
             <ul className={styles.list}>
-              {items.map(item => (
-                <li key={`player-${item.id}`}>
+              {data && data.players.map(player => (
+                <li key={`player-${player.id}`}>
                   <Link
                     className={styles.item}
-                    to={url('player', { params: { id: item.id } })}
+                    to={url('player', { params: { id: player.id } })}
                   >
-                    <PlayerCard />
+                    <PlayerCard {...player} />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <Titles url={url('search_teams', q ? { search: { q } } : null)}>
-            Teams
-          </Titles>
-          <div className={styles.carousel}>
-            <ul className={styles.list}>
-              {items.map(item => (
-                <li key={`team-${item.id}`}>
-                  <Link
-                    className={styles.item}
-                    to={url('team', { params: { id: item.id } })}
-                  >
-                    <TeamCard />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Fragment>
-      )}
-    </Query>
+        ))}
+      </Query>
+      <Titles url={url('search_teams', q ? { search: { q } } : null)}>
+        Teams
+      </Titles>
+      <div className={styles.carousel}>
+        <ul className={styles.list}>
+          {items.map(item => (
+            <li key={`team-${item.id}`}>
+              <Link
+                className={styles.item}
+                to={url('team', { params: { id: item.id } })}
+              >
+                <TeamCard />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Fragment>
   );
 };
 
