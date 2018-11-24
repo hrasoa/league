@@ -30,6 +30,7 @@ const All = ({ url, search }) => {
       <Query query={gql`
         {
           players {
+            id
             name
             image
           }
