@@ -49,11 +49,11 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     onError(({ graphQLErrors, networkError }) => {
       if (graphQLErrors) {
         graphQLErrors.map(({ message, locations }) => (
-          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}`)
+          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}`) // eslint-disable-line no-console
         ));
       }
       if (networkError) {
-        console.log(`[Network error]: ${networkError} - ${networkError.response.data}`);
+        console.log(`[Network error]: ${networkError} - ${networkError.response && networkError.response.data}`); // eslint-disable-line no-console
       }
     }),
     createHttpLink({
@@ -109,8 +109,6 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
       return { ...acc, [attrName]: attrValue };
     }, {}) : {};
-
-    console.log(client.extract());
 
     res.status(200).render('index', {
       assets,
