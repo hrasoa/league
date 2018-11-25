@@ -25,6 +25,10 @@ const GET_PLAYERS = gql`
       id
       name
       image
+      pos
+      team {
+        logo
+      }
     }
   }
 `;

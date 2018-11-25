@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable react/prop-types */
 // @@flow
 import React, { useContext } from 'react';
 import LazyPicture from '../../_LazyPicture';
@@ -8,9 +8,14 @@ import InnerShadow, { id as shadowId } from '../../_Svg/InnerShadow';
 import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
 import picture from './Picture.scss';
-import team from './team.png';
 
-const Card = ({ id, name, image }) => {
+const Card = ({
+  id,
+  name,
+  image,
+  pos,
+  team,
+}) => {
   const { addSvgs } = useContext(SvgContext);
   addSvgs({
     [bodyId]: ClipBody,
@@ -35,10 +40,12 @@ const Card = ({ id, name, image }) => {
         </div>
       </div>
       <div className={styles.bio}>
-        <span className={styles.team}>
-          <img alt="team" src={team} />
-        </span>
-        {name} <span className={styles.position}>cb</span>
+        {team && team.logo && (
+          <span className={styles.team}>
+            <img alt="team" src={team.logo} />
+          </span>
+        )}
+        {name} <span className={styles.position}>{pos}</span>
       </div>
     </div>
   );

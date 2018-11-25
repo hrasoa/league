@@ -2,9 +2,9 @@
   composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
   composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
   --auto-colums: calc(50% - 30px);
-  --gap: calc(var(--gutter) / 2);
-  --gutter: #{$inuit-global-spacing-unit};
-  --template-columns: calc(var(--gutter) / 2);
+  --gap: calc(var(--gutter) / 4);
+  --gutter: #{$inuit-global-spacing-unit-large};
+  --template-columns: calc(var(--gutter) / 4);
   display: grid;
   grid-auto-columns: var(--auto-colums);
   grid-auto-flow: column;
