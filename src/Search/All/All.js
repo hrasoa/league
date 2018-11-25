@@ -11,14 +11,6 @@ import withRouter from '../../_Router/withRouter';
 import Titles from './Titles';
 import styles from './All.scss';
 
-const items = [
-  { id: '1' },
-  { id: '2' },
-  { id: '3' },
-  { id: '4' },
-  { id: '5' },
-];
-
 const GET_PLAYERS = gql`
   {
     players {
@@ -29,6 +21,16 @@ const GET_PLAYERS = gql`
       team {
         logo
       }
+    }
+  }
+`;
+
+const GET_TEAMS = gql`
+  {
+    teams {
+      id
+      name
+      logo
     }
   }
 `;
@@ -62,20 +64,24 @@ const All = ({ url, search }) => {
       <Titles url={url('search_teams', q ? { search: { q } } : null)}>
         Teams
       </Titles>
-      <div className={styles.carousel}>
-        <ul className={styles.list}>
-          {items.map(item => (
-            <li key={`team-${item.id}`}>
-              <Link
-                className={styles.item}
-                to={url('team', { params: { id: item.id } })}
-              >
-                <TeamCard />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Query query={GET_TEAMS}>
+        {({ loading, data }) => (loading ? null : (
+          <div className={styles.carousel}>
+            <ul className={styles.list}>
+              {data && data.teams.map(team => (
+                <li key={`team-${team.id}`}>
+                  <Link
+                    className={styles.item}
+                    to={url('team', { params: { id: team.id } })}
+                  >
+                    <TeamCard {...team} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </Query>
     </Fragment>
   );
 };

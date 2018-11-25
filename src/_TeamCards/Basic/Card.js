@@ -2,9 +2,13 @@
 import React from 'react';
 import LazyPicture from '../../_LazyPicture';
 import styles from './Card.scss';
-import logo from './team.png';
 
-const Card = () => (
+type Props = {
+  name: string,
+  logo: string,
+};
+
+const Card = ({ name, logo }: Props) => (
   <div className={styles.root}>
     <div className={styles.image}>
       <LazyPicture
@@ -13,7 +17,7 @@ const Card = () => (
       />
     </div>
     <div className={styles.bio}>
-      team name
+      {name}
     </div>
   </div>
 );
