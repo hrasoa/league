@@ -2,14 +2,14 @@
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
+import { renderToString } from 'react-dom/server';
 import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 import { StaticRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ApolloProvider, renderToStringWithData } from 'react-apollo';
+import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import { ApolloLink } from 'apollo-link';
 import { createHttpLink } from 'apollo-link-http';
-import { onError } from 'apollo-link-error';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import fetch from 'node-fetch';
@@ -46,16 +46,6 @@ server.set('view engine', 'pug');
 server.set('views', './src');
 server.get('/*', async (req: express$Request, res: express$Response) => {
   const link = ApolloLink.from([
-    onError(({ graphQLErrors, networkError }) => {
-      if (graphQLErrors) {
-        graphQLErrors.map(({ message, locations }) => (
-          console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}`) // eslint-disable-line no-console
-        ));
-      }
-      if (networkError) {
-        console.log(`[Network error]: ${networkError} - ${networkError.response && networkError.response.data}`); // eslint-disable-line no-console
-      }
-    }),
     createHttpLink({
       fetch,
       uri: 'http://localhost:4000/graphql',
@@ -86,7 +76,12 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
       </Capture>
     </ApolloProvider>
   );
-  const markup = await renderToStringWithData(Root);
+  try {
+    await getDataFromTree(Root);
+  } catch (e) {
+    console.log('catch', e);
+  }
+  const markup = renderToString(Root);
   if (context.url) {
     res.redirect(context.url);
   } else {
@@ -99,7 +94,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const inlineStyles = await getInlineStyles(styles);
     const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
     if (errors.length) {
-      console.log(`inlineStyles errors : ${errors.join('\n')}`); // eslint-disable-line no-console
+      console.log(`inlineStyles errors: ${errors.join('\n')}`); // eslint-disable-line no-console
     }
 
     const initialState = { data: apolloState, svgInlinedIds };
