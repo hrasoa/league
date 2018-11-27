@@ -23,10 +23,10 @@ window.main = () => {
 
 if (module.hot) {
   console.log('✅  Client-side HMR Enabled!');
-  module.hot.accept('./App', () => {
+  module.hot.accept('./App', async () => {
     console.log('🔁  HMR Reloading `./client`...');
-    const NewApp = require('./App').default;
-    render(NewApp);
+    const NewApp = await import('./App');
+    render(NewApp.default);
   });
 }
 
