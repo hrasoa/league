@@ -11,7 +11,9 @@ module.exports = {
     const cssLoaderOpts = {
       camelCase: true,
       importLoaders: 1,
-      localIdentName: dev ? '[name]--[local]_[hash:base64:5]' : '[hash:base64:5]',
+      localIdentName: dev
+        ? '[name]--[local]_[hash:base64:5]'
+        : '[hash:base64:5]',
       modules: true,
       sourceMap: dev,
     };
@@ -44,11 +46,11 @@ module.exports = {
               use: [
                 dev
                   ? {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      sourceMap: dev,
-                    },
-                  }
+                      loader: require.resolve('style-loader'),
+                      options: {
+                        sourceMap: dev,
+                      },
+                    }
                   : MiniCssExtractPlugin.loader,
                 {
                   loader: require.resolve('css-loader'),
@@ -61,10 +63,11 @@ module.exports = {
                   loader: require.resolve('postcss-loader'),
                   options: {
                     ident: 'postscss',
-                    plugins: () => [
-                      require('autoprefixer')(),
-                      require('postcss-reporter'),
-                    ].filter(Boolean),
+                    plugins: () =>
+                      [
+                        require('autoprefixer')(),
+                        require('postcss-reporter'),
+                      ].filter(Boolean),
                   },
                 },
                 sassLoader,
@@ -72,36 +75,40 @@ module.exports = {
             },
           ],
         },
-        optimization: dev ? config.optimization : merge(config.optimization, {
-          splitChunks: {
-            cacheGroups: {
-              commons: {
-                chunks: 'async',
-                name: true,
-                test: /[\\/]node_modules[\\/].*\.js$/,
+        optimization: dev
+          ? config.optimization
+          : merge(config.optimization, {
+              splitChunks: {
+                cacheGroups: {
+                  commons: {
+                    chunks: 'async',
+                    name: true,
+                    test: /[\\/]node_modules[\\/].*\.js$/,
+                  },
+                  vendor: {
+                    chunks: 'initial',
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/].*\.js$/,
+                  },
+                },
               },
-              vendor: {
-                chunks: 'initial',
-                name: 'vendor',
-                test: /[\\/]node_modules[\\/].*\.js$/,
-              },
-            },
-          },
-        }),
+            }),
         plugins: [
           ...config.plugins,
-          !dev && new OptimizeCssnanoPlugin({
-            sourceMap: false,
-          }),
+          !dev &&
+            new OptimizeCssnanoPlugin({
+              sourceMap: false,
+            }),
           dev && new StyleLintPlugin(),
           new ReactLoadablePlugin({
             filename: './build/react-loadable.json',
           }),
           !dev && new CompressionPlugin(),
-          !dev && new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            openAnalyzer: false,
-          }),
+          !dev &&
+            new BundleAnalyzerPlugin({
+              analyzerMode: 'static',
+              openAnalyzer: false,
+            }),
         ].filter(Boolean),
       };
     }
