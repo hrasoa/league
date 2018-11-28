@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-// @@flow
+// @flow
 import React, { useEffect, useState, useRef } from 'react';
 import observeRect from '@reach/observe-rect';
 import classnames from 'classnames';

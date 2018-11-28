@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-// @@flow
+// @flow
 import React, { useState } from 'react';
 
-const SvgContext = React.createContext();
+const SvgContext: Object = React.createContext();
 
 const InlineProvider = props => {
   const [svgs, setSvgs] = useState({});

@@ -14,9 +14,9 @@
     "import",
     "jsx-a11y",
     "react",
-    "flowtype",
     "react-hooks",
-    "prettier"
+    "prettier",
+    "flowtype"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -38,6 +38,7 @@
       "error",
       { "extensions": [".js", ".jsx"] }
     ],
+    "react/prop-types": "off",
     "react/require-default-props": [
       "error",
       { "forbidDefaultForRequired": false }

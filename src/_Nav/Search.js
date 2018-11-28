@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-// @@flow
+// @flow
 import React, { useState } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 import { matchPath } from 'react-router';

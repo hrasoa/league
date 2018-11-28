@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-// @@flow
+// @flow
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
