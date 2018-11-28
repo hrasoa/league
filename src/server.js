@@ -90,7 +90,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
   try {
     await getDataFromTree(Root);
   } catch (e) {
-    console.log('catch', e);
+    console.log('catch', e); // eslint-disable-line no-console
   }
   const markup = renderToString(Root);
   if (context.url) {
