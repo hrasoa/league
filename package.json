@@ -13,7 +13,7 @@
     "prebuild": "npm run clean",
     "build": "razzle build",
     "clean": "rimraf ./build",
-    "lint": "flow && eslint src/ && stylelint src/**/*.scss",
+    "lint": "flow && eslint src/ && stylelint src/**/*.scss && prettier -l src/**/*.js",
     "prestart": "npm run clean && npm run lint",
     "start": "razzle start",
     "start:prod": "NODE_ENV=production node build/server.js",
