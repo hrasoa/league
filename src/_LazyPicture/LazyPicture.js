@@ -5,7 +5,14 @@ import classnames from 'classnames';
 import defaultProps from './defaultProps';
 import baseStyles from './LazyPicture.scss';
 
-const LazyPicture = props => {
+type Props = {
+  alt: string,
+  id: string,
+  image: { src: string, preSrc: string },
+  styles: { [string]: string },
+};
+
+const LazyPicture = (props: Props) => {
   const ref = useRef(null);
   const rectObserver = useRef(null);
   const [loaded, setLoaded] = useState(false);
