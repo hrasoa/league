@@ -15,7 +15,9 @@ const LazyPicture = props => {
     () => {
       if (loaded) {
         setTimeout(() => {
-          rectObserver.current.unobserve();
+          if (rectObserver.current) {
+            rectObserver.current.unobserve();
+          }
         }, 0);
       }
     },
@@ -31,7 +33,9 @@ const LazyPicture = props => {
         rectObserver.current.observe();
       }
       return () => {
-        rectObserver.current.unobserve();
+        if (rectObserver.current) {
+          rectObserver.current.unobserve();
+        }
       };
     },
     [loaded]
@@ -71,8 +75,8 @@ LazyPicture.defaultProps = defaultProps;
 
 export default LazyPicture;
 
-function isInWindow(rect) {
-  const size = {
+function isInWindow(rect: { top: number, left: number, bottom: number }) {
+  const size: { height: number, width: number } = {
     height: window.innerHeight,
     width: window.innerHeight,
   };
