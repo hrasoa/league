@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const SvgContext = React.createContext();
 
-const InlineProvider = (props) => {
+const InlineProvider = props => {
   const [svgs, setSvgs] = useState({});
 
   function addSvgs(svgList) {

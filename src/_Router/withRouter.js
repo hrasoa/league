@@ -4,11 +4,7 @@ import type { ComponentType } from 'react';
 import { withRouter as withRouterDom } from 'react-router-dom';
 import type { RouterHistory, Location } from 'react-router-dom';
 import routes from '../routes';
-import type {
-  UrlPush,
-  UrlFormatter,
-  UrlSearch,
-} from './type';
+import type { UrlPush, UrlFormatter, UrlSearch } from './type';
 
 type Props = {
   history: RouterHistory,
@@ -24,7 +20,9 @@ interface Interface {
 function withRouter(WrappedComponent: ComponentType<any>) {
   class WithRouter extends Component<Props> implements Interface {
     get search() {
-      const { location: { search } } = this.props;
+      const {
+        location: { search },
+      } = this.props;
       if (!search) {
         return {};
       }
@@ -35,7 +33,7 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       const { history } = this.props;
       const url = this.url(name, urlParams);
       history.push(url, urlParams ? urlParams.state : null);
-    }
+    };
 
     url = (name, urlParams) => {
       let url = name in routes ? routes[name].path : name;
@@ -44,16 +42,21 @@ function withRouter(WrappedComponent: ComponentType<any>) {
       }
       const { params, search, hash } = urlParams;
       if (params) {
-        url = url.replace(new RegExp('(:[^/]*)', 'g'), (match: string, p1: string): string => {
-          const p = p1.replace(':', '');
-          return encodeURI(`${params[p] || p1}`);
-        });
+        url = url.replace(
+          new RegExp('(:[^/]*)', 'g'),
+          (match: string, p1: string): string => {
+            const p = p1.replace(':', '');
+            return encodeURI(`${params[p] || p1}`);
+          }
+        );
       }
       if (search) {
-        url = `${url}?${Object.keys(search).map(q => encodeURI(`${q}=${search[q]}`)).join('&')}`;
+        url = `${url}?${Object.keys(search)
+          .map(q => encodeURI(`${q}=${search[q]}`))
+          .join('&')}`;
       }
       return hash ? `${url}#${hash}` : url;
-    }
+    };
 
     render() {
       return (

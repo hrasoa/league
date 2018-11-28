@@ -13,7 +13,7 @@ describe('<App />', () => {
           <App />
         </HelmetProvider>
       </MemoryRouter>,
-      div,
+      div
     );
   });
 });

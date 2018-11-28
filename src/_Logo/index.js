@@ -8,11 +8,7 @@ type Props = {
 };
 
 const Logo = ({ className }: Props) => (
-  <img
-    alt="logo"
-    className={className}
-    src={logo}
-  />
+  <img alt="logo" className={className} src={logo} />
 );
 
 Logo.defaultProps = {

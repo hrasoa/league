@@ -22,11 +22,14 @@ import fout from './_utilities.fonts.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
 
-const assets: { client: { css: string, js: string } } = require(process.env.RAZZLE_ASSETS_MANIFEST);
+const assets: { client: { css: string, js: string } } = require(process.env
+  .RAZZLE_ASSETS_MANIFEST);
 const prod = process.env.NODE_ENV === 'production';
 
 const critical = prod
-  ? fs.readFileSync(path.join(paths.appBuildPublic, assets.client.css), { encoding: 'utf8' })
+  ? fs.readFileSync(path.join(paths.appBuildPublic, assets.client.css), {
+      encoding: 'utf8',
+    })
   : null;
 
 const fontStages = {
@@ -65,10 +68,18 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
 
   const Root = (
     <ApolloProvider client={client}>
-      <Capture report={(moduleName) => { modules.push(moduleName); }}>
+      <Capture
+        report={moduleName => {
+          modules.push(moduleName);
+        }}
+      >
         <StaticRouter context={context} location={req.url}>
           <HelmetProvider context={helmetContext}>
-            <InlineProvider captureSvgs={(svgList) => { svgs.push(svgList); }}>
+            <InlineProvider
+              captureSvgs={svgList => {
+                svgs.push(svgList);
+              }}
+            >
               <App />
             </InlineProvider>
           </HelmetProvider>
@@ -89,32 +100,48 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
     const { helmet } = helmetContext;
     const { ids: svgInlinedIds, markup: svgMarkup } = getSvgs(svgs);
     const bundles: Array<{ file: string }> = getBundles(stats, modules);
-    const chunks = bundles.filter(bundle => bundle && bundle.file.endsWith('.js'));
-    const styles = bundles.filter(bundle => bundle && bundle.file.endsWith('.css'));
+    const chunks = bundles.filter(
+      bundle => bundle && bundle.file.endsWith('.js')
+    );
+    const styles = bundles.filter(
+      bundle => bundle && bundle.file.endsWith('.css')
+    );
     const inlineStyles = await getInlineStyles(styles);
-    const errors = inlineStyles.filter(style => typeof style.href === 'undefined');
+    const errors = inlineStyles.filter(
+      style => typeof style.href === 'undefined'
+    );
     if (errors.length) {
       console.log(`inlineStyles errors: ${errors.join('\n')}`); // eslint-disable-line no-console
     }
 
     const initialState = { data: apolloState, svgInlinedIds };
 
-    const htmlAttributes = helmet.htmlAttributes.toString().match(/(\w+="[\w-_\s]+")/g);
-    const htmlAttrs = htmlAttributes ? htmlAttributes.reduce((acc, attr) => {
-      const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
-      return { ...acc, [attrName]: attrValue };
-    }, {}) : {};
+    const htmlAttributes = helmet.htmlAttributes
+      .toString()
+      .match(/(\w+="[\w-_\s]+")/g);
+    const htmlAttrs = htmlAttributes
+      ? htmlAttributes.reduce((acc, attr) => {
+          const [attrName, attrValue] = attr.replace(/"/g, '').split('=');
+          return { ...acc, [attrName]: attrValue };
+        }, {})
+      : {};
 
     res.status(200).render('index', {
       assets,
-      chunks: [...new Set(
-        chunks.map(
-          chunk => (prod
-            ? `/${chunk.file}`
-            : `http://${process.env.HOST || 'localhost'}:${parseInt(process.env.PORT, 10) + 1}/${chunk.file}`
-          ),
-        ).filter(chunk => assets.client && chunk !== assets.client.js),
-      )],
+      chunks: [
+        ...new Set(
+          chunks
+            .map(chunk =>
+              prod
+                ? `/${chunk.file}`
+                : `http://${process.env.HOST || 'localhost'}:${parseInt(
+                    process.env.PORT,
+                    10
+                  ) + 1}/${chunk.file}`
+            )
+            .filter(chunk => assets.client && chunk !== assets.client.js)
+        ),
+      ],
       critical,
       fontStages,
       fonts: [lora, roboto],
@@ -130,7 +157,7 @@ server.get('/*', async (req: express$Request, res: express$Response) => {
 
 function getInlineStyles(styles) {
   return Promise.all(
-    [...new Set(styles.map(style => style.file))].map(readFile),
+    [...new Set(styles.map(style => style.file))].map(readFile)
   );
 }
 
@@ -143,7 +170,8 @@ function readFile(file: string) {
       }
       resolve(data);
     });
-  }).then(data => ({ content: data, href: `/${file}` }))
+  })
+    .then(data => ({ content: data, href: `/${file}` }))
     .catch(err => err);
 }
 

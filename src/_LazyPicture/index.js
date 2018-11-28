@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import defaultProps from './defaultProps';
 
 const LoadableComponent = Loadable({
-  loader: () => import(/* webpackChunkName: "lazy-picture" */'./LazyPicture'),
+  loader: () => import(/* webpackChunkName: "lazy-picture" */ './LazyPicture'),
   loading: () => null,
 });
 

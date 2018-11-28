@@ -6,13 +6,8 @@ import { matchPath } from 'react-router';
 import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
-const Search = (props) => {
-  const {
-    location,
-    push,
-    search,
-    url,
-  } = props;
+const Search = props => {
+  const { location, push, search, url } = props;
   const [value, setValue] = useState(search.q || '');
 
   function handleChange(event) {

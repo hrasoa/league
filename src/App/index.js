@@ -17,7 +17,9 @@ import Nav from '../_Nav';
 const App = ({ url }: { url: UrlFormatter }) => (
   <Fragment>
     <Helmet>
-      {typeof document === 'undefined' && <html lang="en" className={page.html} />}
+      {typeof document === 'undefined' && (
+        <html lang="en" className={page.html} />
+      )}
     </Helmet>
     <div className={header.root}>
       <Nav />

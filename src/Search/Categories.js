@@ -15,24 +15,45 @@ const categories = [
   { label: 'Teams', pathName: 'search_teams' },
 ];
 
-const Categories = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
+const Categories = ({
+  url,
+  search,
+}: {
+  url: UrlFormatter,
+  search: UrlSearch,
+}) => {
   const { q } = search;
   return (
     <div className={styles.root}>
-      <Wrapper className={classnames(spacings.uPaddingTopLarge, spacings.uPaddingBottom)}>
+      <Wrapper
+        className={classnames(
+          spacings.uPaddingTopLarge,
+          spacings.uPaddingBottom
+        )}
+      >
         <div className={styles.title}>
           Search results for <span className={styles.q}>{q}</span>
         </div>
-        <ul className={classnames(listInline.oListInline, spacings.uMarginBottomNone)}>
+        <ul
+          className={classnames(
+            listInline.oListInline,
+            spacings.uMarginBottomNone
+          )}
+        >
           {categories.map(category => (
             <li
               key={category.pathName}
-              className={classnames(listInline.oListInlineItem, spacings.uMarginRight)}
+              className={classnames(
+                listInline.oListInlineItem,
+                spacings.uMarginRight
+              )}
             >
               <NavLink
                 activeClassName={styles.active}
                 className={styles.link}
-                isActive={(match, location) => location.pathname === url(category.pathName)}
+                isActive={(match, location) =>
+                  location.pathname === url(category.pathName)
+                }
                 title={category.label}
                 to={url(category.pathName, q ? { search: { q } } : null)}
               >

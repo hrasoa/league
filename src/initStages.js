@@ -1,12 +1,15 @@
 // Use babel-repl to minify
-((stages) => {
+(stages => {
   const docEl = document.documentElement;
   const classNames = getClassNames(stages).filter(Boolean);
 
-  if (classNames.length
-    || ('serviceWorker' in navigator && navigator.serviceWorker.controller !== null && navigator.serviceWorker.controller.state === 'activated')
+  if (
+    classNames.length ||
+    ('serviceWorker' in navigator &&
+      navigator.serviceWorker.controller !== null &&
+      navigator.serviceWorker.controller.state === 'activated')
   ) {
-    classNames.forEach((className) => {
+    classNames.forEach(className => {
       docEl.classList.add(className);
     });
   }

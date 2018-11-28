@@ -1,10 +1,13 @@
 // Use babel-repl to minify
-((stages) => {
+(stages => {
   const docEl = document.documentElement;
   const sessions = getSessions(stages).filter(Boolean);
 
-  if (sessions.length
-    || ('serviceWorker' in navigator && navigator.serviceWorker.controller !== null && navigator.serviceWorker.controller.state === 'activated')
+  if (
+    sessions.length ||
+    ('serviceWorker' in navigator &&
+      navigator.serviceWorker.controller !== null &&
+      navigator.serviceWorker.controller.state === 'activated')
   ) {
     // do nothing
   } else if ('fonts' in document) {

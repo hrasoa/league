@@ -46,6 +46,6 @@ async function render(Root) {
         </HelmetProvider>
       </BrowserRouter>
     </ApolloProvider>,
-    root,
+    root
   );
 }

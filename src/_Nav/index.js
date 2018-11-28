@@ -32,7 +32,10 @@ const Nav = ({ url }: { url: UrlFormatter }) => (
           {links.map(link => (
             <li
               key={link.pathName}
-              className={classnames(listInline.oListInlineItem, spacings.uMarginRight)}
+              className={classnames(
+                listInline.oListInlineItem,
+                spacings.uMarginRight
+              )}
             >
               <NavLink
                 activeClassName={styles.active}

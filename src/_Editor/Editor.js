@@ -1,10 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { is } from 'immutable';
-import Draft, {
-  Editor as DraftEditor,
-  EditorState,
-} from 'draft-js';
+import Draft, { Editor as DraftEditor, EditorState } from 'draft-js';
 import styles from './Editor.scss';
 
 type Props = {
@@ -60,10 +57,7 @@ class Editor extends Component<Props, State> {
     const plainText = contentState.getPlainText();
     const prevBlockMap = prevContentState.getBlockMap();
     const blockMap = contentState.getBlockMap();
-    if (
-      plainText !== prevPlainText
-      && !is(blockMap, prevBlockMap)
-    ) {
+    if (plainText !== prevPlainText && !is(blockMap, prevBlockMap)) {
       onChange({
         hasText: contentState.hasText(),
         plainText,
@@ -75,7 +69,7 @@ class Editor extends Component<Props, State> {
     const { editorState } = this.state;
     const { handleReturn } = this.props;
     return handleReturn(editorState);
-  }
+  };
 
   handleChange = (editorState: EditorState) => this.setState({ editorState });
 

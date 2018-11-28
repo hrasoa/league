@@ -10,19 +10,11 @@ type Props = {
   styles: { [string]: string },
 };
 
-const Select = ({
-  children,
-  className,
-  styles,
-  ...rest
-}: Props) => {
+const Select = ({ children, className, styles, ...rest }: Props) => {
   const s = { ...baseStyles, ...styles };
   return (
     <span className={s.root}>
-      <select
-        className={s.select}
-        {...rest}
-      >
+      <select className={s.select} {...rest}>
         {children}
       </select>
       <IoMdArrowDropdown className={s.icon} />

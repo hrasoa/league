@@ -11,11 +11,16 @@ type Output = {
 };
 
 export default (svgs: Input): Output => {
-  const inlined: $PropertyType<ProviderValue, 'svgs'> = svgs.reduce((acc, svg) => ({ ...acc, ...svg }), {});
-  const markup = Object.keys(inlined).map((svgId) => {
-    const Svg = inlined[svgId];
-    return renderToStaticMarkup(<Svg />);
-  }).join('');
+  const inlined: $PropertyType<ProviderValue, 'svgs'> = svgs.reduce(
+    (acc, svg) => ({ ...acc, ...svg }),
+    {}
+  );
+  const markup = Object.keys(inlined)
+    .map(svgId => {
+      const Svg = inlined[svgId];
+      return renderToStaticMarkup(<Svg />);
+    })
+    .join('');
 
   return {
     ids: Object.keys(inlined),

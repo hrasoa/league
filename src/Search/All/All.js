@@ -44,43 +44,49 @@ const All = ({ url, search }) => {
         Players
       </Titles>
       <Query query={GET_PLAYERS}>
-        {({ loading, data }) => (loading ? null : (
-          <div className={styles.carousel}>
-            <ul className={styles.list}>
-              {data && data.players.map(player => (
-                <li key={`player-${player.id}`}>
-                  <Link
-                    className={styles.item}
-                    to={url('player', { params: { id: player.id } })}
-                  >
-                    <PlayerCard {...player} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {({ loading, data }) =>
+          loading ? null : (
+            <div className={styles.carousel}>
+              <ul className={styles.list}>
+                {data &&
+                  data.players.map(player => (
+                    <li key={`player-${player.id}`}>
+                      <Link
+                        className={styles.item}
+                        to={url('player', { params: { id: player.id } })}
+                      >
+                        <PlayerCard {...player} />
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )
+        }
       </Query>
       <Titles url={url('search_teams', q ? { search: { q } } : null)}>
         Teams
       </Titles>
       <Query query={GET_TEAMS}>
-        {({ loading, data }) => (loading ? null : (
-          <div className={styles.carousel}>
-            <ul className={styles.list}>
-              {data && data.teams.map(team => (
-                <li key={`team-${team.id}`}>
-                  <Link
-                    className={styles.item}
-                    to={url('team', { params: { id: team.id } })}
-                  >
-                    <TeamCard {...team} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {({ loading, data }) =>
+          loading ? null : (
+            <div className={styles.carousel}>
+              <ul className={styles.list}>
+                {data &&
+                  data.teams.map(team => (
+                    <li key={`team-${team.id}`}>
+                      <Link
+                        className={styles.item}
+                        to={url('team', { params: { id: team.id } })}
+                      >
+                        <TeamCard {...team} />
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          )
+        }
       </Query>
     </Fragment>
   );

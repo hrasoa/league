@@ -9,13 +9,7 @@ import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
 import picture from './Picture.scss';
 
-const Card = ({
-  id,
-  name,
-  image,
-  pos,
-  team,
-}) => {
+const Card = ({ id, name, image, pos, team }) => {
   const { addSvgs } = useContext(SvgContext);
   addSvgs({
     [bodyId]: ClipBody,

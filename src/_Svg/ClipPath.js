@@ -14,11 +14,7 @@ const ClipPath = ({ id, viewBox, children }: Props) => {
   const scaleX = 1 / parseInt(w, 10);
   const scaleY = 1 / parseInt(h, 10);
   return (
-    <Svg
-      height={0}
-      viewBox={viewBox}
-      width={0}
-    >
+    <Svg height={0} viewBox={viewBox} width={0}>
       <defs>
         <clipPath
           clipPathUnits="objectBoundingBox"

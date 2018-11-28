@@ -14,7 +14,12 @@ const InnerShadow = ({ color, id, stdDeviation }: Props) => (
   <Svg>
     <filter id={id}>
       <feGaussianBlur stdDeviation={stdDeviation} result="offset-blur" />
-      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+      <feComposite
+        operator="out"
+        in="SourceGraphic"
+        in2="offset-blur"
+        result="inverse"
+      />
       <feFlood floodColor={color} result="color" />
       <feComposite operator="in" in="color" in2="inverse" result="shadow" />
       <feComposite operator="over" in="shadow" in2="SourceGraphic" />
@@ -30,6 +35,4 @@ InnerShadow.defaultProps = {
 
 export default InnerShadow;
 
-export {
-  innerShadowId as id,
-};
+export { innerShadowId as id };
