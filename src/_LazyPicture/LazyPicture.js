@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import observeRect from '@reach/observe-rect';
 import classnames from 'classnames';
-import type { Props, BaseStyles } from './type';
+import type { Props, Styles } from './type';
 import baseStyles from './LazyPicture.scss';
 
 const LazyPicture = (props: Props) => {
@@ -50,7 +50,7 @@ const LazyPicture = (props: Props) => {
     styles,
     image: { src, preSrc },
   } = props;
-  const s: BaseStyles = { ...baseStyles, ...styles };
+  const s: Styles = { ...baseStyles, ...styles };
   return (
     <div ref={ref} className={classnames(s.root, loaded && s.loaded)}>
       <div className={s.ratio} />

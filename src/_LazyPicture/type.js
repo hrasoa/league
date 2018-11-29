@@ -6,7 +6,7 @@ export type Props = {
   styles: ?{ [className: string]: string },
 };
 
-export type BaseStyles = {
+export type Styles = {
   root: string,
   loaded: string,
   pre: string,
