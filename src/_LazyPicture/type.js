@@ -1,5 +1,4 @@
 // @flow
-
 export type Props = {
   alt: string,
   className: ?string,
