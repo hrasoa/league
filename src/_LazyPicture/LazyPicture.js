@@ -2,8 +2,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 import observeRect from '@reach/observe-rect';
 import classnames from 'classnames';
-import type { Props, Styles } from './type';
 import baseStyles from './LazyPicture.scss';
+
+type Styles = {
+  root: string,
+  loaded: string,
+  pre: string,
+  picture: string,
+  image: string,
+  ratio: string,
+};
+
+type Props = {
+  alt: string,
+  image: { src: string, preSrc: string },
+  styles: ?Styles,
+};
 
 const LazyPicture = (props: Props) => {
   const ref = useRef(null);
@@ -68,6 +82,10 @@ const LazyPicture = (props: Props) => {
       </picture>
     </div>
   );
+};
+
+LazyPicture.defaultProps = {
+  styles: null,
 };
 
 export default LazyPicture;

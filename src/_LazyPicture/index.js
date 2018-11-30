@@ -1,13 +1,12 @@
-import React from 'react';
+// @flow
 import Loadable from 'react-loadable';
-// import type { Props } from './type';
+import typeof LazyPicture from './LazyPicture';
 
-const LoadableComponent = Loadable({
+type Props = React$ElementProps<LazyPicture>;
+
+const LoadableLazyPicture: React$ComponentType<$Shape<Props>> = Loadable({
   loader: () => import(/* webpackChunkName: "lazy-picture" */ './LazyPicture'),
   loading: () => null,
 });
 
-// const LazyPicture = (props: Props) => <LoadableComponent {...props} />;
-const LazyPicture = props => <LoadableComponent {...props} />;
-
-export default LazyPicture;
+export default LoadableLazyPicture;

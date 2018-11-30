@@ -8,7 +8,14 @@ import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
 import picture from './Picture.scss';
 
-const Card = ({ id, name, image, pos, team }) => {
+export type Props = {
+  name: string,
+  image: string,
+  pos: string,
+  team: { logo: string },
+};
+
+const Card = ({ name, image, pos, team }: Props) => {
   const { addSvgs } = useContext(SvgContext);
   addSvgs({
     [bodyId]: ClipBody,
@@ -23,7 +30,6 @@ const Card = ({ id, name, image, pos, team }) => {
           <div className={styles.bodyInner}>
             <div className={styles.hexagone}>
               <LazyPicture
-                id={id}
                 alt="player"
                 styles={picture}
                 image={{ preSrc: image, src: image }}
