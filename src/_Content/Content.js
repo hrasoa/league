@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Wrapper from '../_Wrapper';
 import styles from './Content.scss';
 
-export type Props = {
+type Props = {
   lift: boolean,
   children: Node,
 };
