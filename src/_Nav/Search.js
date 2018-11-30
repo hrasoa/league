@@ -2,10 +2,19 @@
 import React, { useState } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 import { matchPath } from 'react-router';
+import type { Location } from 'react-router-dom';
+import type { UrlPush, UrlFormatter, UrlSearch } from '../_Router/type';
 import withRouter from '../_Router/withRouter';
 import styles from './Search.scss';
 
-const Search = props => {
+type Props = {
+  location: Location,
+  push: UrlPush,
+  url: UrlFormatter,
+  search: UrlSearch,
+};
+
+const Search = (props: Props) => {
   const { location, push, search, url } = props;
   const [value, setValue] = useState(search.q || '');
 

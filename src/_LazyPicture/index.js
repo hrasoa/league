@@ -5,6 +5,7 @@ import typeof LazyPicture from './LazyPicture';
 
 type Props = ElementConfig<LazyPicture>;
 
+// $FlowFixMe: wait until next release
 const LoadableLazyPicture: ComponentType<Props> = Loadable({
   loader: () => import(/* webpackChunkName: "lazy-picture" */ './LazyPicture'),
   loading: () => null,
