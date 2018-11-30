@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import type { ProviderValue } from './type';
+import type { ProviderValue } from './InlineProvider';
 
 type Input = Array<$PropertyType<ProviderValue, 'svgs'>>;
 

@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 import { is } from 'immutable';
 import Draft, { Editor as DraftEditor, EditorState } from 'draft-js';
 import styles from './Editor.scss';
-import type { Props } from './type';
+
+type Props = {
+  editorKey: string,
+  handleReturn: (editorState: EditorState) => string,
+  onChange: ({ hasText: boolean, plainText: string }) => void,
+  placeholder: string,
+};
 
 type State = {
   editorState: EditorState,

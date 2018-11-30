@@ -1,8 +1,11 @@
 // @flow
+import type { ElementConfig, ComponentType } from 'react';
 import Loadable from 'react-loadable';
-import type { Props } from './Card';
+import typeof Card from './Card';
 
-const LoadableCard: React$ComponentType<Props> = Loadable({
+type Props = ElementConfig<Card>;
+
+const LoadableCard: ComponentType<Props> = Loadable({
   loader: () => import(/* webpackChunkName: "player-card-basic" */ './Card'),
   loading: () => null,
 });

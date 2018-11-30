@@ -6,7 +6,7 @@ import { Query } from 'react-apollo';
 import PlayerCard from '../../_PlayerCards/Basic';
 import TeamCard from '../../_TeamCards/Basic';
 import withRouter from '../../_Router/withRouter';
-// import type { UrlFormatter, UrlSearch } from '../../_Router/type';
+import type { UrlFormatter, UrlSearch } from '../../_Router/type';
 import Titles from './Titles';
 import styles from './All.scss';
 
@@ -34,7 +34,7 @@ const GET_TEAMS = gql`
   }
 `;
 
-const All = ({ url, search }) => {
+const All = ({ url, search }: { url: UrlFormatter, search: UrlSearch }) => {
   const { q } = search;
 
   return (

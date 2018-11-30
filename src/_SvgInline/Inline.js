@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { createPortal } from 'react-dom';
-import type { ProviderValue } from './type';
+import type { ProviderValue } from './InlineProvider';
 import { SvgContext } from './InlineProvider';
 
 const root = document.getElementById('svgs');

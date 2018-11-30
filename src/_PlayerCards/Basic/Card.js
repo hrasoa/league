@@ -8,7 +8,7 @@ import ClipBody, { id as bodyId } from './ClipBody';
 import styles from './Card.scss';
 import picture from './Picture.scss';
 
-export type Props = {
+type Props = {
   name: string,
   image: string,
   pos: string,

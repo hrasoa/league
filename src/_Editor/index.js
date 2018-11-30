@@ -1,20 +1,13 @@
 // @flow
-import React from 'react';
+import type { ElementConfig, ComponentType } from 'react';
 import Loadable from 'react-loadable';
-import type { Props } from './type';
+import typeof Editor from './Editor';
 
-const LoadableEditor: React$ComponentType<Props> = Loadable({
+type Props = ElementConfig<Editor>;
+
+const LoadableEditor: ComponentType<Props> = Loadable({
   loader: () => import(/* webpackChunkName: "editor" */ './Editor'),
   loading: () => null,
 });
 
-const LazyEditor = (props: Props) => <LoadableEditor {...props} />;
-
-LazyEditor.defaultProps = {
-  editorKey: 'editor',
-  handleReturn: () => 'not-handled',
-  onChange: null,
-  placeholder: 'Tell a story...',
-};
-
-export default LazyEditor;
+export default LoadableEditor;

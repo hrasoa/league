@@ -13,7 +13,7 @@ type Styles = {
   ratio: string,
 };
 
-type Props = {
+export type Props = {
   alt: string,
   image: { src: string, preSrc: string },
   styles: ?Styles,
