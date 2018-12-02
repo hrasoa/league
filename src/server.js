@@ -14,6 +14,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import fetch from 'node-fetch';
 import express from 'express';
+import type { $Request, $Response } from 'express';
 import paths from 'razzle/config/paths';
 import stats from '../build/react-loadable.json';
 import App from './App';
@@ -47,7 +48,7 @@ server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
 server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
-server.get('/*', async (req: express$Request, res: express$Response) => {
+server.get('/*', async (req: $Request, res: $Response) => {
   const link = ApolloLink.from([
     createHttpLink({
       fetch,
