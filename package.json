@@ -13,12 +13,19 @@
     "prebuild": "npm run clean",
     "build": "razzle build",
     "clean": "rimraf ./build",
-    "lint": "flow && eslint src/ && stylelint src/**/*.scss && prettier --loglevel=error --debug-check src/**/*.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint src/**/*.scss",
+    "lint:js": "flow && eslint src/ && prettier --loglevel=error --debug-check src/**/*.js",
     "prestart": "npm run clean && npm run lint",
     "start": "razzle start",
     "start:prod": "NODE_ENV=production node build/server.js",
     "pretest": "npm run lint",
     "test": "razzle test --env=jsdom"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.scss$": "identity-obj-proxy"
+    }
   },
   "dependencies": {
     "@reach/observe-rect": "^1.0.3",
@@ -72,10 +79,5 @@
     "stylelint-scss": "^3.4.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "webpack-bundle-analyzer": "^3.0.3"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.scss$": "identity-obj-proxy"
-    }
   }
 }
