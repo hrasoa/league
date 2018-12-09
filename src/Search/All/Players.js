@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
+import type { OperationComponent, GraphqlQueryControls } from 'react-apollo';
 import PlayerCard from '../../_PlayerCards/Basic';
 import withRouter from '../../_Router/withRouter';
 import type { UrlFormatter, UrlSearch } from '../../_Router/type';
@@ -13,20 +14,20 @@ type Player = {
   id: string,
 };
 
-type Data = {
-  loading: boolean,
+type IQuery = {
   players: { edges: Array<{ node: Player }> },
 };
 
-const All = ({
-  url,
-  search,
-  data,
-}: {
+type OwnProps = {
   url: UrlFormatter,
   search: UrlSearch,
-  data: Data,
-}) => {
+};
+
+type Props = {
+  data: GraphqlQueryControls<> & IQuery,
+} & OwnProps;
+
+const Players = ({ url, search, data }: Props) => {
   const { q } = search;
   const { loading, players } = data;
 
@@ -56,11 +57,12 @@ const All = ({
   );
 };
 
-// $FlowFixMe
-export default graphql(getPlayers, {
+const withData: OperationComponent<IQuery, OwnProps> = graphql(getPlayers, {
   options: () => ({
     variables: {
       first: 5,
     },
   }),
-})(withRouter(All));
+});
+
+export default withRouter(withData(Players));
