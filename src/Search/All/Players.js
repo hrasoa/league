@@ -14,7 +14,7 @@ type Player = {
   id: string,
 };
 
-type IQuery = {
+type Result = {
   players: { edges: Array<{ node: Player }> },
 };
 
@@ -24,7 +24,7 @@ type OwnProps = {
 };
 
 type Props = {
-  data: GraphqlQueryControls<> & IQuery,
+  data: GraphqlQueryControls<> & Result,
 } & OwnProps;
 
 const Players = ({ url, search, data }: Props) => {
@@ -57,7 +57,7 @@ const Players = ({ url, search, data }: Props) => {
   );
 };
 
-const withData: OperationComponent<IQuery, OwnProps> = graphql(getPlayers, {
+const withData: OperationComponent<Result, OwnProps> = graphql(getPlayers, {
   options: () => ({
     variables: {
       first: 5,
