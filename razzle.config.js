@@ -138,8 +138,8 @@ module.exports = {
               test: /\.scss$/,
               use: [
                 {
-                  loader: require.resolve('css-loader/locals'),
-                  options: cssLoaderOpts,
+                  loader: require.resolve('css-loader'),
+                  options: { ...cssLoaderOpts, exportOnlyLocals: true },
                 },
                 sassLoader,
               ],

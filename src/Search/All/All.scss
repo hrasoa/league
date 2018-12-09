@@ -1,6 +1,6 @@
 .list {
-  composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
-  composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: oListBare from '~inuitcss/objects/_objects.list-bare.scss';
+  composes: uMarginBottomNone from '~inuitcss/utilities/_utilities.spacings.scss';
   --auto-colums: calc(50% - 30px);
   --gap: calc(var(--gutter) / 4);
   --gutter: #{$inuit-global-spacing-unit-large};
@@ -33,7 +33,7 @@
 }
 
 .carousel {
-  composes: uMarginBottomLarge from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uMarginBottomLarge from '~inuitcss/utilities/_utilities.spacings.scss';
   --gutter: #{$inuit-global-spacing-unit};
   --overflow: scroll;
   margin-left: calc(var(--gutter) * -1);

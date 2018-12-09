@@ -20,7 +20,7 @@
 }
 
 .bio {
-  composes: uPaddingVerticalSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uPaddingVerticalSmall from '~inuitcss/utilities/_utilities.spacings.scss';
   color: var(--text-color-light);
   position: relative;
   text-align: center;

@@ -32,7 +32,7 @@
 }
 
 .wrapper {
-  composes: uPaddingVerticalSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uPaddingVerticalSmall from '~inuitcss/utilities/_utilities.spacings.scss';
   align-items: center;
   display: grid;
   grid-column-gap: 24px;
@@ -40,8 +40,8 @@
 }
 
 .list {
-  composes: oListInline from 'inuitcss/objects/_objects.list-inline.scss';
-  composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: oListInline from '~inuitcss/objects/_objects.list-inline.scss';
+  composes: uMarginBottomNone from '~inuitcss/utilities/_utilities.spacings.scss';
   align-items: center;
   display: flex;
 }

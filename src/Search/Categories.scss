@@ -31,7 +31,7 @@
 }
 
 .title {
-  composes: uMarginBottom from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uMarginBottom from '~inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from '../_utilities.fonts.scss';
   composes: h1 from '../_utilities.fonts.scss';
 }

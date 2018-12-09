@@ -1,5 +1,5 @@
 .root {
-  composes: uMarginRight from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uMarginRight from '~inuitcss/utilities/_utilities.spacings.scss';
   composes: root from '../_objects.input-group.scss';
   composes: tertaryBg from '../_utilities.theme.scss';
   border-radius: 4px;
@@ -7,7 +7,7 @@
 }
 
 .inputs {
-  composes: uPaddingHorizontalTiny from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uPaddingHorizontalTiny from '~inuitcss/utilities/_utilities.spacings.scss';
   composes: input from '../_objects.input-group.scss';
   background: transparent;
   border: none;

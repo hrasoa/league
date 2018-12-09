@@ -1,5 +1,5 @@
 .title {
-  composes: uMarginRightSmall from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: uMarginRightSmall from '~inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from '../../_utilities.fonts.scss';
   composes: h4 from '../../_utilities.fonts.scss';
   display: inline-block;

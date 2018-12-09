@@ -1,6 +1,6 @@
 .list {
-  composes: oListBare from 'inuitcss/objects/_objects.list-bare.scss';
-  composes: uMarginBottomNone from 'inuitcss/utilities/_utilities.spacings.scss';
+  composes: oListBare from '~inuitcss/objects/_objects.list-bare.scss';
+  composes: uMarginBottomNone from '~inuitcss/utilities/_utilities.spacings.scss';
   --gap: calc(var(--gutter) / 2);
   --gutter: #{$inuit-global-spacing-unit};
   --template-columns: repeat(2, 1fr);
