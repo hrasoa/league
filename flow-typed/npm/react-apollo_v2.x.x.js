@@ -1,5 +1,5 @@
-// flow-typed signature: 8d4451a176bcfc890fe040aa6b6b07b5
-// flow-typed version: 45acb9a3f7/react-apollo_v2.x.x/flow_>=v0.58.x
+// flow-typed signature: 200fa8a0a1b8ca1d1bc622672de545a8
+// flow-typed version: 003376ddce/react-apollo_v2.x.x/flow_>=v0.58.x
 
 declare module "react-apollo" {
   import type { ComponentType, Element, Node } from "react";
@@ -965,6 +965,11 @@ declare module "react-apollo" {
     result: SubscriptionResult<TData, TVariables>
   ) => Node;
 
+  declare export type OnSubscriptionDataOptions<TData> = {
+    client: ApolloClient<any>,
+    subscriptionData: SubscriptionResult<TData>
+  };
+
   declare type SubscriptionProps<TData, TVariables = OperationVariables> = {
     subscription: DocumentNode,
     variables?: TVariables,
@@ -974,7 +979,8 @@ declare module "react-apollo" {
           SubscriptionProps<TData, TVariables>,
           SubscriptionProps<TData, TVariables>
         ) => boolean),
-    children: SubscriptionRenderPropFunction<TData, TVariables>
+    onSubscriptionData?: (OnSubscriptionDataOptions<TData>) => any,
+    children?: SubscriptionRenderPropFunction<TData, TVariables>
   };
 
   declare export class Subscription<TData, TVariables> extends React$Component<

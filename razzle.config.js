@@ -34,13 +34,23 @@ module.exports = {
       },
     };
 
+    const rules = config.module.rules.map(rule => {
+      if (rule.loader === require.resolve('file-loader')) {
+        return {
+          ...rule,
+          exclude: [...rule.exclude, /\.graphql$/],
+        };
+      }
+      return rule;
+    });
+
     if (target === 'web') {
       return {
         ...config,
         devtool: dev ? config.devtool : false,
         module: {
           rules: [
-            ...config.module.rules,
+            ...rules,
             {
               test: /\.scss$/,
               use: [
@@ -72,6 +82,11 @@ module.exports = {
                 },
                 sassLoader,
               ],
+            },
+            {
+              exclude: /node_modules/,
+              test: /\.(graphql|gql)$/,
+              use: require.resolve('graphql-tag/loader'),
             },
           ],
         },
@@ -118,7 +133,7 @@ module.exports = {
         ...config,
         module: {
           rules: [
-            ...config.module.rules,
+            ...rules,
             {
               test: /\.scss$/,
               use: [
@@ -128,6 +143,11 @@ module.exports = {
                 },
                 sassLoader,
               ],
+            },
+            {
+              exclude: /node_modules/,
+              test: /\.(graphql|gql)$/,
+              use: require.resolve('graphql-tag/loader'),
             },
           ],
         },
