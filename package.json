@@ -62,7 +62,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react-hooks": "^0.0.0",
-    "flow-bin": "^0.87.0",
+    "flow-bin": "^0.88.0",
     "flow-typed": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
     "node-sass": "^4.11.0",
