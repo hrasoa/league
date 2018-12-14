@@ -5,7 +5,6 @@ import typeof Content from './Content';
 
 type Props = ElementConfig<Content>;
 
-// $FlowFixMe: wait until next release
 const LoadableContent: ComponentType<Props> = Loadable({
   loader: () => import(/* webpackChunkName: "content" */ './Content'),
   loading: () => null,

@@ -12,6 +12,10 @@ import styles from './All.scss';
 
 type Player = {
   id: string,
+  name: string,
+  image: string,
+  pos: string,
+  team: { logo: string },
 };
 
 type Result = {
