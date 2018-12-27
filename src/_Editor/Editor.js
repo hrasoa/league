@@ -7,7 +7,7 @@ import styles from './Editor.scss';
 type Props = {
   editorKey: string,
   handleReturn: (editorState: EditorState) => string,
-  onChange: ({ hasText: boolean, plainText: string }) => void,
+  onChange: ?({ hasText: boolean, plainText: string }) => void,
   placeholder: string,
 };
 
