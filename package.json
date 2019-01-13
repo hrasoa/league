@@ -38,7 +38,7 @@
     "lodash": "^4.17.11",
     "node-fetch": "^2.3.0",
     "pug": "^2.0.3",
-    "razzle": "^2.4.1",
+    "razzle": "^3.0.0-alpha.2",
     "react": "^16.7.0-alpha.2",
     "react-apollo": "^2.3.3",
     "react-dom": "^16.7.0-alpha.2",
@@ -49,6 +49,7 @@
     "sass-mq": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/preset-flow": "^7.0.0",
     "@intervolga/optimize-cssnano-plugin": "^1.0.6",
     "autoprefixer": "^9.4.5",
     "babel-preset-flow": "^6.23.0",

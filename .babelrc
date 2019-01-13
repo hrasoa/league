@@ -1,4 +1,4 @@
 {
-  "presets": ["razzle/babel"],
+  "presets": ["razzle/babel", "@babel/preset-flow"],
   "plugins": ["react-loadable/babel"]
 }
