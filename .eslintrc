@@ -19,7 +19,7 @@
     "flowtype"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "function-paren-newline": "off",
     "flowtype/delimiter-dangle": ["error", "always-multiline"],
     "flowtype/semi": "error",
