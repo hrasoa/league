@@ -11,6 +11,7 @@ query Players($first: Int) {
         id
         image
         name
+        pos
         team {
           logo
         }
