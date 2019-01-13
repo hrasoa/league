@@ -9,7 +9,7 @@
   color: var(--tertary);
   display: block;
   font-weight: var(--bold);
-  transition: color .2s;
+  transition: color 0.2s;
 
   &:not(:hover) {
     text-decoration: none;
@@ -33,5 +33,5 @@
 .title {
   composes: uMarginBottom from '~inuitcss/utilities/_utilities.spacings.scss';
   composes: fontHeadline from '../_utilities.fonts.scss';
-  composes: h1 from '../_utilities.fonts.scss';
+  composes: h2 from '../_utilities.fonts.scss';
 }

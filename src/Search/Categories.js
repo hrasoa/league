@@ -26,10 +26,7 @@ const Categories = ({
   return (
     <div className={styles.root}>
       <Wrapper
-        className={classnames(
-          spacings.uPaddingTopLarge,
-          spacings.uPaddingBottom
-        )}
+        className={classnames(spacings.uPaddingTop, spacings.uPaddingBottom)}
       >
         <div className={styles.title}>
           Search results for <span className={styles.q}>{q}</span>
