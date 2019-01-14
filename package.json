@@ -53,7 +53,6 @@
     "@babel/preset-flow": "^7.0.0",
     "@intervolga/optimize-cssnano-plugin": "^1.0.6",
     "autoprefixer": "^9.4.5",
-    "babel-preset-flow": "^6.23.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
