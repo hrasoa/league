@@ -45,11 +45,12 @@ const fontStages = {
 };
 
 const server = express();
-server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
+const { RAZZLE_PUBLIC_DIR, RAZZLE_API_HOST, RAZZLE_API_PATH } = process.env;
+server.use(express.static(RAZZLE_PUBLIC_DIR || ''));
 server.use(
   '/api',
-  proxy(process.env.RAZZLE_API_HOST, {
-    proxyReqPathResolver: () => process.env.RAZZLE_API_PATH,
+  proxy(RAZZLE_API_HOST, {
+    proxyReqPathResolver: () => RAZZLE_API_PATH,
   })
 );
 server.disable('x-powered-by');
@@ -59,8 +60,7 @@ server.get('/*', async (req: $Request, res: $Response) => {
   const link = ApolloLink.from([
     createHttpLink({
       fetch,
-      uri: `${process.env.RAZZLE_API_HOST || ''}${process.env.RAZZLE_API_PATH ||
-        ''}`,
+      uri: `${RAZZLE_API_HOST || ''}${RAZZLE_API_PATH || ''}`,
     }),
   ]);
 
