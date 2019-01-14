@@ -48,8 +48,8 @@ const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
 server.use(
   '/api',
-  proxy('http://localhost:4000', {
-    proxyReqPathResolver: () => '/graphql',
+  proxy(process.env.RAZZLE_API_HOST, {
+    proxyReqPathResolver: () => process.env.RAZZLE_API_PATH,
   })
 );
 server.disable('x-powered-by');
@@ -59,7 +59,8 @@ server.get('/*', async (req: $Request, res: $Response) => {
   const link = ApolloLink.from([
     createHttpLink({
       fetch,
-      uri: 'http://localhost:4000/graphql',
+      uri: `${process.env.RAZZLE_API_HOST || ''}${process.env.RAZZLE_API_PATH ||
+        ''}`,
     }),
   ]);
 
