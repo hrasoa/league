@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
+import proxy from 'express-http-proxy';
 import { renderToString } from 'react-dom/server';
 import { Capture } from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
@@ -45,6 +46,12 @@ const fontStages = {
 
 const server = express();
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR || ''));
+server.use(
+  '/api',
+  proxy('http://localhost:4000', {
+    proxyReqPathResolver: () => '/graphql',
+  })
+);
 server.disable('x-powered-by');
 server.set('view engine', 'pug');
 server.set('views', './src');
