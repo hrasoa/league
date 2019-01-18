@@ -8,9 +8,9 @@ export type UrlParams = {
 
 export type UrlFormatter = (
   name: string,
-  urlParams?: $Shape<UrlParams>
+  urlParams?: ?$Shape<UrlParams>
 ) => string;
 
-export type UrlPush = (name: string, urlParams?: $Shape<UrlParams>) => void;
+export type UrlPush = (name: string, urlParams?: ?$Shape<UrlParams>) => void;
 
 export type UrlSearch = { [name: string]: string };
