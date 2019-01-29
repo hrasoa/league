@@ -25,35 +25,29 @@ const LazyPicture = (props: Props) => {
   const [loaded, setLoaded] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  useEffect(
-    () => {
-      if (loaded) {
-        setTimeout(() => {
-          if (rectObserver.current) {
-            rectObserver.current.unobserve();
-          }
-        }, 0);
-      }
-    },
-    [loaded]
-  );
-
-  useEffect(
-    () => {
-      if (!loaded && !rectObserver.current) {
-        rectObserver.current = observeRect(ref.current, rect => {
-          setVisible(isInWindow(rect));
-        });
-        rectObserver.current.observe();
-      }
-      return () => {
+  useEffect(() => {
+    if (loaded) {
+      setTimeout(() => {
         if (rectObserver.current) {
           rectObserver.current.unobserve();
         }
-      };
-    },
-    [loaded]
-  );
+      }, 0);
+    }
+  }, [loaded]);
+
+  useEffect(() => {
+    if (!loaded && !rectObserver.current) {
+      rectObserver.current = observeRect(ref.current, rect => {
+        setVisible(isInWindow(rect));
+      });
+      rectObserver.current.observe();
+    }
+    return () => {
+      if (rectObserver.current) {
+        rectObserver.current.unobserve();
+      }
+    };
+  }, [loaded]);
 
   function handleOnLoad() {
     setLoaded(true);
