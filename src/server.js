@@ -24,20 +24,9 @@ import fout from './_utilities.fonts.scss';
 import lora from './_Fonts/lora-v12-latin-regular.woff2';
 import roboto from './_Fonts/roboto-v18-latin-regular.woff2';
 
-const {
-  RAZZLE_PUBLIC_DIR,
-  RAZZLE_API_HOST,
-  RAZZLE_API_PATH,
-  RAZZLE_ASSETS_MANIFEST,
-  NODE_ENV,
-  HOST,
-  PORT,
-} = process.env;
-
-const assets: {
-  client: { css: string, js: string },
-} = require(RAZZLE_ASSETS_MANIFEST);
-const prod = NODE_ENV === 'production';
+const assets: { client: { css: string, js: string } } = require(process.env
+  .RAZZLE_ASSETS_MANIFEST);
+const prod = process.env.NODE_ENV === 'production';
 
 const critical = prod
   ? fs.readFileSync(path.join(paths.appBuildPublic, assets.client.css), {
@@ -56,7 +45,7 @@ const fontStages = {
 };
 
 const server = express();
-
+const { RAZZLE_PUBLIC_DIR, RAZZLE_API_HOST, RAZZLE_API_PATH } = process.env;
 server.use(express.static(RAZZLE_PUBLIC_DIR || ''));
 server.use(
   '/api',
@@ -154,9 +143,10 @@ server.get('/*', async (req: $Request, res: $Response) => {
             .map(chunk =>
               prod
                 ? `/${chunk.file}`
-                : `http://${HOST || 'localhost'}:${parseInt(PORT, 10) + 1}/${
-                    chunk.file
-                  }`
+                : `http://${process.env.HOST || 'localhost'}:${parseInt(
+                    process.env.PORT,
+                    10
+                  ) + 1}/${chunk.file}`
             )
             .filter(chunk => assets.client && chunk !== assets.client.js)
         ),
